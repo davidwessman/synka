@@ -14,12 +14,14 @@ gem 'koala'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'
+gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'pry-rails'
   gem 'selenium-webdriver'
 end
 

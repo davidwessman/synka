@@ -1,0 +1,28 @@
+<h1 class="title"><%%= t('.title') %></h1>
+
+<table class="table is-striped is-bordered is-fullwidth">
+  <thead>
+    <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%%= <%= class_name %>.human_attribute_name(:<%= attribute.name %>) %></th>
+<% end -%>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+      <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+        <td><%%= link_to(t(:edit), edit_<%= singular_table_name %>_path(<%= singular_table_name %>)) %></td>
+        <td><%%= link_to(t(:destroy), <%= singular_table_name %>, method: :delete, data: { confirm: t(:destroy_confirmation) }) %></td>
+      </tr>
+    <%% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%%= link_to(t('.new'), new_<%= singular_table_name %>_path, class: 'button') %>

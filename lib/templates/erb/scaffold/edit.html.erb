@@ -1,0 +1,8 @@
+<h1 class="title"><%%= t('.title') %></h1>
+
+<%%= render('form', <%= singular_table_name %>: @<%= singular_table_name %>) %>
+
+<br />
+
+<%%= link_to(t(:destroy), @<%= singular_table_name %>, method: :delete, data: { confirm: t(:destroy_confirmation) }, class: 'button is-danger') %>
+<%%= link_to(t(:back), <%= index_helper %>_path, class: 'button') %>
