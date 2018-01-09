@@ -1,0 +1,71 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.0-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: user
+          RAILS_ENV: test
+      - image: circleci/postgres:9.6.3-alpine
+        environment:
+          POSTGRES_USER: user
+          POSTGRES_DB: sync-hours_test
+          POSTGRES_PASSWORD: ""
+
+
+    working_directory: ~/sync-hours
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      # fallback to using the latest cache if no exact match is found
+      - restore_cache:
+          name: Restore ruby cache
+          keys:
+          - gem-v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - gem-v1-dependencies-
+
+      - restore_cache:
+          name: Restore yarn cache
+          keys:
+            - yarn-v1-cache-checksum "yarn.lock" }}
+            - yarn-v1-cache-
+
+      - run:
+          name: Install ruby dependencies
+          command: |
+            bundle install --deployment --jobs=4 --retry=3
+
+      - run:
+          name: Install yarn dependencies
+          command: yarn install
+
+      - save_cache:
+          name: Save ruby cache
+          paths:
+            - ./vendor/bundle
+          key: gem-v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - save_cache:
+          name: Save yarn cache
+          key: yarn-v1-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Setup database
+          command: bundle exec rake db:create db:migrate
+
+      - run:
+          name: Run tests
+          command: bundle exec rails test
