@@ -7,7 +7,7 @@ class Facebook
     end
   end
 
-  def self.get_account_pages(user_id)
+  def self.get_account_pages(_user_id)
     all_accounts = accounts
   end
 
