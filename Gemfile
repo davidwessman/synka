@@ -10,6 +10,7 @@ end
 ruby '2.5.0'
 gem 'rails', '~> 5.1.4'
 
+gem 'clearance'
 gem 'koala'
 gem 'pg'
 gem 'puma'
