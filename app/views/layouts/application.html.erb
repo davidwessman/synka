@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>OpeningHours</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= t('.title') %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload') %>
+    <%= javascript_include_tag('application', 'data-turbolinks-track': 'reload') %>
   </head>
+  <body class="site">
+    <header>
+      <%= render('header') %>
+    </header>
 
-  <body>
-    <%= yield %>
+    <section class="page-content section">
+      <div class="container">
+        <% if content_for?(:title) %>
+          <h1 class="title"><%= yield(:title) %></h1>
+        <% end %>
+        <%= render('flashes') %>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>
