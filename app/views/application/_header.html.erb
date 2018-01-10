@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <%= link_to(root_url, class: 'navbar-item') do %>
+      <span class="text"><%= t('.title') %></span>
+    <% end %>
+  </div>
+
+  <div id="navbarTarget" class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+
+    <div class="navbar-end">
+      <%= link_to(t('.start'), root_path, class: 'navbar-item') %>
+    </div>
+  </div>
+</nav>

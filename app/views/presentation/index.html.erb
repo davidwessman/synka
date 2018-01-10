@@ -1,0 +1,29 @@
+<h2 class="title">Accounts</h2>
+<ul class="list" style="word-wrap: break-word;">
+  <% @accounts.each do |account| %>
+    <li>
+      <strong>ID: </strong><%= link_to(account.first, root_path(account_id: account.first)) %> <br />
+      <%= simple_format(account.second) %>
+    </li>
+  <% end %>
+</ul>
+<hr />
+<h2 class="title">Pages</h2>
+<ul>
+  <% @pages.each do |page| %>
+    <li>
+      <strong>ID: </strong><%= link_to(page['id'], root_path(page_id: page['id'])) %> <br />
+      <%= simple_format(page['access_token']) %>
+    </li>
+  <% end %>
+</ul>
+<hr />
+<h2 class="title">Hours</h2>
+<ul>
+  <% @hours.each do |key, value| %>
+    <li>
+      <%= key %>: <%= value %>
+    </li>
+  <% end %>
+</ul>
+<hr />
