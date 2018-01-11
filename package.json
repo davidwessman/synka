@@ -2,6 +2,6 @@
   "name": "sync-hours",
   "private": true,
   "dependencies": {
-    "bulma": "^0.6.1"
+    "bulma": "^0.6.2"
   }
 }
