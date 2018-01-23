@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
-    "tailwindcss": "^0.4.0",
+    "tailwindcss": "^0.4.1",
     "webpack-dev-server": "^2.11.1"
   }
 }
