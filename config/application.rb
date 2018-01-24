@@ -5,7 +5,7 @@ require_relative 'boot'
 require 'rails'
 # Pick the frameworks you want:
 require 'active_model/railtie'
-require 'active_job/railtie'
+# require 'active_job/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
@@ -25,5 +25,12 @@ module OpeningHours
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales',
                                                  '**', '*.yml')]
+
+    config.generators do |g|
+      g.assets = false
+      g.helper = false
+      g.javascripts = false
+      g.stylesheets = false
+    end
   end
 end

@@ -5,18 +5,29 @@ module ApplicationHelper
     flash.to_hash.slice('alert', 'error', 'notice', 'success')
   end
 
-  def bulma_notification(flash)
+  def flash_css(flash)
     case flash
     when 'alert'
-      'warning'
+      'bg-yellow border-yellow text-grey-darkest'
     when 'error'
-      'danger'
+      'bg-red border-red text-grey-darkest'
     when 'notice'
-      'info'
+      'bg-blue border-blue text-white'
     when 'success'
-      'success'
-    else
-      'primary'
+      'bg-green border-green text-green-darkest'
     end
+  end
+
+  def full_title(title, page)
+    if page.blank?
+      title
+    else
+      "#{title} | #{page}"
+    end
+  end
+
+  def title(title)
+    provide(:title, title)
+    title
   end
 end

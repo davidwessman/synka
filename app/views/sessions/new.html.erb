@@ -1,0 +1,26 @@
+<div class="flex w-full justify-center mb-3">
+  <h1><%= title(t('.title')) %></h1>
+</div>
+
+<div class="mx-auto w-full max-w-xs">
+  <%= form_with(scope: :session, url: session_path, local: true,
+                class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4') do |form| %>
+    <div class="mb-4">
+      <%= form.label(:email, class: 'form-label ') %>
+      <%= form.text_field(:email, id: 'email', type: 'email', autofocus: true,
+                                  class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker')
+                                   %>
+    </div>
+
+    <div class="mb-6">
+      <%= form.label(:password, class: 'form-label') %>
+      <%= form.password_field(:password, id: 'password',
+                              class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <%= form.submit(class: 'button button-blue mb-3') %>
+      <%= link_to(t('.forgot_password'), new_password_path, class: 'inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker') %>
+    </div>
+  <% end %>
+</div>

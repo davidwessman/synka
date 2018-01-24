@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= t('.title') %></title>
+    <title><%= full_title(t('.title'), yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload') %>
@@ -11,19 +11,14 @@
     <%= javascript_pack_tag('application') %>
     <%= stylesheet_pack_tag('application') %>
   </head>
-  <body class="site">
+  <body class="flex flex-col min-h-screen bg-blue-lightest">
     <header>
       <%= render('header') %>
     </header>
 
-    <section class="page-content section">
-      <div class="container">
-        <% if content_for?(:title) %>
-          <h1 class="title"><%= yield(:title) %></h1>
-        <% end %>
-        <%= render('flashes') %>
-        <%= yield %>
-      </div>
-    </section>
+    <main class="flex flex-wrap mx-auto w-full pt-4 sm:w-4/5">
+      <%= render('flashes') %>
+      <%= yield %>
+    </main>
   </body>
 </html>
