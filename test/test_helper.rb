@@ -14,7 +14,7 @@ end
 class ActionDispatch::IntegrationTest
   def sign_in_as(user)
     post(session_url, params: { session: { email: user.email,
-                                           password: user.password } })
+                                           password: 'passpass' } })
   end
 
   def sign_out

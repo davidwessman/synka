@@ -1,30 +1,35 @@
 # frozen_string_literal: true
 
 class Facebook
-  def self.accounts
+  attr_reader(:app)
+
+  def initialize
+    token = ENV.fetch('FB_APP_ACCESS_TOKEN', nil)
+    @app = Koala::Facebook::API.new(token) unless token.nil?
+  end
+
+  def accounts
+    return [] if @app.nil?
     app.get_connections('app', 'accounts').map do |a|
-      [a['id'], a['access_token']]
+      { id: a['id'], access_token: a['access_token'] }
     end
   end
 
-  def self.get_account_pages(_user_id)
-    all_accounts = accounts
+  def self.account_token(id)
+    accounts.select { |a| a[:id] == id }
   end
 
-  def self.pages(account_token)
-    return if account_token.nil?
-    graph = Koala::Facebook::API.new(account_token, nil)
-    graph.get_connections('me', 'accounts', fields: ['accounts{id, access_token, hours}'])
+  def pages(user_token)
+    return if user_token.nil?
+    graph = Koala::Facebook::API.new(user_token, nil)
+    graph.get_connections('me', '', fields: ['accounts{id, access_token, hours}']).to_h
   end
 
-  def self.hours(access_token)
-    return if access_token.nil?
-    page = Koala::Facebook::API.new(access_token)
-    result = page.get_object('me?fields=hours')
-    result.fetch('hours', {})
-  end
-
-  def self.app
-    @graph ||= Koala::Facebook::API.new(ENV.fetch('FB_APP_ACCESS_TOKEN'))
+  def hours(user_token)
+    return if user_token.nil?
+    graph = Koala::Facebook::API.new(user_token)
+    connections = graph.get_connections('me', '', fields: ['accounts{id, hours}']).to_h
+    connections.deep_symbolize_keys!
+    connections.fetch(:accounts).fetch(:data)
   end
 end

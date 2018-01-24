@@ -1,0 +1,4 @@
+en:
+  time:
+    formats:
+      hour: '%H:%M'

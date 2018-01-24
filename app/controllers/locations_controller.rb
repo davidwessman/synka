@@ -3,10 +3,15 @@
 class LocationsController < ApplicationController
   before_action(:require_login)
   def index
-    @locations
+    @locations = current_user.locations
   end
 
   def show
-    @location = Location.new
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @location = Location.find(params[:id])
+    render :show
   end
 end

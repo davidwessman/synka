@@ -11,5 +11,6 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   test 'renders users account' do
     sign_in_as(users(:grasklipparservice))
     get(account_url)
+    assert_response(:success)
   end
 end

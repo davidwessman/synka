@@ -11,5 +11,6 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   test 'renders users location' do
     sign_in_as(users(:grasklipparservice))
     get(account_locations_url)
+    assert_response(:success)
   end
 end
