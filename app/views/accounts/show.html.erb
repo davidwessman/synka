@@ -1,0 +1,40 @@
+<div class="w-full mb-6">
+  <h1>Hello <%= current_user.email %></h1>
+</div>
+
+
+<div class="w-full mb-2">
+  <h2><%= link_to(t('.locations'), account_locations_path, class: 'no-underline') %></h2>
+</div>
+
+<% @locations.each do |l| %>
+  <div class="w-1/3 p-4 border border-blue rounded shadow-md m-2 bg-white">
+    <div class="font-bold text-xl mb-2">
+      <%= l[:title] %>
+    </div>
+    <dl class="text-grey-darker text-base">
+      <% l[:connections].each do |c| %>
+        <dd><strong><%= c %></strong></dd>
+      <% end %>
+    </dl>
+  </div>
+<% end %>
+
+<div class="w-full mb-2">
+  <h2 class="mb-1"><%= t('.services') %></h2>
+  <%= simple_format(t('.your_connected_services')) %>
+</div>
+
+<% @services.each do |c| %>
+  <div class="w-full md:w-1/5 p-4 border border-blue rounded shadow-md m-2 bg-white">
+    <div class="font-bold text-xl mb-2">
+      <%= c[:title] %>
+    </div>
+    <%= simple_format(c[:id], class: 'text-grey-darker text-base') %>
+    <% if c[:id].blank? %>
+      <%= simple_format(t('.inactive'), class: 'text-red text-base') %>
+    <% else %>
+      <%= simple_format(t('.active'), class: 'text-green text-base') %>
+    <% end %>
+  </div>
+<% end %>

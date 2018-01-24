@@ -1,0 +1,16 @@
+<h1>Locations</h1>
+
+
+
+<% [].each do |c| %>
+  <div class="w-1/3 p-4 border border-blue rounded shadow-md m-2 bg-white">
+    <div class="font-bold text-xl mb-2">
+      FB: <%= c[:name] %>
+    </div>
+    <dl class="text-grey-darker text-base">
+      <% c[:hours].each do |k,v| %>
+        <dd><strong><%= k %></strong> <%= v %></dd>
+      <% end %>
+    </dl>
+  </div>
+<% end %>

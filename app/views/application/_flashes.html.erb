@@ -1,10 +1,9 @@
-<% if flash.any? %>
-  <div class="notifications">
-    <% user_facing_flashes.each do |key, value| -%>
-      <div class="notification is-<%= bulma_notification(key) %>">
-        <button class="delete"></button>
-        <%= value %>
+<% user_facing_flashes.each do |key, value| -%>
+  <div class="flex w-full mx-auto mb-3 sm:w-3/4 border-t-4 rounded-b px-4 py-3 shadow-md <%= flash_css(key) %>" role="alert">
+    <div class="flex">
+      <div>
+        <%= simple_format(value, class: 'font-bold') %>
       </div>
-    <% end -%>
+    </div>
   </div>
-<% end %>
+<% end -%>

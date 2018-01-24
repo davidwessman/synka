@@ -1,0 +1,16 @@
+<div class="font-bold mb-3 w-full">
+  <h1><%= title(@location.title) %></h1>
+</div>
+
+<% @location.connections.each do |c| %>
+  <div class="w-1/3 p-4 border border-blue rounded shadow-md m-2 bg-white">
+    <div class="font-bold text-xl mb-2">
+      <%= c %>
+    </div>
+    <dl class="text-grey-darker text-base">
+      <% c.week.all.each do |k, v| %>
+        <dd><strong><%= k %></strong> <%= v.first.to_s %></dd>
+      <% end %>
+    </dl>
+  </div>
+<% end %>
