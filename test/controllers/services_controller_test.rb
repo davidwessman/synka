@@ -11,5 +11,6 @@ class ServicesControllerTest < ActionDispatch::IntegrationTest
   test 'renders user services' do
     sign_in_as(users(:grasklipparservice))
     get(account_services_url)
+    assert_response(:success)
   end
 end

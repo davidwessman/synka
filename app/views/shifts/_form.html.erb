@@ -1,0 +1,10 @@
+<%= form_with(model: [:account, location, shift],
+              class: 'flex items-center justify-between') do |f| %>
+  <%= f.hidden_field(:connection_id, value: shift.connection_id) %>
+  <%= f.hidden_field(:day, value: shift.day) %>
+  <%= f.time_field(:from, id: 'from',
+                    class: 'shadow appearance-none border rounded w-1/3 py-2 text-grey-darker') %>
+  <%= f.time_field(:to, id: 'to',
+                    class: 'shadow appearance-none border rounded w-1/3 py-2 text-grey-darker') %>
+  <%= f.submit(class: 'button button-blue text-sm') %>
+<% end %>

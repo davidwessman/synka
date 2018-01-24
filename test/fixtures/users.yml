@@ -1,4 +1,4 @@
 grasklipparservice:
   email: david@grasklipparservice.se
-  encrypted_password: passpass
-  remember_token: 'ss'
+  encrypted_password: <%= BCrypt::Password.create('passpass') %>
+  remember_token: <%= Clearance::Token.new %>

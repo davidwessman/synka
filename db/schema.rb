@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108200740) do
+ActiveRecord::Schema.define(version: 20180124130837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pgcrypto"
+
+  create_table "connections", force: :cascade do |t|
+    t.uuid "location_id"
+    t.integer "kind", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_connections_on_location_id"
+  end
+
+  create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.bigint "connection_id"
+    t.integer "day", default: 0, null: false
+    t.time "from"
+    t.time "to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_shifts_on_connection_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,4 +54,7 @@ ActiveRecord::Schema.define(version: 20180108200740) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "connections", "locations"
+  add_foreign_key "locations", "users"
+  add_foreign_key "shifts", "connections"
 end

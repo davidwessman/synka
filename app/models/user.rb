@@ -2,5 +2,7 @@
 
 class User < ApplicationRecord
   include Clearance::User
-  enum(role: {  normal: 0, admin: 10 })
+  has_many(:locations)
+  has_many(:connections, through: :locations)
+  enum(role: { normal: 0, admin: 10 })
 end

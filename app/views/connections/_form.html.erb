@@ -1,0 +1,16 @@
+<% shifts = connection.shifts.by_day.group_by(&:day) %>
+
+<% Shift.days.keys.each do |day| %>
+  <div id="shifts-<%= day %>" class="mb-3">
+    <div  class="form-label"><%= day %></div>
+    <% shifts_day = shifts[day] || [] %>
+    <% shifts_day.each do |shift| %>
+      <div id="<%= "#{dom_id(shift)}" %>">
+        <%= render('shifts/form', location: connection.location, shift: shift) %>
+      </div>
+    <% end %>
+    <div id="<%= "new-shift-#{day}"%>">
+      <%= render('shifts/form', location: connection.location, shift: connection.shifts.build(day: day)) %>
+    </div>
+  </div>
+<% end %>

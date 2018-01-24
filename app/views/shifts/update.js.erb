@@ -1,0 +1,2 @@
+var updateForm = document.getElementById('<%= dom_id(@shift) %>');
+updateForm.innerHTML = "<%= j render('shifts/form', location: @location, shift: @shift) %>";

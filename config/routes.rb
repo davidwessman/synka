@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root(controller: :presentation, action: :index)
   resources(:passwords, controller: 'clearance/passwords', only: %i[create new])
   resource(:session, controller: 'clearance/sessions', only: [:create])
   resources(:users, controller: 'clearance/users',
@@ -13,10 +12,14 @@ Rails.application.routes.draw do
   get(:new, controller: :sessions, as: :sign_in, path: 'sign-in')
   delete(:destroy, controller: :sessions, as: :sign_out,
                    path: 'sign-out')
-  # get(:new, controller: 'clearance/users', as: :sign_up, path: 'registrera')
 
   resource(:account, only: :show) do
-    resources(:locations, only: %i[index show])
+    resources(:locations, only: %i[index show update]) do
+      resources(:connections, only: %i[update])
+      resources(:shifts, only: %i[create update])
+    end
     resources(:services, only: %i[index])
   end
+
+  root(controller: :presentation, action: :index)
 end

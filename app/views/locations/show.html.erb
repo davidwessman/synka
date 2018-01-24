@@ -7,10 +7,16 @@
     <div class="font-bold text-xl mb-2">
       <%= c %>
     </div>
-    <dl class="text-grey-darker text-base">
-      <% c.week.all.each do |k, v| %>
-        <dd><strong><%= k %></strong> <%= v.first.to_s %></dd>
-      <% end %>
-    </dl>
+    <% if c.local? %>
+      <div id="edit-local">
+        <%= render('/connections/form', location: @location, connection: c) %>
+      </div>
+    <% else %>
+      <dl class="text-grey-darker text-base">
+        <% c.hours.each do |k, v| %>
+          <dd><strong><%= k %></strong> <%= v.join(' ') %></dd>
+        <% end %>
+      </dl>
+    <% end %>
   </div>
 <% end %>
