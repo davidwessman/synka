@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = Location.includes(connections: :shifts).find(params[:id])
   end
 
   def update

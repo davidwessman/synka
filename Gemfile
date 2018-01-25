@@ -11,6 +11,7 @@ ruby '2.5.0'
 gem 'rails', '~> 5.1.4'
 
 gem 'clearance'
+gem 'font-awesome-rails'
 gem 'koala'
 gem 'pg'
 gem 'puma'

@@ -30,4 +30,8 @@ module ApplicationHelper
     provide(:title, title)
     title
   end
+
+  def week_day(day)
+    t("time.week_days.#{day}")
+  end
 end

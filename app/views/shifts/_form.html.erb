@@ -1,10 +1,26 @@
-<%= form_with(model: [:account, location, shift],
-              class: 'flex items-center justify-between') do |f| %>
-  <%= f.hidden_field(:connection_id, value: shift.connection_id) %>
-  <%= f.hidden_field(:day, value: shift.day) %>
-  <%= f.time_field(:from, id: 'from',
-                    class: 'shadow appearance-none border rounded w-1/3 py-2 text-grey-darker') %>
-  <%= f.time_field(:to, id: 'to',
-                    class: 'shadow appearance-none border rounded w-1/3 py-2 text-grey-darker') %>
-  <%= f.submit(class: 'button button-blue text-sm') %>
-<% end %>
+<div class="flex items-center justify-between mb-1 <%= 'update-shift' if shift.persisted? %>">
+  <%= form_with(model: [:account, location, shift],
+                class: 'flex justify-start w-4/5') do |f| %>
+    <%= f.hidden_field(:connection_id, value: shift.connection_id) %>
+    <%= f.hidden_field(:day, value: shift.day) %>
+    <%= f.time_field(:from, id: 'from',
+                      class: 'shadow appearance-none border rounded w-2/5 p-2 text-grey-darker') %>
+    <%= f.time_field(:to, id: 'to',
+                      class: 'shadow appearance-none border rounded w-2/5 p-2 text-grey-darker') %>
+    <% if shift.persisted? %>
+      <%= f.button(:button, class: 'button button-grey text-xs hover:bg-blue mx-1') do %>
+        <%= fa_icon('save') %>
+      <% end %>
+    <% else %>
+      <%= f.button(:button, class: 'button button-blue hover:bg-green text-xs mx-1') do %>
+        <%= fa_icon('plus') %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if shift.persisted? %>
+    <%= button_to(account_location_shift_path(location, shift), remote: true,
+                  method: :delete, class: 'button button-grey text-xs hover:bg-red') do %>
+      <%= fa_icon('trash') %>
+    <% end %>
+  <% end %>
+</div>
