@@ -2,7 +2,7 @@
 
 <% Shift.days.keys.each do |day| %>
   <div id="shifts-<%= day %>" class="mb-3">
-    <div  class="form-label"><%= day %></div>
+    <div class="form-label"><%= week_day(day) %></div>
     <% shifts_day = shifts[day] || [] %>
     <% shifts_day.each do |shift| %>
       <div id="<%= "#{dom_id(shift)}" %>">

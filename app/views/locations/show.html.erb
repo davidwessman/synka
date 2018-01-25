@@ -1,6 +1,18 @@
 <div class="font-bold mb-3 w-full">
-  <h1><%= title(@location.title) %></h1>
+  <h1>
+    <%= title(@location.title) %>
+    <% if @location.synced? %>
+      <small class="text-green">
+        <%= t('.synchronized') %>
+      </small>
+    <% else %>
+      <small class="text-red">
+        <%= t('.desynchronized') %>
+      </small>
+    <% end %>
+  </h1>
 </div>
+
 
 <% @location.connections.each do |c| %>
   <div class="w-1/3 p-4 border border-blue rounded shadow-md m-2 bg-white">
@@ -8,13 +20,11 @@
       <%= c %>
     </div>
     <% if c.local? %>
-      <div id="edit-local">
-        <%= render('/connections/form', location: @location, connection: c) %>
-      </div>
+      <%= render('/connections/connection', location: @location, connection: c) %>
     <% else %>
       <dl class="text-grey-darker text-base">
         <% c.hours.each do |k, v| %>
-          <dd><strong><%= k %></strong> <%= v.join(' ') %></dd>
+          <dd><strong><%= week_day(k) %></strong> <%= v.join(' ') %></dd>
         <% end %>
       </dl>
     <% end %>

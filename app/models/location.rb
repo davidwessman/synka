@@ -5,4 +5,8 @@ class Location < ApplicationRecord
   has_many(:connections)
   has_many(:shifts, through: :connections)
   validates(:title, presence: true)
+
+  def synced?
+    connections.first.to_h == connections.second.to_h
+  end
 end

@@ -18,7 +18,16 @@ class ShiftsController < ApplicationController
     render(:error, status: 422) unless @shift.update(shift_params)
   end
 
-  # @id = ActionView::RecordIdentifier.dom_id()
+  def destroy
+    location = current_user.locations.find(params[:location_id])
+    connection = location.connections
+                         .find(shift_params.fetch(:connection_id))
+    shift = connection.shifts.find(params[:id])
+    @day = shift.day
+    @id = ActionView::RecordIdentifier.dom_id(shift)
+    shift.destroy!
+  end
+
   private
 
   def shift_params

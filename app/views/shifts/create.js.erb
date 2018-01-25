@@ -1,9 +1,7 @@
 var newForm = document.getElementById('<%= "new-shift-#{@shift.day}"%>');
 var dayShifts = document.getElementById('<%= "shifts-#{@shift.day}" %>');
-console.log(newForm);
 
 var updateForm = document.createElement('div');
-console.log(updateForm);
 updateForm.innerHTML = "<%= j render('shifts/form', location: @location, shift: @shift) %>";
 newForm.innerHTML = "<%= j render('shifts/form', location: @location, shift: @connection.shifts.build(day: @shift.day)) %>";
 

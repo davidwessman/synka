@@ -2,3 +2,11 @@ en:
   time:
     formats:
       hour: '%H:%M'
+    week_days:
+      mon: Monday
+      tue: Tuesday
+      wed: Wednesday
+      thu: Thursday
+      fri: Friday
+      sat: Saturday
+      sun: Sunday
