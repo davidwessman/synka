@@ -5,7 +5,7 @@ class Shift < ApplicationRecord
   validates(:from, :to, presence: true)
   enum(day: { mon: 0, tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6 })
 
-  scope(:by_day, -> { order(:day, :from) }
+  scope(:by_day, -> { order(:day, :from) })
 
   def from_time
     I18n.l(from, format: :hour)
