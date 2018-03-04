@@ -10,6 +10,7 @@ end
 ruby '2.5.0'
 gem 'rails', '~> 5.1.5'
 
+gem 'bootsnap'
 gem 'clearance'
 gem 'font-awesome-rails'
 gem 'koala'
@@ -29,7 +30,6 @@ end
 
 group :development do
   gem 'dotenv-rails'
-  gem 'foreman'
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
