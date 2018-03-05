@@ -2,7 +2,7 @@
   "name": "sync-hours",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.2.2"
+    "@rails/webpacker": "^3.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
