@@ -5771,9 +5771,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-tailwindcss@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.4.2.tgz#06d516aa7779755e22289d429cd8352111987c37"
+tailwindcss@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.4.3.tgz#f197e6139f7b1e8a07feb05f01c4ef7d57ec090f"
   dependencies:
     commander "^2.11.0"
     fs-extra "^4.0.2"
