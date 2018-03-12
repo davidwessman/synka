@@ -7,6 +7,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
-    "webpack-dev-server": "^3.1.0"
+    "webpack-dev-server": "^3.1.1"
   }
 }
