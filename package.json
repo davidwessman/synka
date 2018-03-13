@@ -2,7 +2,7 @@
   "name": "sync-hours",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.3.0",
+    "@rails/webpacker": "^3.3.1",
     "tailwindcss": "^0.4.3"
   },
   "devDependencies": {
