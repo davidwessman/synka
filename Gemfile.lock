@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails
-  revision: 5f539ce5bc1425f86b8a1b0373de1c3df6ce2808
+  revision: b65ccfb27ddc3414d14ba83b76389975cbbdae02
   branch: 5-2-stable
   specs:
     actioncable (5.2.0.rc1)
@@ -129,7 +129,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
-    marcel (0.3.1)
+    marcel (0.3.2)
       mimemagic (~> 0.3.2)
     method_source (0.9.0)
     mimemagic (0.3.2)
@@ -152,7 +152,7 @@ GEM
     rack (2.0.4)
     rack-proxy (0.6.4)
       rack
-    rack-test (0.8.3)
+    rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
