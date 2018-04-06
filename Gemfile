@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 gem 'coffee-rails' # Remove when not using 5-2-stable
 gem 'rails', git: 'https://github.com/rails/rails', branch: '5-2-stable'
