@@ -9,8 +9,7 @@ end
 
 ruby '2.5.1'
 
-gem 'coffee-rails' # Remove when not using 5-2-stable
-gem 'rails', git: 'https://github.com/rails/rails', branch: '5-2-stable'
+gem 'rails', '~> 5.2'
 
 gem 'bootsnap'
 gem 'clearance'
@@ -28,11 +27,6 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'selenium-webdriver'
-end
-
-group :development do
-  gem 'dotenv-rails'
-  gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
