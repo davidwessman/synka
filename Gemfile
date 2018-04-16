@@ -11,7 +11,7 @@ ruby '2.5.1'
 
 gem 'rails', '~> 5.2'
 
-gem 'bootsnap'
+gem 'bootsnap', require: false
 gem 'clearance'
 gem 'font-awesome-rails'
 gem 'koala'
