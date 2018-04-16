@@ -8,6 +8,9 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_RETRY: 3
           PGHOST: 127.0.0.1
           PGUSER: user
           RAILS_ENV: test
@@ -17,11 +20,14 @@ jobs:
           POSTGRES_DB: sync-hours_test
           POSTGRES_PASSWORD: ""
 
-
     working_directory: ~/sync-hours
 
     steps:
       - checkout
+
+      - run:
+          name: Which bundler?
+          command: bundle -v
 
       # Download and cache dependencies
       # fallback to using the latest cache if no exact match is found
@@ -39,8 +45,7 @@ jobs:
 
       - run:
           name: Install ruby dependencies
-          command: |
-            bundle install --deployment --jobs=4 --retry=3
+          command: bundle check || bundle install
 
       - run:
           name: Install yarn dependencies
@@ -48,9 +53,9 @@ jobs:
 
       - save_cache:
           name: Save ruby cache
+          key: gem-v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
-          key: gem-v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - save_cache:
           name: Save yarn cache
