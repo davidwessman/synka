@@ -10,6 +10,7 @@ end
 ruby '2.5.1'
 
 gem 'rails', '~> 5.2'
+gem 'coffee-rails'
 
 gem 'bootsnap', require: false
 gem 'clearance'
