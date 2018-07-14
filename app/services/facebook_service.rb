@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class FacebookConnection
-  def initialize(account_uid, connection_uid)
-    @app = FacebookConnection.app
-    @account_token = account_token(account_uid)
-    @page_token = page_token(connection_uid)
+class FacebookService
+  def initialize(service, connection)
+    @app = FacebookService.app
+    @account_token = account_token(service.remote_uid) if service.present?
+    @page_token = page_token(connection.remote_uid) if connection.present?
   end
 
   def week
@@ -20,11 +20,12 @@ class FacebookConnection
   end
 
   def self.app
-    return unless (token = ENV.fetch('FB_APP_ACCESS_TOKEN', nil))
-    @app = Koala::Facebook::API.new(token)
+    return unless (app_id = ENV.fetch('FB_APP_ID', nil))
+    return unless (secret = ENV.fetch('FB_APP_SECRET', nil))
+    token = Koala::Facebook::OAuth.new(app_id, secret)
+    token = token.get_app_access_token
+    @app = Koala::Facebook::API.new(token, secret)
   end
-
-  private
 
   # All accounts connected to app
   def accounts
@@ -33,6 +34,8 @@ class FacebookConnection
       { id: a['id'], access_token: a['access_token'] }
     end
   end
+
+  private
 
   # Returns account_token for current account
   def account_token(id)
@@ -51,6 +54,7 @@ class FacebookConnection
 
   # Returns account_token for current account
   def page_token(id)
+    return if account.nil?
     account.get_page_access_token(id)
   end
 
