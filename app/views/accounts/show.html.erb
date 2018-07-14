@@ -4,7 +4,7 @@
 
 
 <div class="w-full mb-2">
-  <h2><%= link_to(t('.locations'), account_locations_path, class: 'no-underline') %></h2>
+  <h2><%= t('.locations') %></h2>
 </div>
 
 <% @locations.each do |location| %>
@@ -16,16 +16,11 @@
   <%= simple_format(t('.your_connected_services')) %>
 </div>
 
-<% [].each do |c| %>
+<% @services.each do |service| %>
   <div class="w-full md:w-1/5 p-4 border border-blue rounded shadow-md m-2 bg-white">
     <div class="font-bold text-xl mb-2">
-      <%= c[:title] %>
+      <%= service.kind %>
     </div>
-    <%= simple_format(c[:id], class: 'text-grey-darker text-base') %>
-    <% if c[:id].blank? %>
-      <%= simple_format(t('.inactive'), class: 'text-red text-base') %>
-    <% else %>
-      <%= simple_format(t('.active'), class: 'text-green text-base') %>
-    <% end %>
+    <%= service.active %>
   </div>
 <% end %>
