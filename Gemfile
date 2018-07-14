@@ -10,7 +10,6 @@ end
 ruby '2.5.1'
 
 gem 'rails', '~> 5.2'
-gem 'coffee-rails'
 
 gem 'bootsnap', require: false
 gem 'clearance'
@@ -26,6 +25,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'selenium-webdriver'
 end
