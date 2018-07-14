@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resource(:account, only: :show) do
     resources(:locations, only: %i[index show update]) do
-      resources(:connections, only: %i[update])
+      resources(:connections, only: %i[show update])
       resources(:shifts, only: %i[create update destroy])
     end
     resources(:services, only: %i[index])

@@ -2,7 +2,6 @@
 
 class PresentationController < ApplicationController
   def index
-    # @accounts = Facebook.accounts
-    # @pages = Facebook.hours(@accounts.first[:access_token]) || []
+    @accounts = FacebookService.new(nil, nil).accounts
   end
 end

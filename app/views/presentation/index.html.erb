@@ -1,5 +1,21 @@
-<h1>WELCOME!</h1>
+<div class="w-full text-center">
+  <div class="mb-4 text-lg">
+    <h1>WELCOME!</h1>
+  </div>
 
-<% if signed_in? %>
-  <%= link_to(t('.account'), account_path, class: 'button button-blue') %>
-<% end %>
+  <% if @accounts.any? %>
+    <div class="my-2 p-1 border-black">
+      <ul>
+        <% @accounts.each do |account| %>
+          <li><%= account[:id] %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if signed_in? %>
+    <div class="my-2">
+      <%= link_to(t('.account'), account_path, class: 'button button-blue') %>
+    </div>
+  <% end %>
+</div>
