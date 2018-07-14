@@ -1,0 +1,6 @@
+grasklipp_facebook:
+  user: grasklipparservice
+  kind: :facebook
+grasklipp_local:
+  user: grasklipparservice
+  kind: :local

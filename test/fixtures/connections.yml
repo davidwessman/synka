@@ -1,3 +1,6 @@
+facebook:
+  location: store
+  service: grasklipp_facebook
 local:
   location: store
-  kind: :local
+  service: grasklipp_local

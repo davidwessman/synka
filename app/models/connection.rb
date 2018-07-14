@@ -2,16 +2,14 @@
 
 class Connection < ApplicationRecord
   belongs_to(:location)
-  has_many(:shifts, -> { by_day })
-  enum(kind: { local: 0, facebook: 10 })
+  belongs_to(:service)
+  has_many(:shifts, -> { by_day }, dependent: :destroy)
+
+  scope(:local, -> { joins(:service).where(services: { kind: :local }) })
+  scope(:remote, -> { joins(:service).where.not(services: { kind: :local }) })
 
   def to_s
-    kind
-  end
-
-  def week
-    return local_week if local?
-    facebook.week if facebook?
+    service.kind
   end
 
   def hours
@@ -23,18 +21,10 @@ class Connection < ApplicationRecord
   end
 
   def synchronize(week)
-    facebook.update(week) if facebook?
+    service.synchronize(self, week)
   end
 
-  private
-
-  def local_week
-    Week.new(shifts: shifts)
-  end
-
-  def facebook
-    account_uid = '124154461721024'
-    uid = '199859223905264'
-    @facebook ||= FacebookConnection.new(account_uid, uid)
+  def week
+    service.week(self)
   end
 end
