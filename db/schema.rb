@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_24_130837) do
+ActiveRecord::Schema.define(version: 2018_07_13_154737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 2018_01_24_130837) do
 
   create_table "connections", force: :cascade do |t|
     t.uuid "location_id"
-    t.integer "kind", default: 0, null: false
+    t.bigint "service_id"
+    t.string "remote_uid", default: "0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_connections_on_location_id"
+    t.index ["service_id"], name: "index_connections_on_service_id"
   end
 
   create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -30,6 +32,16 @@ ActiveRecord::Schema.define(version: 2018_01_24_130837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "kind", default: 0, null: false
+    t.string "remote_uid"
+    t.datetime "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
   create_table "shifts", force: :cascade do |t|
@@ -55,6 +67,8 @@ ActiveRecord::Schema.define(version: 2018_01_24_130837) do
   end
 
   add_foreign_key "connections", "locations"
+  add_foreign_key "connections", "services"
   add_foreign_key "locations", "users"
+  add_foreign_key "services", "users"
   add_foreign_key "shifts", "connections"
 end
