@@ -3,18 +3,18 @@
 class FacebookService
   def initialize(service, connection)
     @app = FacebookService.app
+    @connection = connection
     @account_token = account_token(service.remote_uid) if service.present?
     @page_token = page_token(connection.remote_uid) if connection.present?
   end
 
-  def week
-    return @week if @week.present?
-    @week = Week.new(hash: from_fb)
+  def pull
+    Week.new(hash: from_fb)
   end
 
-  def update(week)
+  def push
     return false if page.nil?
-    data = to_fb(week)
+    data = to_fb(@connection.week)
     response = page.put_connections('me', nil, hours: data.to_json)
     response['success'] == true
   end

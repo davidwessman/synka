@@ -3,6 +3,7 @@
 class Shift < ApplicationRecord
   belongs_to(:connection)
   validates(:from, :to, presence: true)
+  validates(:from, uniqueness: { scope: %i[to connection day] })
   enum(day: { mon: 0, tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6 })
 
   scope(:by_day, -> { order(:day, :from) })

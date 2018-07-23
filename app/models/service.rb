@@ -5,12 +5,14 @@ class Service < ApplicationRecord
   has_many(:connections, dependent: :destroy)
   enum(kind: { local: 0, facebook: 10 })
 
-  def synchronize(connection, week)
-    service(connection).update(week)
+  def push(connection, new_week)
+    update_shifts(connection, new_week) && service(connection).push
   end
 
-  def week(connection)
-    service(connection).week
+  def pull(connection)
+    return true if local?
+    week = service(connection).pull
+    update_shifts(connection, week)
   end
 
   def self.kind(kind)
@@ -26,5 +28,18 @@ class Service < ApplicationRecord
 
   def service(connection)
     Service.kind(kind).new(self, connection)
+  end
+
+  def update_shifts(connection, week)
+    Connection.transaction do
+      connection.shifts.each(&:destroy!)
+      week.shifts.each do |shift|
+        shift.update!(connection: connection)
+      end
+    end
+    true
+  rescue ActiveRecord::RecordInvalid => exception
+    puts(exception)
+    false
   end
 end

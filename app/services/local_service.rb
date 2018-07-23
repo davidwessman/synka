@@ -1,19 +1,15 @@
 # frozen_string_literal: true
 
 class LocalService
-  def initialize(_service, connection)
-    @connection = connection
+  def initialize(_service, _connection); end
+
+  def push
+    true
   end
 
-  def week
-    Week.new(shifts: @connection.try(:shifts))
+  def pull
+    true
   end
-
-  def update(_week)
-    false
-  end
-
-  def self.app; end
 
   def accounts
     []
