@@ -2,7 +2,7 @@
 
 class Week
   attr_reader(:all)
-  DAYS = %w[mon tue wed thu fri sat sun].freeze
+  DAYS = %i[mon tue wed thu fri sat sun].freeze
 
   def initialize(hash: {}, shifts: [])
     @all = {}
@@ -14,20 +14,25 @@ class Week
     @all.transform_values { |ss| ss.map(&:to_a) }
   end
 
+  def shifts
+    @all.values.flatten(1)
+  end
+
   private
 
   def from_hash(hash)
+    hash.symbolize_keys!
     week = {}
-    DAYS.each { |d| week[d] = day(hash.fetch(d, [])) }
+    DAYS.each { |d| week[d] = day(d, hash.fetch(d, [])) }
     week
   end
 
-  def day(arr)
-    arr.map { |t| Shift.new(from: t.first, to: t.second) }
+  def day(weekday, arr)
+    arr.map { |t| Shift.new(day: weekday, from: t.first, to: t.second) }
   end
 
   def from_shifts(shifts)
-    week = shifts.group_by(&:day)
+    week = shifts.group_by(&:day).symbolize_keys!
     DAYS.each { |d| week[d] = week[d] || [] }
     week
   end

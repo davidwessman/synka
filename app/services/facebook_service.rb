@@ -27,6 +27,8 @@ class FacebookService
     @app = Koala::Facebook::API.new(token, secret)
   end
 
+  private
+
   # All accounts connected to app
   def accounts
     return [] if @app.nil?
@@ -34,8 +36,6 @@ class FacebookService
       { id: a['id'], access_token: a['access_token'] }
     end
   end
-
-  private
 
   # Returns account_token for current account
   def account_token(id)

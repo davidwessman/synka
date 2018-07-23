@@ -34,4 +34,9 @@ module ApplicationHelper
   def week_day(day)
     t("time.week_days.#{day}")
   end
+
+  def time_value(time)
+    return '' unless time
+    I18n.l(time, format: :hour)
+  end
 end
