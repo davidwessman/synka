@@ -28,6 +28,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'selenium-webdriver'
+  gem 'sinatra'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

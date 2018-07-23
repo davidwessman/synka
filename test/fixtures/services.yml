@@ -1,6 +1,7 @@
 grasklipp_facebook:
   user: grasklipparservice
   kind: :facebook
+  remote_uid: <%= ENV.fetch('FB_USER_ID', '123456789') %>
 grasklipp_local:
   user: grasklipparservice
   kind: :local
