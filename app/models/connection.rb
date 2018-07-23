@@ -20,11 +20,15 @@ class Connection < ApplicationRecord
     week.to_h
   end
 
-  def synchronize(week)
-    service.synchronize(self, week)
+  def pull
+    service.pull(self)
+  end
+
+  def push(new_week)
+    service.push(self, new_week)
   end
 
   def week
-    service.week(self)
+    Week.new(shifts: shifts)
   end
 end
