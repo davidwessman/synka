@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class FacebookService
-  def initialize(service, connection)
+  def initialize(service = nil, connection = nil)
     @app = FacebookService.app
     @connection = connection
     @account_token = account_token(service.remote_uid) if service.present?
-    @page_token = page_token(connection.remote_uid) if connection.present?
   end
 
   def pull
@@ -13,9 +12,9 @@ class FacebookService
   end
 
   def push
-    return false if page.nil?
+    return false if page_account.nil?
     data = to_fb(@connection.week)
-    response = page.put_connections('me', nil, hours: data.to_json)
+    response = page_account.put_connections('me', nil, hours: data.to_json)
     response['success'] == true
   end
 
@@ -32,48 +31,43 @@ class FacebookService
   # All accounts connected to app
   def accounts
     return [] if @app.nil?
-    @app.get_connections('app', 'accounts').map do |a|
-      { id: a['id'], access_token: a['access_token'] }
-    end
+    @app.get_connections('app', 'accounts',
+                         fields: %w[id access_token]).map(&:symbolize_keys)
   end
 
   # Returns account_token for current account
   def account_token(id)
-    account = accounts.find { |a| a[:id] == id }
-    return nil if account.nil?
-    account.fetch(:access_token, nil)
+    accounts.find { |a| a[:id] == id }&.fetch(:access_token, nil)
   end
 
   # All pages connected to current account
   def pages
     return [] if account.nil?
-    account.get_connections('me', 'accounts').map do |p|
-      { id: p['id'], access_token: p['access_token'] }
-    end
+    return @pages if @pages
+    fields = 'accounts{id, access_token, hours}'
+    data = account.get_connections('me', '', fields: [fields])
+    @pages = data.deep_symbolize_keys.fetch(:accounts)&.fetch(:data)
+  end
+
+  def page
+    @page = pages.find { |p| p[:id] == @connection.remote_uid }
   end
 
   # Returns account_token for current account
-  def page_token(id)
-    return if account.nil?
-    account.get_page_access_token(id)
-  end
-
-  def hours
-    return if @page_token.nil?
-    data = page.get_object('me', fields: 'hours')
-    return {} if data.nil?
-    data.fetch('hours', {})
+  def page_token
+    return if account.nil? || @connection.nil?
+    @page_token = account.get_page_access_token(@connection.remote_uid)
   end
 
   # Converts hours from Facebook into a hash which can be sent to Week
   def from_fb
-    return {} unless (data = hours)
+    return {} unless (data = page&.fetch(:hours))
     hash = {}
     Week::DAYS.each do |d|
       hash[d] = []
       (1..2).each do |s|
-        opening = data.fetch("#{d}_#{s}_open", nil)
-        closing = data.fetch("#{d}_#{s}_close", nil)
+        opening = data.fetch("#{d}_#{s}_open".to_sym, nil)
+        closing = data.fetch("#{d}_#{s}_close".to_sym, nil)
         hash[d] << [opening, closing] if opening && closing
       end
     end
@@ -100,8 +94,8 @@ class FacebookService
   end
 
   # Facebook Graph API call with page
-  def page
-    return if @page_token.nil?
-    @page ||= Koala::Facebook::API.new(@page_token, nil)
+  def page_account
+    return if page_token.nil?
+    @page_account ||= Koala::Facebook::API.new(page_token, nil)
   end
 end
