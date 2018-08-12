@@ -14,6 +14,7 @@ class ActiveSupport::TestCase
   def api_setup
     unless ENV.fetch('SKIP_API_MOCK', false)
       require 'webmock/minitest'
+      WebMock.disable_net_connect!(allow_localhost: true)
       stub_request(:any, /graph.facebook.com/).to_rack(FakeFacebook)
     end
   end
