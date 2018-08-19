@@ -2,3 +2,8 @@ grasklipparservice:
   email: david@grasklipparservice.se
   encrypted_password: <%= BCrypt::Password.create('passpass') %>
   remember_token: <%= Clearance::Token.new %>
+
+new_user:
+  email: david@iamnew.se
+  encrypted_password: <%= BCrypt::Password.create('passpass') %>
+  remember_token: <%= Clearance::Token.new %>

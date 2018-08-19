@@ -1,10 +1,32 @@
 # frozen_string_literal: true
 
 class FacebookService
+  PERMISSIONS = %i[manage_pages public_profile].freeze
   def initialize(service = nil, connection = nil)
     @app = FacebookService.app
+    @service = service
     @connection = connection
     @account_token = account_token(service.remote_uid) if service.present?
+  end
+
+  def authenticate(auth)
+    return unless auth
+    auth.update!(status: :pending, status_at: Time.zone.now)
+    unless (user = from_code(auth.data['code']))
+      auth.update!(status: :failed, status_at: Time.zone.now)
+      return false
+    end
+    id = user.get_connections('me', nil).symbolize_keys.fetch(:id, nil)
+    if id
+      Service.transaction do
+        @service.update!(remote_uid: id, active: Time.zone.now)
+        auth.update!(status: :success, status_at: Time.zone.now)
+      end
+      return true
+    else
+      auth.update!(status: :failed, status_at: Time.zone.now)
+      return false
+    end
   end
 
   def pull
@@ -18,12 +40,37 @@ class FacebookService
     response['success'] == true
   end
 
+  def check_permissions
+    checks, remove = permissions
+    checks.all? && remove_permissions(remove.keys)
+  end
+
   def self.app
+    return unless (oauth = app_oauth)
+    Koala::Facebook::API.new(oauth.get_app_access_token)
+  end
+
+  def from_code(code)
+    return unless code && (oauth = FacebookService.app_oauth(redirect_url))
+    Koala::Facebook::API.new(oauth.get_access_token(code))
+  end
+
+  def self.app_oauth(callback = Rails.application.routes.url_helpers.oauth_url)
     return unless (app_id = ENV.fetch('FB_APP_ID', nil))
     return unless (secret = ENV.fetch('FB_APP_SECRET', nil))
-    token = Koala::Facebook::OAuth.new(app_id, secret)
-    token = token.get_app_access_token
-    @app = Koala::Facebook::API.new(token, secret)
+    Koala::Facebook::OAuth.new(app_id, secret, callback)
+  end
+
+  def self.test_users
+    return unless (app_id = ENV.fetch('FB_APP_ID', nil))
+    return unless (secret = ENV.fetch('FB_APP_SECRET', nil))
+    Koala::Facebook::TestUsers.new(app_id: app_id, secret: secret)
+  end
+
+  def permission_url
+    "https://facebook.com/dialog/oauth?client_id=#{ENV.fetch('FB_APP_ID')}" \
+      "&redirect_uri=#{redirect_url}" \
+      '&state="facebook"'
   end
 
   private
@@ -87,6 +134,22 @@ class FacebookService
     hash
   end
 
+  def permissions
+    permissions = account.get_connections('me', 'permissions')
+                         .map(&:symbolize_keys)
+    checks = Hash.new(PERMISSIONS.collect { |p| [p, false] })
+    permissions.each do |p|
+      checks[p[:permission].to_sym] = p[:status] == 'granted'
+    end
+    checks.partition { |k, _| PERMISSIONS.include?(k) }.map(&:to_h)
+  end
+
+  def remove_permissions(remove)
+    remove.map do |p|
+      account.delete_connections('me', "permissions/#{p}")
+    end.all?
+  end
+
   # Facebook Graph API call with user account
   def account
     return if @account_token.nil?
@@ -97,5 +160,10 @@ class FacebookService
   def page_account
     return if page_token.nil?
     @page_account ||= Koala::Facebook::API.new(page_token, nil)
+  end
+
+  def redirect_url
+    Rails.application.routes.url_helpers
+         .account_service_url(@service)
   end
 end

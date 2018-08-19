@@ -7,6 +7,18 @@ class FakeFacebook < Sinatra::Base
   USER_ID = ENV.fetch('FB_USER_ID', '123456789')
   PAGE_ID = ENV.fetch('FB_PAGE_ID', '123456789')
   TOKEN = '987654321'
+
+  get '/oauth/access_token' do
+    content_type(:json)
+    if params['code']
+      status(200)
+      { access_token: TOKEN }.to_json
+    else
+      puts(params)
+      status(544)
+    end
+  end
+
   post '/oauth/access_token' do
     status(200)
     ''
@@ -25,6 +37,12 @@ class FakeFacebook < Sinatra::Base
     { data: [{ id: PAGE_ID, access_token: TOKEN }] }.to_json
   end
 
+  get '/me/' do
+    content_type(:json)
+    status(200)
+    { "name": 'David Wessman', id: USER_ID }.to_json
+  end
+
   post '/me/' do
     if params['hours']
       status(200)
@@ -32,6 +50,17 @@ class FakeFacebook < Sinatra::Base
     else
       puts(params)
       status(500)
+    end
+  end
+
+  get '/dialog/oauth' do
+    if params['redirect_uri']
+      redirect_url = params['redirect_uri'] + "?state=\"#{params[:state]}\"" \
+        "&code=#{TOKEN}"
+      redirect(redirect_url)
+    else
+      puts(params)
+      status(544)
     end
   end
 
@@ -45,7 +74,15 @@ class FakeFacebook < Sinatra::Base
     end
   end
 
+  get '/*' do
+    puts('GET')
+    puts(params)
+    puts(request.path_info)
+    status(544)
+  end
+
   post '/*' do
+    puts('GET')
     puts(params)
     puts(request.path_info)
     status(544)

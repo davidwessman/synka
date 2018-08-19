@@ -11,7 +11,7 @@ class LocalService
     true
   end
 
-  def accounts
-    []
+  def permission_url
+    false
   end
 end
