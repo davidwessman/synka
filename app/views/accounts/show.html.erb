@@ -13,14 +13,18 @@
 
 <div class="w-full mb-2">
   <h2 class="mb-1"><%= t('.services') %></h2>
-  <%= simple_format(t('.your_connected_services')) %>
 </div>
 
-<% @services.each do |service| %>
-  <div class="w-full md:w-1/5 p-4 border border-blue rounded shadow-md m-2 bg-white">
-    <div class="font-bold text-xl mb-2">
-      <%= service.kind %>
-    </div>
-    <%= service.active %>
+<% if @services.any? %>
+  <div class="w-full mb-2">
+    <%= simple_format(t('.connected_services')) %>
   </div>
+  <%= render(@services) %>
+<% end %>
+
+<% if @unused_services.any? %>
+  <div class="w-full mb-2">
+    <%= simple_format(t('.unused_services')) %>
+  </div>
+  <%= render(@unused_services) %>
 <% end %>

@@ -18,8 +18,10 @@ Rails.application.routes.draw do
       resources(:connections, only: %i[show update])
       resources(:shifts, only: %i[create update destroy])
     end
-    resources(:services, only: %i[index])
+    resources(:services, only: %i[create show])
   end
+
+  get(:oauth, controller: :presentation, action: :index)
 
   root(controller: :presentation, action: :index)
 end

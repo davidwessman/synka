@@ -1,0 +1,5 @@
+en:
+  services:
+    service:
+      add: Add service
+      authenticate: Authenticate
