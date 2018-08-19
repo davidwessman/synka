@@ -5,6 +5,7 @@ class CreateServices < ActiveRecord::Migration[5.2]
       t.integer :kind, default: 0, null: false
       t.string :remote_uid
       t.datetime :active, default: nil
+      t.index [:user_id, :kind], unique: true
 
       t.timestamps
     end

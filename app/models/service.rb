@@ -3,7 +3,16 @@
 class Service < ApplicationRecord
   belongs_to(:user)
   has_many(:connections, dependent: :destroy)
+  has_many(:authentications, dependent: :destroy)
   enum(kind: { local: 0, facebook: 10 })
+
+  def authenticate(auth)
+    service(nil).authenticate(auth)
+  end
+
+  def authenticate?
+    active.nil? && permission_url.present?
+  end
 
   def push(connection, new_week)
     update_shifts(connection, new_week) && service(connection).push
@@ -15,6 +24,10 @@ class Service < ApplicationRecord
     update_shifts(connection, week)
   end
 
+  def permission_url
+    service(nil).permission_url
+  end
+
   def self.kind(kind)
     case kind.to_s
     when 'facebook'
@@ -22,6 +35,11 @@ class Service < ApplicationRecord
     else
       LocalService
     end
+  end
+
+  def self.unused(services)
+    kinds = Service.kinds.keys - services.pluck(:kind)
+    kinds.map { |kind| Service.new(kind: kind) }
   end
 
   private

@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_154737) do
+ActiveRecord::Schema.define(version: 2018_08_02_150810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "authentications", force: :cascade do |t|
+    t.bigint "service_id"
+    t.integer "status", default: 0, null: false
+    t.datetime "status_at"
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_authentications_on_service_id"
+  end
 
   create_table "connections", force: :cascade do |t|
     t.uuid "location_id"
@@ -41,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_07_13_154737) do
     t.datetime "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "kind"], name: "index_services_on_user_id_and_kind", unique: true
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
@@ -66,6 +77,7 @@ ActiveRecord::Schema.define(version: 2018_07_13_154737) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "authentications", "services"
   add_foreign_key "connections", "locations"
   add_foreign_key "connections", "services"
   add_foreign_key "locations", "users"
