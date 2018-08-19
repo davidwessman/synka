@@ -5,8 +5,9 @@ require 'test_helper'
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :selenium, using: :chrome, screen_size: [1400, 1400],
                        options: { args: ['disable-notifications'] }
+  setup :set_host
 
-  def setup
+  def set_host
     Rails.application.routes.default_url_options[:host] = Capybara.current_session.server.host
     Rails.application.routes.default_url_options[:port] = Capybara.current_session.server.port
   end
