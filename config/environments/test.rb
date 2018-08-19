@@ -48,3 +48,4 @@ Rails.application.configure do
 
   config.middleware.use Clearance::BackDoor
 end
+Rails.application.routes.default_url_options[:host] = 'localhost'
