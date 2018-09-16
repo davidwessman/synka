@@ -1,15 +1,15 @@
-<% wait ||= false %>
-<% unless wait %>
-  <% if location.synced? %>
-    <small class="text-green">
-      <%= t('.synchronized') %>
-    </small>
-  <% else %>
-    <small class="text-red">
-      <%= t('.desynchronized') %>
-    </small>
-  <% end %>
+<% if location.synced? %>
+  <small class="text-green">
+    <%= t('.synchronized') %>
+    <%= location.status_at %>
+  </small>
 <% end %>
-<%= link_to(t('.check'), account_location_path(@location),
-            remote: true,
-            class: 'load button bg-blue text-white text-sm') %>
+<% if location.desynced? %>
+  <small class="text-red">
+    <%= t('.desynchronized') %>
+    <%= location.status_at %>
+  </small>
+<% end %>
+<% if location.connections.any? %>
+  <%= button_to(t('.check'), account_location_checks_path(@location), class: 'button bg-blue text-white text-sm') %>
+<% end %>

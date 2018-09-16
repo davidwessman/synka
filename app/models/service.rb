@@ -25,7 +25,7 @@ class Service < ApplicationRecord
   end
 
   def permission_url
-    service(nil).permission_url
+    Service.kind(kind).permission_url(self)
   end
 
   def self.kind(kind)

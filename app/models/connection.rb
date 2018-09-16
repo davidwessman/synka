@@ -12,11 +12,12 @@ class Connection < ApplicationRecord
     service.kind
   end
 
-  def hours
-    week.all
+  def to_h
+    week.to_h
   end
 
-  def to_h
+  def check
+    service.pull(self)
     week.to_h
   end
 

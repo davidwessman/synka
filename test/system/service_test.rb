@@ -26,7 +26,7 @@ class ServiceTest < ApplicationSystemTestCase
           fill_in('pass', with: @fb_user['password'])
           first('#loginbutton').click
         end
-      rescue
+      rescue StandardError
         skip
       end
 
