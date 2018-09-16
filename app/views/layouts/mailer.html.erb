@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title><%= yield :title %></title>
     <style>
-      /* Email styles need to be inline */
+      <% # Inlines css from 'email.scss', inline by Roadie. %>
+      <%= inline_css('email.scss') %>
     </style>
   </head>
 
-  <body>
-    <%= yield %>
+  <body bgcolor="#FFFFFF">
+    <%= render 'layouts/mailer/header' %>
+
+    <%= render 'layouts/mailer/body' %>
+
+    <%= render 'layouts/mailer/footer' %>
   </body>
 </html>
