@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2018_08_02_150810) do
   create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
+    t.integer "status", default: 0, null: false
+    t.datetime "status_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_locations_on_user_id"

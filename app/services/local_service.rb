@@ -11,7 +11,7 @@ class LocalService
     true
   end
 
-  def permission_url
+  def self.permission_url(_service)
     false
   end
 end

@@ -40,7 +40,12 @@ class FakeFacebook < Sinatra::Base
   get '/me/' do
     content_type(:json)
     status(200)
-    { "name": 'David Wessman', id: USER_ID }.to_json
+    me = { "name": 'David Wessman', id: USER_ID }
+    if params['fields']
+      me['accounts'] = { data: [{ id: PAGE_ID,
+                                  hours: week_sample }] }
+    end
+    me.to_json
   end
 
   post '/me/' do
@@ -93,6 +98,17 @@ class FakeFacebook < Sinatra::Base
   # end
 
   private
+
+  def week_sample(from = '09:00', to = '15:00')
+    hash = { mon: [[from, to]],
+             tue: [[from, to]],
+             wed: [[from, to]],
+             thu: [[from, to]],
+             fri: [[from, to]],
+             sat: [[from, to]],
+             sun: [[from, to]] }
+    Week.new(hash: hash)
+  end
 
   def json_response(response_code, file_name)
     content_type(:json)

@@ -51,7 +51,9 @@ class FacebookService
   end
 
   def from_code(code)
-    return unless code && (oauth = FacebookService.app_oauth(redirect_url))
+    return unless code
+    oauth = FacebookService.app_oauth(FacebookService.redirect_url(@service))
+    return unless oauth
     Koala::Facebook::API.new(oauth.get_access_token(code))
   end
 
@@ -67,10 +69,10 @@ class FacebookService
     Koala::Facebook::TestUsers.new(app_id: app_id, secret: secret)
   end
 
-  def permission_url
-    "https://facebook.com/dialog/oauth?client_id=#{ENV.fetch('FB_APP_ID')}" \
-      "&redirect_uri=#{redirect_url}" \
-      '&state="facebook"'
+  def self.permission_url(service)
+    redirect = redirect_url(service)
+    oauth = FacebookService.app_oauth(redirect)
+    oauth.url_for_oauth_code(permissions: PERMISSIONS.join(','))
   end
 
   private
@@ -162,8 +164,8 @@ class FacebookService
     @page_account ||= Koala::Facebook::API.new(page_token, nil)
   end
 
-  def redirect_url
+  def self.redirect_url(service)
     Rails.application.routes.url_helpers
-         .account_service_url(@service)
+         .account_service_url(service)
   end
 end

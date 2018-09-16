@@ -1,15 +1,6 @@
 <div class="w-1/3 p-4 border border-blue rounded shadow-md m-2 bg-white">
   <div class="font-bold text-xl mb-2">
     <%= location.title %>
-    <% if location.synced? %>
-      <small class="text-green">
-        <%= t('.synchronized') %>
-      </small>
-    <% else %>
-      <small class="text-red">
-        <%= t('.desynchronized') %>
-      </small>
-    <% end %>
   </div>
   <dl class="text-grey-darker text-base">
     <% location.connections.each do |c| %>
