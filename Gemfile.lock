@@ -65,6 +65,7 @@ GEM
       rails (>= 3.1)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -152,6 +153,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.2)
     rubyzip (1.2.2)
     safe_yaml (1.0.4)
     sass (3.5.6)
@@ -168,6 +170,10 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sidekiq (5.2.1)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     sinatra (2.0.3)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -221,6 +227,7 @@ DEPENDENCIES
   rails (~> 5.2)
   sass-rails
   selenium-webdriver
+  sidekiq
   sinatra
   turbolinks
   tzinfo-data
