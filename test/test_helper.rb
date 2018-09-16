@@ -3,10 +3,13 @@
 require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
 require 'clearance/test_unit'
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
 Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  # Setup all fixtures in test/fixtures/*.yml for all
+  # tests in alphabetical order.
   fixtures :all
   setup :api_setup
 
@@ -17,6 +20,17 @@ class ActiveSupport::TestCase
     require 'webmock/minitest'
     WebMock.disable_net_connect!(allow_localhost: true)
     stub_request(:any, /facebook.com/).to_rack(FakeFacebook)
+  end
+
+  def week_sample(from = '09:00', to = '15:00')
+    hash = { mon: [[from, to]],
+             tue: [[from, to]],
+             wed: [[from, to]],
+             thu: [[from, to]],
+             fri: [[from, to]],
+             sat: [[from, to]],
+             sun: [[from, to]] }
+    Week.new(hash: hash)
   end
 end
 
