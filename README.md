@@ -1,24 +1,17 @@
-# README
+# SyncHours - helps businesses and stores handle their opening-hours online!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
+The application is written in Ruby on Rails, download the repository and get started!
 
-Things you may want to cover:
 
-* Ruby version
+To ease the installation, we are using [Docker](https://docs.docker.com) and [docker-compose](docker compose) to make things easier.
+Make sure these are installed and then run:
 
-* System dependencies
+- `docker-compose build`
+- `docker-compose run web rails db:create db:migrate`
+- `docker-compose up`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If not using Docker, run the `bin/setup` script to get started.
+It requires [Postgres](https://www.postgresql.org/), [Bundler](http://bundler.io/) and [yarn](https://yarnpkg.com/lang/en/).
+## Status
+[![CircleCI](https://circleci.com/gh/davidwessman/sync-hours/tree/master.svg?style=shield)](https://circleci.com/gh/davidwessman/sync-hours/tree/master)
