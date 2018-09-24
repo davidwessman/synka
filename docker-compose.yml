@@ -1,0 +1,40 @@
+version: '3'
+services:
+  db:
+    env_file:
+      - '.env'
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+    volumes:
+      - ./tmp/redis:/data
+
+  web:
+    command: bundle exec rails s
+    image: sync-hours
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    env_file:
+      - '.env'
+    links:
+      - db
+    ports:
+      - 5000:3000
+    volumes:
+      - .:/home/user/development/
+
+  sidekiq:
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    image: sync-hours
+    depends_on:
+      - redis
+    env_file:
+      - '.env'
+    volumes:
+      - .:/home/user/development/
