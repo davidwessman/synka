@@ -4,7 +4,7 @@
 The application is written in Ruby on Rails, download the repository and get started!
 
 
-To ease the installation, we are using [Docker](https://docs.docker.com) and [docker-compose](docker compose) to make things easier.
+To ease the installation, we are using [Docker](https://docs.docker.com) and [docker-compose](https://docs.docker.com/compose/) to make things easier.
 Make sure these are installed and then run:
 
 - `docker-compose build`
