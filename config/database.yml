@@ -5,10 +5,14 @@ default: &default
 
 development:
   <<: *default
+  username: postgres
+  password:
   database: sync-hours_development
 
 test:
   <<: *default
+  username: postgres
+  password: ""
   database: sync-hours_test
 
 production:
