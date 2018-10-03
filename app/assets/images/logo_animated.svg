@@ -1,0 +1,33 @@
+<svg width="100%" height="100%" viewBox="0 0 141 141" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+  xmlns:serif="http://www.serif.com/"
+  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+
+  <defs>
+      <style>
+          #logo {
+              stroke-dasharray: 600;
+              stroke-dashoffset: 0;
+              -webkit-animation: dash 2s linear forwards;
+              -o-animation: dash 2s linear forwards;
+              -moz-animation: dash 2s linear forwards;
+              animation: dash 2s linear forwards;
+          }
+          @-webkit-keyframes dash {
+            from {
+              stroke-dashoffset: 600;
+            }
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+      </style>
+  </defs>
+
+  <path id="logo" d="M135.702,70.351c0,36.092 -29.259,65.351 -65.351,65.351c-36.068,0 -65.351,-29.283 -65.351,-65.351c0,
+    -35.686 28.603,-64.691 64.133,-65.34c0.321,-0.005 0.631,0.12 0.859,0.345c0.229,0.225 0.357,0.533 0.357,0.854c0.002,8.919
+    0.002,64.141 0.002,64.141l33.547,35.486"
+    style="fill:none;stroke:#3A92D9;stroke-width:10px;"/>
+
+
+</svg>
