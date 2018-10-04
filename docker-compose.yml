@@ -14,8 +14,8 @@ services:
     command: bundle exec rails s
     image: sync-hours
     build:
-      context: docker
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./docker/Dockerfile
     depends_on:
       - db
     env_file:
