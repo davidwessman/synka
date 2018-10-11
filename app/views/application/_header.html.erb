@@ -3,7 +3,9 @@
   <div class="flex items-center flex-no-shrink mr-6">
     <%= image_tag('logo_animated.svg', class: 'h-12 w-12 mr-6') %>
     <%= link_to root_path do %>
-      <span class="font-semibold text-3xl text-blue tracking-light mr-6"><%= t('.title')%></span>
+      <span class="font-semibold text-3xl text-blue tracking-light mr-6">
+        <%= t('general.title')%>
+      </span>
     <% end %>
   </div>
 
@@ -32,11 +34,13 @@
     <% if signed_in? %>
       <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
                   class: 'button button-grey') %>
+      <%= link_to(t('.account'), account_path,
+                  class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline') %>
     <% else %>
       <%= link_to(t('.sign_in'), sign_in_path,
                   class: 'button button-blue') %>
+      <%= link_to(t('.sign_up'), root_path,
+                  class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline') %>
     <% end %>
-    <%= link_to(t('.sign_up'), root_path,
-                class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline') %>
   </div>
 </nav>
