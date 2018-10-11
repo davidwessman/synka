@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= full_title(t('.title'), yield(:title)) %></title>
+    <title><%= full_title(t('general.title'), yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload') %>
@@ -12,14 +12,18 @@
     <%= stylesheet_pack_tag('application') %>
     <%= render 'application/favicon' %>
   </head>
-  <body class="flex flex-col min-h-screen bg-blue-lighter">
+  <body class="flex flex-col min-h-screen bg-blue-lightest" style="min-height: 100vh">
     <header>
       <%= render('header') %>
     </header>
 
-    <main class="flex flex-wrap mx-auto w-full pt-4 sm:w-4/5">
+    <main class="flex flex-1 flex-wrap mx-auto w-full pt-4">
       <%= render('flashes') %>
       <%= yield %>
     </main>
+
+    <footer>
+      <%= yield(:footer) %>
+    </footer>
   </body>
 </html>

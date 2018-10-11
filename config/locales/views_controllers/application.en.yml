@@ -1,7 +1,6 @@
 en:
   application:
     header:
-      title: Synka
       start: Start page
       sign_up: Sign Up
       home: Home
