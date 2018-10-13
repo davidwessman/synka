@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y gnupg2 && \
 
 WORKDIR /home/user/development
 COPY Gemfile Gemfile.lock ./
-COPY entrypoint.sh /home/user/entrypoint.sh
+COPY docker/entrypoint.sh /home/user/entrypoint.sh
 RUN gem install bundler && bundle install --jobs 20 --retry 5
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 CMD ["bundle", "exec", "rails", "s"]
