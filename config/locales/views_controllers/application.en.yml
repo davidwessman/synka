@@ -1,5 +1,9 @@
 en:
   application:
     header:
-      title: SyncHours
+      title: Synka
       start: Start page
+      sign_up: Sign Up
+      home: Home
+      contact: Contact
+      about: About
