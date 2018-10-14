@@ -12,7 +12,7 @@ services:
 
   web:
     command: bundle exec rails s
-    image: sync-hours
+    image: davidwessman/synka
     build:
       context: .
       dockerfile: ./docker/Dockerfile
@@ -29,7 +29,7 @@ services:
 
   sidekiq:
     command: bundle exec sidekiq -C config/sidekiq.yml
-    image: sync-hours
+    image: davidwessman/synka
     depends_on:
       - redis
     env_file:
