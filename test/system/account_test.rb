@@ -12,7 +12,7 @@ class AccountsTest < ApplicationSystemTestCase
       click_on('Sign in')
     end
 
-    assert_selector('h1', text: 'WELCOME!')
+    assert_selector('h1', text: I18n.t('presentation.index.sync_your'))
     click_on('Account')
     assert_selector('h1', text: 'Hello david@wessman.co')
   end
