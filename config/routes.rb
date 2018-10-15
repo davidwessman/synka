@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   get(:oauth, controller: :presentation, action: :index)
-
+  get(:contact, controller: :presentation, action: :contact)  
+  get(:about, controller: :presentation, action: :about)
   root(controller: :presentation, action: :index)
 end
