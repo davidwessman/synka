@@ -9,38 +9,38 @@
     <% end %>
   </div>
 
-<!-- Mobile menu -->
+<!-- Menu -->
   <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    <button class="flex items-center px-3 py-2 border rounded text-teal-lighter tw-button button-teal-inverse" id="menu-button" data-state="open">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+      </svg>
     </button>
   </div>
-<!-- End -->
-
-<!-- Desktop menu -->
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden sm:hidden md:hidden lg:hidden">
-    <div class="text-sm lg:flex-grow">
-      <%= link_to root_path do %>
-        <span class="block mt-4 lg:inline-block lg:mt-0 font-semibold text-grey-darkest hover:text-grey mr-8"><%= t('.home')%></span>
-      <% end %>
-      <%= link_to contact_path do %>
-        <span class="block mt-4 lg:inline-block lg:mt-0 font-semibold text-grey-darkest hover:text-grey mr-8"><%= t('.contact')%></span>
-      <% end %>
-      <%= link_to about_path do %>
-        <span class="block mt-4 lg:inline-block lg:mt-0 font-semibold text-grey-darkest hover:text-grey mr-8"><%= t('.about')%></span>
+  <div id="menu-content" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-lg border-t lg:border-0 mt-2 lg:mt-0">
+    <div class="lg:flex-grow">
+    </div>
+    <div>
+      <%= link_to(t('.home'), root_path,
+        class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
+      <%= link_to(t('.about'), about_path,
+        class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
+      <%= link_to(t('.contact'), contact_path,
+        class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
+      <%= link_to(t('.read_more'), root_path,
+        class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
+      <% if signed_in? %>
+        <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
+                    class: 'button button-grey block lg:inline-block px-4 py-4 leading-none text-center text-orange hover:text-white hover:bg-orange lg:mt-0') %>
+        <%= link_to(t('.account'), account_path,
+                    class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline block lg:inline-block px-4 py-4 leading-none text-center text-orange hover:text-white hover:bg-orange lg:mt-0') %>
+      <% else %>
+        <%= link_to(t('.sign_in'), sign_in_path,
+                    class: 'text-sm button button-blue block lg:inline-block px-3 py-3 leading-none text-center text-white hover:text-white lg:mt-0') %>
+        <%= link_to(t('.sign_up'), root_path,
+                    class: 'text-sm block button bg-green lg:inline-block px-3 py-3 text-center text-white hover:text-white hover:bg-green-dark lg:mt-0 sm:mt-4') %>
       <% end %>
     </div>
-  <div>
-    <% if signed_in? %>
-      <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
-                  class: 'button button-grey') %>
-      <%= link_to(t('.account'), account_path,
-                  class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline') %>
-    <% else %>
-      <%= link_to(t('.sign_in'), sign_in_path,
-                  class: 'button button-blue') %>
-      <%= link_to(t('.sign_up'), root_path,
-                  class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline') %>
-    <% end %>
   </div>
 </nav>
