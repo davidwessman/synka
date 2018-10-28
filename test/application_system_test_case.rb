@@ -8,7 +8,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     using: :chrome, screen_size: [1400, 1400],
     options: {
       options: Selenium::WebDriver::Chrome::Options.new(
-        args: %w[disable-notifications disable-gpu]
+        args: %w[disable-notifications]
       )
     }
   )
