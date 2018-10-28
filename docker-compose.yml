@@ -29,10 +29,11 @@ services:
 
   sidekiq:
     command: bundle exec sidekiq -C config/sidekiq.yml
+    entrypoint: ""
     image: davidwessman/synka
-    depends_on:
-      - redis
     env_file:
       - '.env'
+    environment:
+      - PID_FILE=/home/user/development/tmp/pids/sidekiq.pid
     volumes:
       - .:/home/user/development/
