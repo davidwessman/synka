@@ -27,6 +27,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
+  gem 'minitest-retry'
   gem 'pry-rails'
   gem 'selenium-webdriver'
   gem 'sinatra'

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require 'test_helper'
+require 'minitest/retry'
+
+Minitest::Retry.use!
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by(
