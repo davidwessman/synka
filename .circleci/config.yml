@@ -72,13 +72,5 @@ jobs:
           command: bundle exec rake db:create db:migrate
 
       - run:
-          name: Prepare webpack
-          command: bin/webpack
-
-      - run:
           name: Run tests
           command: bundle exec rails test
-
-      - run:
-          name: Run system tests
-          command: bundle exec rails test:system
