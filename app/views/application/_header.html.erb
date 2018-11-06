@@ -28,18 +28,18 @@
         class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
       <%= link_to(t('.contact'), contact_path,
         class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
-      <%= link_to(t('.read_more'), root_path,
+      <%= link_to(t('.read_more'), read_more_path,
         class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
       <% if signed_in? %>
         <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
-                    class: 'button button-grey block lg:inline-block px-4 py-4 leading-none text-center text-orange hover:text-white hover:bg-orange lg:mt-0') %>
+                    class: 'button block button-grey text-white hover:text-white lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm') %>
         <%= link_to(t('.account'), account_path,
-                    class: 'button bg-green text-white hover:bg-green-dark hidden sm:inline block lg:inline-block px-4 py-4 leading-none text-center text-orange hover:text-white hover:bg-orange lg:mt-0') %>
+                    class: 'button block bg-green hover:bg-green-dark text-white hover:text-white lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm sm:mt-4') %>
       <% else %>
         <%= link_to(t('.sign_in'), sign_in_path,
-                    class: 'text-sm button button-blue block lg:inline-block px-3 py-3 leading-none text-center text-white hover:text-white lg:mt-0') %>
+                    class: 'button button-blue block lg:inline-block px-3 py-2 leading-none text-center text-white hover:text-white text-sm lg:mt-0') %>
         <%= link_to(t('.sign_up'), root_path,
-                    class: 'text-sm block button bg-green lg:inline-block px-3 py-3 text-center text-white hover:text-white hover:bg-green-dark lg:mt-0 sm:mt-4') %>
+                    class: 'button bg-green block lg:inline-block px-3 py-2 text-center text-white hover:text-white hover:bg-green-dark text-sm lg:mt-0 sm:mt-4') %>
       <% end %>
     </div>
   </div>

@@ -1,30 +1,68 @@
-<div class="w-full mb-6">
-  <h1>Hello <%= current_user.email %></h1>
-</div>
-
-
-<div class="w-full mb-2">
-  <h2><%= t('.locations') %></h2>
-</div>
-
-<% @locations.each do |location| %>
-  <%= render(location) %>
-<% end %>
-
-<div class="w-full mb-2">
-  <h2 class="mb-1"><%= t('.services') %></h2>
-</div>
-
-<% if @services.any? %>
-  <div class="w-full mb-2">
-    <%= simple_format(t('.connected_services')) %>
+<div class="w-full -mt-4">
+  <div class="flex md:flex-row flex-wrap border-t h-full">
+    <div class="w-full md:w-1/6 bg-white border-r text-center text-grey-lighter">
+      <div class="w-full mb-6 text-center text-black mt-8">
+        <h3>Welcome </h3><br>
+        <h4><%= current_user.email %></h4>
+      </div>
+      <div class="w-full mb-6 text-center mt-8">
+      <ul class="list-reset">
+        <li class="mt-1">
+          <a class="bg-blue inline-block border-l border-t border-r w-full py-4 text-white font-semibold" href="#">Overview</a>
+        </li>
+        <li class="mt-1">
+          <a class="bg-white inline-block border-b w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold" href="#">Services</a>
+        </li>
+        <li class="mt-1">
+          <a class="bg-white inline-block border-b w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold" href="#">Settings</a>
+        </li>
+        <li class="mt-1">
+          <a class="bg-white inline-block border-b w-full py-4 px-4 text-grey-light font-semibold">Upgrade</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    <div class="w-full md:w-5/6 bg-blue-ligher p-4 text-center">
+      <div class="w-full text-left mt-4 ml-8">
+        <h2>Overview</h2>
+      </div>
+      <div class="w-full mb-6 mt-8">
+        <div class="px-2">
+          <div class="flex -mx-8">
+            <div class="w-1/2 ml-auto px-8">
+              <div class="bg-white border h-64">
+                <div class="w-full mt-4">
+                  <h3>Opening hours</h3>
+                </div>
+              </div>
+            </div>
+            <div class="w-1/4 mr-auto px-8">
+              <div class="bg-white border h-64">
+                <div class="w-full flex-wrap mt-4">
+                  <h3>Services</h3>
+                </div>
+                <div class="w-full flex text-left text-blue mt-8 ml-6">
+                  <h3>Facebook</h3>
+                  <button class="bg-green hover:bg-green-light text-white font-bold py-2 px-4 rounded ml-8 -mt-2">
+                    Authenticated
+                  </button>
+                </div>
+                <div class="w-full flex text-left text-blue mt-8 ml-6">
+                  <h3>Google</h3>
+                  <button class="bg-red hover:bg-red-lighter text-white font-bold py-2 px-4 rounded ml-8 -mt-2">
+                    Authenticate
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-3/4 ml-auto mr-auto h-64 bg-white border px-4">
+        <div class="w-full text-left text-blue mt-4 px-4">
+          <h3>Random</h3>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= render(@services) %>
-<% end %>
-
-<% if @unused_services.any? %>
-  <div class="w-full mb-2">
-    <%= simple_format(t('.unused_services')) %>
-  </div>
-  <%= render(@unused_services) %>
-<% end %>
+</div>

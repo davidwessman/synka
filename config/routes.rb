@@ -19,11 +19,13 @@ Rails.application.routes.draw do
       resources(:connections, only: %i[show update])
       resources(:shifts, only: %i[create update destroy])
     end
+    resources(:sites, )
     resources(:services, only: %i[create show])
   end
 
   get(:oauth, controller: :presentation, action: :index)
-  get(:contact, controller: :presentation, action: :contact)  
+  get(:contact, controller: :presentation, action: :contact)
   get(:about, controller: :presentation, action: :about)
+  get(:read_more, controller: :presentation, action: :read_more)
   root(controller: :presentation, action: :index)
 end
