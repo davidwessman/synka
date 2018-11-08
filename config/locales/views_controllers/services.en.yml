@@ -3,3 +3,12 @@ en:
     service:
       add: Add service
       authenticate: Authenticate
+    show:
+      overview: Overview
+      services: Services
+      settings: Settingss
+    index:
+      overview: Overview
+      services: Services
+      settings: Settings      
+      how_does_it_work: How does it work?

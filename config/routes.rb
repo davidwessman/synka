@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       resources(:shifts, only: %i[create update destroy])
     end
     resources(:sites, )
-    resources(:services, only: %i[create show])
+    resources(:services, only: %i[create index show index])
+    resources(:settings, only: %i[create index show index])
   end
 
   get(:oauth, controller: :presentation, action: :index)

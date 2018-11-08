@@ -7,4 +7,5 @@ class AccountsController < ApplicationController
     @services = current_user.services
     @unused_services = Service.unused(current_user.services)
   end
+  def index; end
 end

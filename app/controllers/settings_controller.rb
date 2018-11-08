@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class ServicesController < ApplicationController
+class SettingsController < ApplicationController
   before_action(:require_login)
-  def index; end
   def create
     service = current_user.services.build(service_params)
     service.save!
@@ -29,4 +28,5 @@ class ServicesController < ApplicationController
   def facebook_params
     params.permit(:state, :code)
   end
+  def index; end
 end
