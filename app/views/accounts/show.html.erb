@@ -1,74 +1,64 @@
 <!-- Account page -->
-<div class="w-full -mt-4">
-  <div class="flex md:flex-row flex-wrap border-t h-full">
-    <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter">
-      <div class="w-full mb-6 text-center text-black mt-8">
-        <h3>Welcome </h3><br>
-        <h4><%= current_user.email %></h4>
+<div class="flex w-full h-full">
+  <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter py-6">
+    <div class="mb-6 text-center text-black">
+      <h3>Welcome </h3><br>
+      <h4><%= current_user.email %></h4>
+    </div>
+    <div class="">
+      <ul class="list-reset">
+        <li class="">
+          <%= link_to(t('.overview'), account_path,
+            class: 'bg-blue inline-block border-t w-full py-4 text-white font-semibold') %>
+        </li>
+        <li class="">
+          <%= link_to(t('.services'), account_services_path,
+            class: 'bg-white inline-block border-t w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold') %>
+        </li>
+        <li class="">
+          <%= link_to(t('.settings'), account_settings_path,
+            class: 'bg-white inline-block border-t w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold') %>
+        </li>
+        <li class="">
+          <a class="bg-white inline-block border-t border-b w-full py-4 px-4 text-grey-light font-semibold">Upgrade</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex flex-wrap w-full md:w-5/6 p-4 text-center justify-between">
+    <div class="w-full text-left mb-4">
+      <h2>Overview</h2>
+    </div>
+    <div class="w-3/5 p-4 bg-white border mb-4">
+      <div class="h-64">
+        <h3>Opening hours</h3>
       </div>
-      <div class="w-full text-center mt-8">
-        <ul class="list-reset">
-          <li class="mt-0">
-            <%= link_to(t('.overview'), account_path,
-              class: 'bg-blue inline-block border-t w-full py-4 text-white font-semibold') %>
-          </li>
-          <li class="mt-0">
-            <%= link_to(t('.services'), account_services_path,
-              class: 'bg-white inline-block border-t w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold') %>
-          </li>
-          <li class="mt-0">
-            <%= link_to(t('.settings'), account_settings_path,
-              class: 'bg-white inline-block border-t w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold') %>
-          </li>
-          <li class="mt-0">
-            <a class="bg-white inline-block border-t border-b w-full py-4 px-4 text-grey-light font-semibold">Upgrade</a>
-          </li>
-        </ul>
+      <div class="h-64">
+        <h3>Opening hours</h3>
       </div>
     </div>
-    <div class="w-full md:w-5/6 bg-blue-ligher p-4 text-center">
-      <div class="w-full text-left mt-4 ml-8">
-        <h2>Overview</h2>
+    <div class="w-1/3 p-4 bg-white border mb-4">
+      <div class="">
+        <h3>Services</h3>
       </div>
-      <div class="w-full mb-6 mt-8">
-        <div class="px-2">
-          <div class="flex -mx-8">
-            <div class="w-2/5 ml-auto px-8">
-              <div class="bg-white border">
-                <div class="w-full mt-4 h-64">
-                  <h3>Opening hours</h3>
-                </div>
-                <div class="w-full mt-4 h-64">
-                  <h3>Opening hours</h3>
-                </div>
-              </div>
-            </div>
-            <div class="w-1/4 mr-auto px-8">
-              <div class="bg-white border h-64">
-                <div class="w-full flex-wrap mt-4">
-                  <h3>Services</h3>
-                </div>
-                <div class="w-full flex text-left text-blue mt-8 ml-6">
-                  <h3>Facebook</h3>
-                  <button class="bg-green hover:bg-green-light text-white font-bold py-2 px-4 rounded ml-8 -mt-2">
-                    Authenticated
-                  </button>
-                </div>
-                <div class="w-full flex text-left text-blue mt-8 ml-6">
-                  <h3>Google</h3>
-                  <button class="bg-red hover:bg-red-lighter text-white font-bold py-2 px-4 rounded ml-8 -mt-2">
-                    Authenticate
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="text-left text-blue p-2">
+        <div class="flex flex-row mb-4">
+          <h3 class="mt-1 mr-3">Facebook</h3>
+          <button class="bg-green hover:bg-green-light text-white font-bold py-2 px-4 rounded">
+            Authenticated
+          </button>
+        </div>
+        <div class="flex flex-row mb-4">
+          <h3 class="mt-1 mr-3">Google</h3>
+          <button class="bg-red hover:bg-red-lighter text-white font-bold py-2 px-4 rounded">
+            Authenticate
+          </button>
         </div>
       </div>
-      <div class="w-3/4 ml-auto mr-auto h-64 bg-white border px-4">
-        <div class="w-full text-left text-blue mt-4 px-4">
-          <h3>Random</h3>
-        </div>
+    </div>
+    <div class="w-full h-64 bg-white border p-4 text-left">
+      <div class="">
+        <h3>Random</h3>
       </div>
     </div>
   </div>
