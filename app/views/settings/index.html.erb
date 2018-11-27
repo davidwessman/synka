@@ -2,29 +2,7 @@
 <div class="w-full -mt-4">
   <div class="flex md:flex-row flex-wrap w-full h-full border-t">
     <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter">
-      <div class="mb-6 text-center text-black mt-8">
-        <h3>Welcome </h3><br>
-        <h4><%= current_user.email %></h4>
-      </div>
-      <div class="">
-        <ul class="list-reset">
-          <li class="">
-            <%= link_to(t('.overview'), account_path,
-              class: 'bg-white inline-block border-t w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold') %>
-          </li>
-          <li class="">
-            <%= link_to(t('.services'), account_services_path,
-              class: 'bg-white inline-block border-t w-full py-4 px-4 text-blue hover:bg-blue-light hover:text-white font-semibold') %>
-          </li>
-          <li class="">
-            <%= link_to(t('.settings'), account_settings_path,
-              class: 'bg-blue inline-block border-t w-full py-4 text-white font-semibold') %>
-          </li>
-          <li class="">
-            <a class="bg-white inline-block border-t border-b w-full py-4 px-4 text-grey-light font-semibold">Upgrade</a>
-          </li>
-        </ul>
-      </div>
+      <%= render('application/sidebar', current: :settings) %>
     </div>
     <div class="flex w-full lg:w-5/6 justify-center">
       <div class="flex-wrap w-full p-4 text-center justify-between ml-8 mr-8">

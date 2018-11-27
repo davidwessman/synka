@@ -37,6 +37,20 @@ module ApplicationHelper
 
   def time_value(time)
     return '' unless time
+
     I18n.l(time, format: :hour)
+  end
+
+  def sidebar_link(text, path, active)
+    classes = 'inline-block border-t w-full py-4 font-semibold'
+    classes += \
+      if path.nil?
+        ' text-grey-light'
+      elsif active
+        ' bg-blue text-white'
+      else
+        ' bg-white text-blue hover:bg-blue-light hover:text-white'
+      end
+    link_to(text, path, class: classes)
   end
 end
