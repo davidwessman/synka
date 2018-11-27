@@ -1,0 +1,24 @@
+<div class="py-6 text-center text-grey-lighter">
+  <div class="w-full mb-6 text-center text-black">
+    <h3>Welcome </h3><br>
+    <h4><%= current_user.email %></h4>
+  </div>
+  <div class="w-full text-center mt-8">
+    <ul class="list-reset">
+      <li class="">
+        <%= sidebar_link(t('.overview'), account_path, current == :account) %>
+      </li>
+      <li class="">
+        <%= sidebar_link(t('.services'), account_services_path,
+                         current == :services) %>
+      </li>
+      <li class="">
+        <%= sidebar_link(t('.settings'), account_settings_path,
+                         current == :settings) %>
+      </li>
+      <li class="border-b">
+        <%= sidebar_link(t('.upgrade'), nil, current == :upgrade) %>
+      </li>
+    </ul>
+  </div>
+</div>
