@@ -13,7 +13,7 @@ gem 'rails', '~> 5.2'
 
 gem 'bootsnap', require: false
 gem 'clearance'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'koala'
 gem 'pg'
 gem 'puma'
