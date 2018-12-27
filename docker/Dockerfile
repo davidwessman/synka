@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-slim-stretch
+FROM ruby:2.6-slim-stretch
 LABEL maintainer="david@wessman.co"
 
 ADD https://dl.yarnpkg.com/debian/pubkey.gpg /tmp/yarn-pubkey.gpg
