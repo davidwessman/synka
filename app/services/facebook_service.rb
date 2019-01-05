@@ -58,14 +58,14 @@ class FacebookService
   end
 
   def self.app_oauth(callback = Rails.application.routes.url_helpers.oauth_url)
-    return unless (app_id = ENV.fetch('FB_APP_ID', nil))
-    return unless (secret = ENV.fetch('FB_APP_SECRET', nil))
+    return unless (app_id = ENV.fetch('FB_APP_ID', ''))
+    return unless (secret = ENV.fetch('FB_APP_SECRET', ''))
     Koala::Facebook::OAuth.new(app_id, secret, callback)
   end
 
   def self.test_users
-    return unless (app_id = ENV.fetch('FB_APP_ID', nil))
-    return unless (secret = ENV.fetch('FB_APP_SECRET', nil))
+    return unless (app_id = ENV.fetch('FB_APP_ID', ''))
+    return unless (secret = ENV.fetch('FB_APP_SECRET', ''))
     Koala::Facebook::TestUsers.new(app_id: app_id, secret: secret)
   end
 
