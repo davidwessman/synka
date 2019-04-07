@@ -5,7 +5,7 @@ class ShiftsController < ApplicationController
   def create
     @location = current_user.locations.find(params[:location_id])
     @connection = @location.connections
-                           .find(shift_params.fetch(:connection_id))
+      .find(shift_params.fetch(:connection_id))
     @shift = @connection.shifts.build(shift_params)
     render(:error, status: 422) unless @shift.save
   end
@@ -13,7 +13,7 @@ class ShiftsController < ApplicationController
   def update
     @location = current_user.locations.find(params[:location_id])
     @connection = @location.connections
-                           .find(shift_params.fetch(:connection_id))
+      .find(shift_params.fetch(:connection_id))
     @shift = @connection.shifts.find(params[:id])
     render(:error, status: 422) unless @shift.update(shift_params)
   end
@@ -21,7 +21,7 @@ class ShiftsController < ApplicationController
   def destroy
     location = current_user.locations.find(params[:location_id])
     connection = location.connections
-                         .find(shift_params.fetch(:connection_id))
+      .find(shift_params.fetch(:connection_id))
     shift = connection.shifts.find(params[:id])
     @day = shift.day
     @id = ActionView::RecordIdentifier.dom_id(shift)

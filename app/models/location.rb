@@ -4,7 +4,7 @@ class Location < ApplicationRecord
   belongs_to(:user)
   has_many(:connections, dependent: :destroy)
   has_many(:shifts, through: :connections)
-  enum(status: { unknown: 0, synced: 10, desynced: 20, error: 30 })
+  enum(status: {unknown: 0, synced: 10, desynced: 20, error: 30})
   validates(:title, presence: true)
 
   def check

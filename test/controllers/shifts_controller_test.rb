@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class ShiftsControllerTest < ActionDispatch::IntegrationTest
-  test 'should require login' do
+  test "should require login" do
     shift = shifts(:local_mon)
     patch(account_location_shift_path(shift.connection.location, shift),
-          xhr: true)
+      xhr: true)
     assert_response(401)
   end
 end

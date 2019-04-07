@@ -2,19 +2,19 @@
 
 module ApplicationHelper
   def user_facing_flashes
-    flash.to_hash.slice('alert', 'error', 'notice', 'success')
+    flash.to_hash.slice("alert", "error", "notice", "success")
   end
 
   def flash_css(flash)
     case flash
-    when 'alert'
-      'bg-yellow border-yellow text-grey-darkest'
-    when 'error'
-      'bg-red border-red text-grey-darkest'
-    when 'notice'
-      'bg-blue border-blue text-white'
-    when 'success'
-      'bg-green border-green text-green-darkest'
+    when "alert"
+      "bg-yellow border-yellow text-grey-darkest"
+    when "error"
+      "bg-red border-red text-grey-darkest"
+    when "notice"
+      "bg-blue border-blue text-white"
+    when "success"
+      "bg-green border-green text-green-darkest"
     end
   end
 
@@ -36,20 +36,20 @@ module ApplicationHelper
   end
 
   def time_value(time)
-    return '' unless time
+    return "" unless time
 
     I18n.l(time, format: :hour)
   end
 
   def sidebar_link(text, path, active)
-    classes = 'inline-block border-t w-full py-4 font-semibold'
+    classes = "inline-block border-t w-full py-4 font-semibold"
     classes += \
       if path.nil?
-        ' text-grey-light'
+        " text-grey-light"
       elsif active
-        ' bg-blue text-white'
+        " bg-blue text-white"
       else
-        ' bg-white text-blue hover:bg-blue-light hover:text-white'
+        " bg-white text-blue hover:bg-blue-light hover:text-white"
       end
     link_to(text, path, class: classes)
   end

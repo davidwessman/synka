@@ -5,8 +5,8 @@ class Connection < ApplicationRecord
   belongs_to(:service)
   has_many(:shifts, -> { by_day }, dependent: :destroy)
 
-  scope(:local, -> { joins(:service).where(services: { kind: :local }) })
-  scope(:remote, -> { joins(:service).where.not(services: { kind: :local }) })
+  scope(:local, -> { joins(:service).where(services: {kind: :local}) })
+  scope(:remote, -> { joins(:service).where.not(services: {kind: :local}) })
 
   def to_s
     service.kind

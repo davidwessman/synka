@@ -6,6 +6,6 @@ class Hour
   end
 
   def to_s
-    I18n.l(@time, format: '%H:%M')
+    I18n.l(@time, format: "%H:%M")
   end
 end

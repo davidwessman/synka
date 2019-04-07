@@ -4,7 +4,7 @@ class Service < ApplicationRecord
   belongs_to(:user)
   has_many(:connections, dependent: :destroy)
   has_many(:authentications, dependent: :destroy)
-  enum(kind: { local: 0, facebook: 10 })
+  enum(kind: {local: 0, facebook: 10})
 
   def authenticate(auth)
     service(nil).authenticate(auth)
@@ -30,7 +30,7 @@ class Service < ApplicationRecord
 
   def self.kind(kind)
     case kind.to_s
-    when 'facebook'
+    when "facebook"
       FacebookService
     else
       LocalService
