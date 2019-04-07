@@ -2,7 +2,9 @@
 
 class ServicesController < ApplicationController
   before_action(:require_login)
-  def index; end
+  def index
+  end
+
   def create
     service = current_user.services.build(service_params)
     service.save!
@@ -12,9 +14,9 @@ class ServicesController < ApplicationController
   def show
     service = current_user.services.find(params[:id])
     auth = service.authentications
-                  .build(data: { code: facebook_params.fetch(:code) })
+      .build(data: {code: facebook_params.fetch(:code)})
     if auth.save && service.authenticate(auth)
-      redirect_to(account_url, notice: t('.success'))
+      redirect_to(account_url, notice: t(".success"))
     else
       render(status: 422)
     end

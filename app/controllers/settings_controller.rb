@@ -11,9 +11,9 @@ class SettingsController < ApplicationController
   def show
     service = current_user.services.find(params[:id])
     auth = service.authentications
-                  .build(data: { code: facebook_params.fetch(:code) })
+      .build(data: {code: facebook_params.fetch(:code)})
     if auth.save && service.authenticate(auth)
-      redirect_to(account_url, notice: t('.success'))
+      redirect_to(account_url, notice: t(".success"))
     else
       render(status: 422)
     end
@@ -28,5 +28,7 @@ class SettingsController < ApplicationController
   def facebook_params
     params.permit(:state, :code)
   end
-  def index; end
+
+  def index
+  end
 end

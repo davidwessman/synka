@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class LocalService
-  def initialize(_service, _connection); end
+  def initialize(_service, _connection)
+  end
 
   def push
     true

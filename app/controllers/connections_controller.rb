@@ -2,7 +2,8 @@
 
 class ConnectionsController < ApplicationController
   before_action(:require_login)
-  def update; end
+  def update
+  end
 
   def show
     @location = current_user.locations.find(params[:location_id])

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by(
@@ -9,7 +9,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     options: {
       options: Selenium::WebDriver::Chrome::Options.new(
         args: %w[disable-notifications]
-      )
+      ),
     }
   )
   setup(:set_host)
@@ -22,14 +22,15 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   end
 
   # override API MOCK
-  def api_setup; end
+  def api_setup
+  end
 
   def sign_in_as(user)
     visit(sign_in_url)
-    fill_in('email', with: user.email)
-    fill_in('password', with: 'passpass')
-    within('form') do
-      click_on('Sign in')
+    fill_in("email", with: user.email)
+    fill_in("password", with: "passpass")
+    within("form") do
+      click_on("Sign in")
     end
   end
 end

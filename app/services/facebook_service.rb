@@ -12,11 +12,11 @@ class FacebookService
   def authenticate(auth)
     return unless auth
     auth.update!(status: :pending, status_at: Time.zone.now)
-    unless (user = from_code(auth.data['code']))
+    unless (user = from_code(auth.data["code"]))
       auth.update!(status: :failed, status_at: Time.zone.now)
       return false
     end
-    id = user.get_connections('me', nil).symbolize_keys.fetch(:id, nil)
+    id = user.get_connections("me", nil).symbolize_keys.fetch(:id, nil)
     if id
       Service.transaction do
         @service.update!(remote_uid: id, active: Time.zone.now)
@@ -36,8 +36,8 @@ class FacebookService
   def push
     return false if page_account.nil?
     data = to_fb(@connection.week)
-    response = page_account.put_connections('me', nil, hours: data.to_json)
-    response['success'] == true
+    response = page_account.put_connections("me", nil, hours: data.to_json)
+    response["success"] == true
   end
 
   def check_permissions
@@ -58,21 +58,21 @@ class FacebookService
   end
 
   def self.app_oauth(callback = Rails.application.routes.url_helpers.oauth_url)
-    return unless (app_id = ENV.fetch('FB_APP_ID', ''))
-    return unless (secret = ENV.fetch('FB_APP_SECRET', ''))
+    return unless (app_id = ENV.fetch("FB_APP_ID", ""))
+    return unless (secret = ENV.fetch("FB_APP_SECRET", ""))
     Koala::Facebook::OAuth.new(app_id, secret, callback)
   end
 
   def self.test_users
-    return unless (app_id = ENV.fetch('FB_APP_ID', ''))
-    return unless (secret = ENV.fetch('FB_APP_SECRET', ''))
+    return unless (app_id = ENV.fetch("FB_APP_ID", ""))
+    return unless (secret = ENV.fetch("FB_APP_SECRET", ""))
     Koala::Facebook::TestUsers.new(app_id: app_id, secret: secret)
   end
 
   def self.permission_url(service)
     redirect = redirect_url(service)
     oauth = FacebookService.app_oauth(redirect)
-    oauth.url_for_oauth_code(permissions: PERMISSIONS.join(','))
+    oauth.url_for_oauth_code(permissions: PERMISSIONS.join(","))
   end
 
   private
@@ -80,8 +80,8 @@ class FacebookService
   # All accounts connected to app
   def accounts
     return [] if @app.nil?
-    @app.get_connections('app', 'accounts',
-                         fields: %w[id access_token]).map(&:symbolize_keys)
+    @app.get_connections("app", "accounts",
+      fields: %w[id access_token]).map(&:symbolize_keys)
   end
 
   # Returns account_token for current account
@@ -93,8 +93,8 @@ class FacebookService
   def pages
     return [] if account.nil?
     return @pages if @pages
-    fields = 'accounts{id, access_token, hours}'
-    data = account.get_connections('me', '', fields: [fields])
+    fields = "accounts{id, access_token, hours}"
+    data = account.get_connections("me", "", fields: [fields])
     @pages = data.deep_symbolize_keys.fetch(:accounts)&.fetch(:data)
   end
 
@@ -137,19 +137,19 @@ class FacebookService
   end
 
   def permissions
-    permissions = account.get_connections('me', 'permissions')
-                         .map(&:symbolize_keys)
+    permissions = account.get_connections("me", "permissions")
+      .map(&:symbolize_keys)
     checks = Hash.new(PERMISSIONS.collect { |p| [p, false] })
     permissions.each do |p|
-      checks[p[:permission].to_sym] = p[:status] == 'granted'
+      checks[p[:permission].to_sym] = p[:status] == "granted"
     end
     checks.partition { |k, _| PERMISSIONS.include?(k) }.map(&:to_h)
   end
 
   def remove_permissions(remove)
-    remove.map do |p|
-      account.delete_connections('me', "permissions/#{p}")
-    end.all?
+    remove.map { |p|
+      account.delete_connections("me", "permissions/#{p}")
+    }.all?
   end
 
   # Facebook Graph API call with user account
@@ -166,6 +166,6 @@ class FacebookService
 
   def self.redirect_url(service)
     Rails.application.routes.url_helpers
-         .account_service_url(service)
+      .account_service_url(service)
   end
 end
