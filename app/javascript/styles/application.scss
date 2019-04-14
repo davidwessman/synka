@@ -2,8 +2,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
 @tailwind preflight;
 @tailwind components;
-@import '../styles/components/buttons';
-@import '../styles/components/forms';
+@import './components/buttons';
+@import './components/forms';
 @tailwind utilities;

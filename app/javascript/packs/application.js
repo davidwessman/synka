@@ -8,4 +8,4 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import 'application'
-import 'application.scss'
+import 'styles/application'
