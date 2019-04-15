@@ -74,7 +74,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
-    css_parser (1.6.0)
+    css_parser (1.7.0)
       addressable
     email_validator (1.6.0)
       activemodel
@@ -168,8 +168,8 @@ GEM
     roadie (3.4.0)
       css_parser (~> 1.4)
       nokogiri (~> 1.5)
-    roadie-rails (2.0.0)
-      railties (>= 5.1, < 5.3)
+    roadie-rails (2.1.0)
+      railties (>= 5.1, < 6.1)
       roadie (~> 3.1)
     rubocop (0.67.2)
       jaro_winkler (~> 1.5.1)
