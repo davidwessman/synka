@@ -14,17 +14,13 @@ Rails.application.routes.draw do
                    path: "sign-out")
 
   resource(:account, only: :show) do
-    resources(:locations, only: %i[index show update]) do
-      resources(:checks, only: %i[create])
-      resources(:connections, only: %i[show update])
-      resources(:shifts, only: %i[create update destroy])
-    end
-    resources(:sites,)
-    resources(:services, only: %i[create index show])
     resources(:settings, only: %i[create index show])
   end
 
-  get(:oauth, controller: :presentation, action: :index)
+  resources(:spaces, only: %i[index show update]) do
+    resources(:contacts, only: %i[create index show update])
+  end
+
   get(:contact, controller: :presentation, action: :contact)
   get(:about, controller: :presentation, action: :about)
   get(:read_more, controller: :presentation, action: :read_more)

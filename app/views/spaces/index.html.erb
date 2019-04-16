@@ -1,0 +1,20 @@
+<!-- Services index under account -->
+<div class="w-full -mt-4">
+  <div class="flex md:flex-row flex-wrap w-full h-full border-t">
+    <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter">
+      <%= render('application/sidebar', current: :spaces) %>
+    </div>
+    <div class="flex w-full lg:w-5/6">
+      <div class="w-full p-4 text-center ml-8 mr-8"> <!-- Main content div -->
+        <div class="w-full text-left mt-4 border-b py-2 border-grey"> <!--Headline div -->
+          <h2>Spaces</h2>
+        </div>
+        <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
+          <% @spaces.each do |space| %>
+            <%= render('spaces/space_grid_item', space: space) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,23 @@
 # frozen_string_literal: true
 
 class TwilioTextMessenger
-  attr_reader(:message, :phone)
+  attr_reader(:message)
 
-  def initialize(phone, message)
-    @phone = phone
-    @message = message
-    #@user = User.find(user_id)
+  def initialize(message_id)
+    @message = Message.find(message_id)
   end
 
   def call
     client = Twilio::REST::Client.new
-    client.messages.create({
-      from: Rails.application.secrets.twilio_phone_number,
-      to: @phone,
-      body: @message,
-    })
+    return false unless @message.draft?
+    @message.transaction do
+      client.messages.create({
+        from: Rails.application.secrets.twilio_phone_number,
+        to: @message.contact.phone,
+        body: @message.content,
+      })
+      @message.sent!
+    end
+    return true
   end
 end

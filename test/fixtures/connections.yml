@@ -1,7 +1,0 @@
-facebook:
-  location: store
-  service: grasklipp_facebook
-  remote_uid: <%= ENV.fetch('FB_PAGE_ID', '123456789') %>
-local:
-  location: store
-  service: grasklipp_local

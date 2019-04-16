@@ -2,9 +2,8 @@
 
 class User < ApplicationRecord
   include Clearance::User
-  has_many(:services, dependent: :destroy)
-  has_many(:locations, dependent: :destroy)
-  has_many(:connections, through: :locations)
+  has_many(:user_spaces)
+  has_many(:spaces, through: :user_spaces)
   enum(role: {normal: 0, admin: 10})
 
   def to_s
