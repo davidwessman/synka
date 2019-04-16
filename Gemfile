@@ -34,6 +34,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "dotenv-rails"
+  gem "htmlbeautifier"
   gem "standardrb"
 end
 
