@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.6.2"
+ruby "2.6.3"
 
 gem "rails", "~> 5.2"
 
@@ -18,7 +18,6 @@ gem "koala"
 gem "pg"
 gem "puma"
 gem "roadie-rails"
-gem "sass-rails"
 gem "sidekiq"
 gem "turbolinks"
 gem "twilio-ruby"
