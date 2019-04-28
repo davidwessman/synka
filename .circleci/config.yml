@@ -1,7 +1,7 @@
 # Ruby CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
+
 version: 2
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:10-alpine
         environment:
-          PGUSER: user
+          POSTGRES_USER: user
           POSTGRES_DB: sync-hours_test
           POSTGRES_PASSWORD: ""
 
