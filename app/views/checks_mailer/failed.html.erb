@@ -1,8 +1,0 @@
-<% content_for(:title) do %>
-  <%= t('.hello', user: @location.user.to_s) %>
-<% end %>
-
-<div style="text-align: center; font-size: 32px; padding: 16px; border: 2px solid black; border-radius: 16px;">
-  <%= simple_format(t('.description')) %>
-  <%= link_to(t('.more'), account_location_url(@location, status: :failed)) %>
-</div>
