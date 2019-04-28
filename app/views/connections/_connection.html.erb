@@ -1,8 +1,0 @@
-<div class="font-bold text-xl mb-2">
-  <%= connection %>
-</div>
-<%= render(connection.service.local? ? 'local_connection' : 'remote_connection',
-           location: location, connection: connection) %>
-
-<%= link_to(t('.reload'), account_location_connection_path(location, connection),
-            remote: true, class: 'button bg-blue text-white') %>

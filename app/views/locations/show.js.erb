@@ -1,3 +1,0 @@
-var syncStatus = document.getElementById('<%= dom_id(@location) %>');
-syncStatus.innerHTML = "<%= j render('locations/status', location: @location) %>";
-syncStatus.dataset.loaded = true;
