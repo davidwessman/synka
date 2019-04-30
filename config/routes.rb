@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   resources(:passwords, controller: "clearance/passwords", only: %i[create new])
   resource(:session, controller: "clearance/sessions", only: [:create])
@@ -17,12 +19,18 @@ Rails.application.routes.draw do
     resources(:settings, only: %i[create index show])
   end
 
-  resources(:spaces, only: %i[index show update]) do
-    resources(:contacts, only: %i[create index show update])
+  resources(:spaces, only: %i[show update]) do
+    resources(:contacts, only: %i[create show edit new update])
+  end
+
+  resources(:contacts, only: %i[]) do
+    resources(:messages, only: %i[create])
   end
 
   get(:contact, controller: :presentation, action: :contact)
   get(:about, controller: :presentation, action: :about)
   get(:read_more, controller: :presentation, action: :read_more)
   root(controller: :presentation, action: :index)
+
+  mount(Sidekiq::Web => "/sidekiq")
 end

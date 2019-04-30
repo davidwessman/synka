@@ -1,0 +1,21 @@
+<%= form_with(model: [space, contact], local: true,
+              class: 'py-2') do |form| %>
+  <div class="mb-4">
+    <%= form.label(:name, class: 'form-label ') %>
+    <%= form.text_field(:name, id: 'name', autofocus: true,
+                               class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+  </div>
+  <div class="mb-4">
+    <%= form.label(:phone, class: 'form-label ') %>
+    <%= form.text_field(:phone, id: 'phone',
+                                class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+  </div>
+  <div class="mb-4">
+    <%= form.label(:email, class: 'form-label ') %>
+    <%= form.text_field(:email, id: 'email',
+                                class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+  </div>
+  <div class="flex items-center justify-between">
+    <%= form.submit(class: 'button button-blue mb-3') %>
+  </div>
+<% end %>

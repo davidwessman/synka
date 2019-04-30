@@ -1,25 +1,20 @@
-<!-- Services index under account -->
-<div class="w-full -mt-4">
-  <div class="flex md:flex-row flex-wrap w-full h-full border-t">
-    <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter">
-      <%= render('application/sidebar', current: :spaces) %>
-    </div>
-    <div class="flex w-full lg:w-5/6">
-      <div class="w-full p-4 text-center ml-8 mr-8"> <!-- Main content div -->
-        <div class="w-full text-left mt-4 border-b py-2 border-grey"> <!--Headline div -->
-          <h2>Space - <%= @space.title %></h2>
-        </div>
-        <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-        </div>
-        <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-          Contacts:
-          <ul>
-            <% @space.contacts.each do |contact| %>
-              <li><%= contact %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+<% content_for(:sidebar) do %>
+  <%= render('application/sidebar', current: :account) %>
+<% end %>
+
+<div class="w-full p-4 mx-8"> <!-- Main content div -->
+  <div class="w-full border-b py-2 border-grey"> <!--Headline div -->
+    <h2>Space - <%= @space.title %></h2>
+  </div>
+  <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
+    <h3>Contacts</h3>
+    <ul class="py-2">
+      <% @space.contacts.each do |contact| %>
+        <li><%= link_to(contact, space_contact_path(@space, contact)) %></li>
+      <% end %>
+    </ul>
+    <div class="mt-4">
+      <%= link_to(t('.new'), new_space_contact_path(@space), class: 'button button-blue') %>
     </div>
   </div>
 </div>
