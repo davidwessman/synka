@@ -1,0 +1,15 @@
+<% content_for(:sidebar) do %>
+  <%= render('application/sidebar', current: :spaces) %>
+<% end %>
+
+<div class="w-full p-4 mx-8">
+  <div class="w-full border-b py-2 border-grey">
+    <h2><%= t('.contact') %></h2>
+  </div>
+  <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
+    <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
+      <h3><%= t('.edit') %></h3>
+      <%= render('form', space: @space, contact: @contact) %>
+    </div>
+  </div>
+</div>

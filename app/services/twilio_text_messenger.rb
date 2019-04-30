@@ -3,8 +3,8 @@
 class TwilioTextMessenger
   attr_reader(:message)
 
-  def initialize(message_id)
-    @message = Message.find(message_id)
+  def initialize(message)
+    @message = message
   end
 
   def call
@@ -18,6 +18,6 @@ class TwilioTextMessenger
       })
       @message.sent!
     end
-    return true
+    true
   end
 end

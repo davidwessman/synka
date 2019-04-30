@@ -1,102 +1,100 @@
 <!-- Settings page -->
-<div class="w-full -mt-4">
-  <div class="flex md:flex-row flex-wrap w-full h-full border-t">
-    <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter">
-      <%= render('application/sidebar', current: :settings) %>
-    </div>
-    <div class="flex w-full lg:w-5/6 justify-center">
-      <div class="flex-wrap w-full p-4 text-center justify-between ml-8 mr-8">
-        <div class="w-full text-left mt-4 border-b py-2 border-grey">
-          <h2>Settings</h2>
+<div class="flex md:flex-row flex-wrap w-full h-full border-t">
+  <div class="w-full lg:w-1/6 bg-white border-r text-center text-grey-lighter">
+    <%= render('application/sidebar', current: :settings) %>
+  </div>
+  <div class="flex w-full lg:w-5/6 justify-center">
+    <div class="flex-wrap w-full p-4 text-center justify-between ml-8 mr-8">
+      <div class="w-full text-left mt-4 border-b py-2 border-grey">
+        <h2>Settings</h2>
+      </div>
+      <div class="w-full lg:w-2/3 sm:block md:block lg:flex-wrap xl:flex mt-8 ml-auto mr-auto">
+        <div class="w-full flex-1 xl:w-1/2 p-4 m-2 bg-white border mb-4 text-left border">
+          <div class="flex w-full border-b">
+            <div class="w-4/5 h-12 px-4 py-2 text-xl xl:text-2xl self-center">
+              Account
+            </div>
+            <div class="w-1/5 text-3xl py-1 px-4 text-right">
+              <%= link_to(account_path) do %>
+                <%= icon('far', 'address-card', class: 'fa-1x') %>
+              <% end %>
+            </div>
+          </div>
+          <div class="flex px-4 mt-6 text-grey">
+            User name:
+          </div>
+          <div class="flex px-4 mt-2 mb-6">
+            User
+          </div>
+          <div class="flex px-4 mt-2 text-grey">
+            Email:
+          </div>
+          <div class="px-4 mt-2 mb-6">
+            user@email.com
+          </div>
+          <div class="px-4 mt-2 text-grey">
+            Company name:
+          </div>
+          <div class="px-4 mt-2 mb-6">
+            N/a
+          </div>
+          <div class="px-4 mt-2 text-grey">
+            Country:
+          </div>
+          <div class="px-4 mt-2 mb-6">
+            N/a
+          </div>
+          <div class="px-4 mt-2 text-grey">
+            Subscribed until:
+          </div>
+          <div class="px-4 mt-2 mb-6">
+            2020-01-01
+          </div>
+          <div class="h-12 text-center">
+            <button class="bg-black text-white py-2 px-4 rounded font-bold text-xl">
+              Edit profile
+            </button>
+          </div>
         </div>
-        <div class="w-full lg:w-2/3 sm:block md:block lg:flex-wrap xl:flex mt-8 ml-auto mr-auto">
-          <div class="w-full flex-1 xl:w-1/2 p-4 m-2 bg-white border mb-4 text-left border">
-            <div class="flex w-full border-b">
-              <div class="w-4/5 h-12 px-4 py-2 text-xl xl:text-2xl self-center">
-                Account
-              </div>
-              <div class="w-1/5 text-3xl py-1 px-4 text-right">
-                <%= link_to(account_path) do %>
-                  <%= icon('far', 'address-card', class: 'fa-1x') %>
-                <% end %>
-              </div>
+        <div class="w-full flex-2 xl:w-1/2 xl:w-1/2 p-4 m-2 bg-white border mb-4 text-left">
+          <div class="flex w-full border-b">
+            <div class="w-4/5 h-12 px-4 py-2 text-xl xl:text-2xl self-center">
+              Premium Plan
             </div>
-            <div class="flex px-4 mt-6 text-grey">
-              User name:
+            <div class="w-1/5 text-3xl py-1 px-4 text-right">
+                <%= icon('far', 'plus-square', class: 'fa-1x') %>
             </div>
-            <div class="flex px-4 mt-2 mb-6">
-              User
-            </div>
-            <div class="flex px-4 mt-2 text-grey">
-              Email:
-            </div>
-            <div class="px-4 mt-2 mb-6">
-              user@email.com
-            </div>
-            <div class="px-4 mt-2 text-grey">
-              Company name:
-            </div>
-            <div class="px-4 mt-2 mb-6">
-              N/a
-            </div>
-            <div class="px-4 mt-2 text-grey">
-              Country:
-            </div>
-            <div class="px-4 mt-2 mb-6">
-              N/a
-            </div>
-            <div class="px-4 mt-2 text-grey">
-              Subscribed until:
-            </div>
-            <div class="px-4 mt-2 mb-6">
-              2020-01-01
-            </div>
-            <div class="h-12 text-center">
-              <button class="bg-black text-white py-2 px-4 rounded font-bold text-xl">
-                Edit profile
+          </div>
+          <div class="text-left mt-8 px-4">
+            With the premium plan you can blablal jnsak kmasjnk janskjbakjb ajhbsjkabskj jbsjfh hbshbeh hebfhjebjhbx hebd hebdjheb.
+          </div>
+          <div class="h-48 text-left mt-8 -ml-4 px-4">
+            <ul class="">
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+              <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
+              <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
+              <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
+              <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
+            </ul>
+          </div>
+          <div class="text-left p-2 text-center mt-8">
+            <div class="text-center mt-8">
+              <button class="bg-black text-white py-2 px-4 rounded opacity-50 cursor-not-allowed">
+                <h3>Subscribe now</h3>
               </button>
             </div>
           </div>
-          <div class="w-full flex-2 xl:w-1/2 xl:w-1/2 p-4 m-2 bg-white border mb-4 text-left">
-            <div class="flex w-full border-b">
-              <div class="w-4/5 h-12 px-4 py-2 text-xl xl:text-2xl self-center">
-                Premium Plan
-              </div>
-              <div class="w-1/5 text-3xl py-1 px-4 text-right">
-                  <%= icon('far', 'plus-square', class: 'fa-1x') %>
-              </div>
-            </div>
-            <div class="text-left mt-8 px-4">
-              With the premium plan you can blablal jnsak kmasjnk janskjbakjb ajhbsjkabskj jbsjfh hbshbeh hebfhjebjhbx hebd hebdjheb.
-            </div>
-            <div class="h-48 text-left mt-8 -ml-4 px-4">
-              <ul class="">
-                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
-                <li>Assumenda, quia temporibus eveniet a libero incidunt suscipit</li>
-                <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-                <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-                <li>Quidem, ipsam illum quis sed voluptatum quae eum fugit earum</li>
-              </ul>
-            </div>
-            <div class="text-left p-2 text-center mt-8">
-              <div class="text-center mt-8">
-                <button class="bg-black text-white py-2 px-4 rounded opacity-50 cursor-not-allowed">
-                  <h3>Subscribe now</h3>
-                </button>
+        </div>
+        <div class="w-full h-40 bg-white border p-4 m-2 text-left">
+          <div class="block lg:flex-wrap xl:flex">
+            <div class="w-full xl:w-1/4 p-4 mr-auto ml-auto">
+              <div class="text-center italic p-4 text-lg lg:text-xl">
+                Log out all social media accounts
               </div>
             </div>
-          </div>
-          <div class="w-full h-40 bg-white border p-4 m-2 text-left">
-            <div class="block lg:flex-wrap xl:flex">
-              <div class="w-full xl:w-1/4 p-4 mr-auto ml-auto">
-                <div class="text-center italic p-4 text-lg lg:text-xl">
-                  Log out all social media accounts
-                </div>
-              </div>
-              <div class="w-full xl:w-1/2 p-2 self-center">
-                <div class="text-grey-darker text-center p-2">
-                  <%= link_to(t('.log out all accounts'), read_more_path, class: 'bg-black hover:bg-grey-darkest text-white font-bold text-sm md:text-base lg:text-lg xl:text-lg py-2 px-3 rounded shadow-md') %>
-                </div>
+            <div class="w-full xl:w-1/2 p-2 self-center">
+              <div class="text-grey-darker text-center p-2">
+                <%= link_to(t('.log out all accounts'), read_more_path, class: 'bg-black hover:bg-grey-darkest text-white font-bold text-sm md:text-base lg:text-lg xl:text-lg py-2 px-3 rounded shadow-md') %>
               </div>
             </div>
           </div>
