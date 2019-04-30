@@ -2,6 +2,7 @@ en:
   time:
     formats:
       hour: '%H:%M'
+      short: '%Y-%m-%d %H:%M'
     week_days:
       mon: Monday
       tue: Tuesday

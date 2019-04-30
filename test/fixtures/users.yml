@@ -1,0 +1,9 @@
+business:
+  email: owner@business.com
+  encrypted_password: <%= BCrypt::Password.create('passpass') %>
+  remember_token: <%= Clearance::Token.new %>
+
+admin:
+  email: admin@synka.app
+  encrypted_password: <%= BCrypt::Password.create('passpass') %>
+  remember_token: <%= Clearance::Token.new %>

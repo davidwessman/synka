@@ -21,10 +21,6 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       Capybara.current_session.server.port
   end
 
-  # override API MOCK
-  def api_setup
-  end
-
   def sign_in_as(user)
     visit(sign_in_url)
     fill_in("email", with: user.email)
