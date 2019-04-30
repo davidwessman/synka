@@ -9,7 +9,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "renders users account" do
-    sign_in_as(users(:grasklipparservice))
+    sign_in_as(users(:business))
     get(account_url)
     assert_response(:success)
   end
