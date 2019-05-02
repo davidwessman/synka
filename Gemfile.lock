@@ -132,6 +132,8 @@ GEM
     parser (2.6.2.1)
       ast (~> 2.4.0)
     pg (1.1.4)
+    procodile (1.0.23)
+      json
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -267,6 +269,7 @@ DEPENDENCIES
   htmlbeautifier
   koala
   pg
+  procodile
   pry-rails
   puma
   rails (~> 5.2)

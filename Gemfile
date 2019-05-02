@@ -37,6 +37,7 @@ end
 group :development do
   gem "dotenv-rails"
   gem "htmlbeautifier"
+  gem "procodile"
   gem "standardrb"
 end
 

@@ -1,8 +1,7 @@
-# SyncHours - helps businesses and stores handle their opening-hours online!
+# Synka.app - handle day to day customer contact via SMS.
 
 ## Getting started
 The application is written in Ruby on Rails, download the repository and get started!
-
 
 To ease the installation, we are using [Docker](https://docs.docker.com) and [docker-compose](https://docs.docker.com/compose/) to make things easier.
 Make sure these are installed and then run:
@@ -13,5 +12,6 @@ Make sure these are installed and then run:
 
 If not using Docker, run the `bin/setup` script to get started.
 It requires [Postgres](https://www.postgresql.org/), [Bundler](http://bundler.io/) and [yarn](https://yarnpkg.com/lang/en/).
+
 ## Status
-[![CircleCI](https://circleci.com/gh/davidwessman/sync-hours/tree/master.svg?style=shield)](https://circleci.com/gh/davidwessman/sync-hours/tree/master)
+[![CircleCI](https://circleci.com/gh/davidwessman/synka/tree/master.svg?style=shield)](https://circleci.com/gh/davidwessman/synka/tree/master)
