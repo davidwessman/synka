@@ -2,7 +2,7 @@
               class: 'py-2') do |form| %>
   <div class="mb-4">
     <%= form.label(:content, class: 'form-label ') %>
-    <%= form.text_area(:content, id: 'content', autofocus: true,
+    <%= form.text_area(:content, id: 'content', autofocus: true, rows: 10,
                                   class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
   </div>
   <div class="flex items-center justify-between">

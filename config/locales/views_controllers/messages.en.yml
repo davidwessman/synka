@@ -1,0 +1,4 @@
+en:
+  messages:
+    message:
+      sent_by: "Sent by: %{user}"

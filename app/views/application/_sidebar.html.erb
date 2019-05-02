@@ -1,8 +1,20 @@
 <div class="w-full bg-white border-r py-6 text-center text-grey-lighter h-full">
   <div class="mb-6 text-black">
-    <h3>Welcome </h3><br>
-    <h4><%= current_user.email %></h4>
+    <h3><%= t('.welcome') %></h3><br>
+    <h4><%= current_user %></h4>
   </div>
+  <% if current_user.spaces.any? %>
+    <div class="mt-8">
+      <ul class="list-reset">
+        <% current_user.spaces.each do |space| %>
+          <li class="border-b">
+            <%= sidebar_link(space.title, space_path(space),
+                            current == space) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="mt-8">
     <ul class="list-reset">
       <li class="">
