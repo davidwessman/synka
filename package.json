@@ -1,5 +1,5 @@
 {
-  "name": "sync-hours",
+  "name": "synka",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.2",
