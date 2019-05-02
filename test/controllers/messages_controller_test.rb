@@ -14,5 +14,9 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to(space_contact_url(contact.space, contact))
+
+    message = Message.order(created_at: :desc).last
+    assert_equal(message.content, "An awesome message!")
+    assert_equal(message.user, users(:business))
   end
 end

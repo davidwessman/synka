@@ -7,7 +7,10 @@
       <%= t('.status') %>: <%=message.status %>
     </div>
     <div class="">
-      <%= l(message.updated_at, format: :short) %>
+      <%= t('.sent_by', user: message.user) %>
+    </div>
+    <div class="">
+      <%= l(message.sent_at, format: :short) if message.sent_at? %>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <% content_for(:sidebar) do %>
-  <%= render('application/sidebar', current: :account) %>
+  <%= render('application/sidebar', current: @contact.space) %>
 <% end %>
 
 <div class="w-full p-4 mx-8">
@@ -8,7 +8,7 @@
       <h2><%= t('.contact') %> - <%= @contact %></h2>
     </div>
     <div>
-      <%= link_to(t('.edit'), edit_space_contact_path(@space, @contact), class: 'button button-blue') %>
+      <%= link_to(t('.edit'), edit_space_contact_path(@contact.space, @contact), class: 'button button-blue') %>
     </div>
   </div>
   <div class="w-full lg:w-3/4 xl:w-2/3 p-3">

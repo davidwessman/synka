@@ -16,7 +16,7 @@ class TwilioTextMessenger
         to: @message.contact.phone,
         body: @message.content,
       })
-      @message.sent!
+      @message.update!(status: :sent, sent_at: Time.zone.now)
     end
     true
   end

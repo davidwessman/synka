@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: sync-hours_development
+  database: synka_development
 
 test:
   <<: *default
-  database: sync-hours_test
+  database: synka_test
 
 production:
   <<: *default

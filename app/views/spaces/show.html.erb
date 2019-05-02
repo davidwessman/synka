@@ -1,5 +1,5 @@
 <% content_for(:sidebar) do %>
-  <%= render('application/sidebar', current: :account) %>
+  <%= render('application/sidebar', current: @space) %>
 <% end %>
 
 <div class="w-full p-4 mx-8"> <!-- Main content div -->
@@ -12,9 +12,13 @@
       <% @space.contacts.each do |contact| %>
         <li><%= link_to(contact, space_contact_path(@space, contact)) %></li>
       <% end %>
+      <% unless @space.contacts.any? %>
+        <%= simple_format(t('.no_contacts')) %>
+      <% end %>
     </ul>
     <div class="mt-4">
-      <%= link_to(t('.new'), new_space_contact_path(@space), class: 'button button-blue') %>
+      <%= link_to(t('.new_contact'), new_space_contact_path(@space), class: 'button button-blue') %>
+      <%= link_to(t('.import_contacts'), new_space_contact_path(@space), class: 'button button-grey') %>
     </div>
   </div>
 </div>

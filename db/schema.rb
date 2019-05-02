@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_190403) do
+ActiveRecord::Schema.define(version: 2019_05_02_181407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 2019_04_16_190403) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "user_id"
+    t.datetime "sent_at"
     t.index ["contact_id"], name: "index_messages_on_contact_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "spaces", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -66,12 +69,14 @@ ActiveRecord::Schema.define(version: 2019_04_16_190403) do
     t.string "remember_token", limit: 128, null: false
     t.integer "role", default: 0, null: false
     t.string "phone"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
   add_foreign_key "contacts", "spaces"
   add_foreign_key "messages", "contacts"
+  add_foreign_key "messages", "users"
   add_foreign_key "user_spaces", "spaces"
   add_foreign_key "user_spaces", "users"
 end
