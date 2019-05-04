@@ -27,6 +27,12 @@ Rails.application.routes.draw do
     resources(:messages, only: %i[create])
   end
 
+  namespace(:callbacks) do
+    resources(:messages, only: %i[]) do
+      post(:status, on: :member)
+    end
+  end
+
   get(:contact, controller: :presentation, action: :contact)
   get(:about, controller: :presentation, action: :about)
   get(:read_more, controller: :presentation, action: :read_more)
