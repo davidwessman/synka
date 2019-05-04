@@ -1,0 +1,23 @@
+draft:
+  user: business
+  contact: business_first
+  content: "Wohoo, message!"
+  status: :draft
+
+processed:
+  user: business
+  contact: business_first
+  content: "Wohoo, message!"
+  status: :processed
+
+sent:
+  user: business
+  contact: business_first
+  content: "Wohoo, message!"
+  status: :sent
+
+delivered:
+  user: business
+  contact: business_first
+  content: "Wohoo, message!"
+  status: :delivered

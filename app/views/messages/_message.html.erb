@@ -10,7 +10,7 @@
       <%= t('.sent_by', user: message.user) %>
     </div>
     <div class="">
-      <%= l(message.sent_at, format: :short) if message.sent_at? %>
+      <%= l(message.processed_at, format: :short) if message.processed_at? %>
     </div>
   </div>
 </div>
