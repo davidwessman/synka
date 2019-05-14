@@ -4,7 +4,7 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   resources(:passwords, controller: "clearance/passwords", only: %i[create new])
-  resource(:session, controller: "clearance/sessions", only: [:create])
+  resource(:session, controller: :sessions, only: %i[create])
   resources(:users, controller: "clearance/users",
                     only: Clearance.configuration.user_actions) do
     resource(:password,
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources(:spaces, only: %i[show update]) do
     resources(:contacts, only: %i[create show edit new update])
+    resources(:messages, only: %i[new])
   end
 
   resources(:contacts, only: %i[]) do

@@ -8,6 +8,6 @@ module.exports = {
       },
       stage: 3
     }),
-    require('tailwindcss')('./app/javascript/src/tailwind.js')
+    require('tailwindcss')('./app/javascript/src/tailwind.config.js')
   ]
 }

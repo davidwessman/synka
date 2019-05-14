@@ -8,13 +8,13 @@ module ApplicationHelper
   def flash_css(flash)
     case flash
     when "alert"
-      "bg-yellow border-yellow text-grey-darkest"
+      "bg-yellow-800 border-yellow-800 text-grey-800"
     when "error"
-      "bg-red border-red text-grey-darkest"
+      "bg-red-800 border-red-800 text-grey-800"
     when "notice"
-      "bg-blue border-blue text-white"
+      "bg-blue-800 border-blue-800 text-white"
     when "success"
-      "bg-green border-green text-green-darkest"
+      "bg-green-800 border-green-800 text-green-800"
     end
   end
 
@@ -45,11 +45,11 @@ module ApplicationHelper
     classes = "inline-block border-t w-full py-4 font-semibold"
     classes += \
       if path.nil?
-        " text-grey-light"
+        " text-gray-light"
       elsif active
-        " bg-blue text-white"
+        " bg-blue-700 text-white"
       else
-        " bg-white text-blue hover:bg-blue-light hover:text-white"
+        " bg-white text-blue-800 hover:bg-blue-600 hover:text-white"
       end
     link_to(text, path, class: classes)
   end

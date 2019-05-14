@@ -11,7 +11,7 @@
 
 <!-- Menu -->
   <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-lighter tw-button button-teal-inverse" id="menu-button" data-state="open">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-200 tw-button button-teal-inverse" id="menu-button" data-state="open">
       <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <title>Menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
@@ -32,9 +32,9 @@
         class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none text-center text-orange hover:bg-orange mb-0 lg:mt-0 font-semibold text-grey-darkest hover:text-grey') %>
       <% if signed_in? %>
         <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
-                    class: 'button block button-grey text-white hover:text-white lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm') %>
+                    class: 'button block button-gray text-white hover:text-white lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm') %>
         <%= link_to(t('.account'), account_path,
-                    class: 'button block bg-green hover:bg-green-dark text-white hover:text-white lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm sm:mt-4') %>
+                    class: 'button block button-green text-white hover:text-white lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm sm:mt-4') %>
       <% else %>
         <%= link_to(t('.sign_in'), sign_in_path,
                     class: 'button button-blue block lg:inline-block px-3 py-2 leading-none text-center text-white hover:text-white text-sm lg:mt-0') %>
