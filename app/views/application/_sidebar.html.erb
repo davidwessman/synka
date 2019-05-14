@@ -5,7 +5,7 @@
   </div>
   <% if current_user.spaces.any? %>
     <div class="mt-8">
-      <ul class="list-reset">
+      <ul class="">
         <% current_user.spaces.each do |space| %>
           <li class="border-b">
             <%= sidebar_link(space.title, space_path(space),
@@ -16,16 +16,13 @@
     </div>
   <% end %>
   <div class="mt-8">
-    <ul class="list-reset">
+    <ul class="">
       <li class="">
         <%= sidebar_link(t('.overview'), account_path, current == :account) %>
       </li>
-      <li class="">
+      <li class="border-b">
         <%= sidebar_link(t('.settings'), account_settings_path,
                         current == :settings) %>
-      </li>
-      <li class="border-b">
-        <%= sidebar_link(t('.upgrade'), nil, current == :upgrade) %>
       </li>
     </ul>
   </div>
