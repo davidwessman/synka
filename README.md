@@ -3,15 +3,24 @@
 ## Getting started
 The application is written in Ruby on Rails, download the repository and get started!
 
-To ease the installation, we are using [Docker](https://docs.docker.com) and [docker-compose](https://docs.docker.com/compose/) to make things easier.
-Make sure these are installed and then run:
+- Install `Ruby 2.6` ([rbenv](https://github.com/rbenv/rbenv#groom-your-apps-ruby-environment-with-rbenv))
+- Install [`Postgres`](https://www.postgresql.org/download/)
+- Install [`yarn`](https://yarnpkg.com/en/docs/install)
+- Install [`bundler`](https://bundler.io)
+- Run `bin/setup` inside this repository.
 
-- `docker-compose build`
-- `docker-compose run web rails db:create db:migrate`
-- `docker-compose up`
+### Start the server
 
-If not using Docker, run the `bin/setup` script to get started.
-It requires [Postgres](https://www.postgresql.org/), [Bundler](http://bundler.io/) and [yarn](https://yarnpkg.com/lang/en/).
+```bash
+procodile start --dev
+```
+
+### Create user
+- Run `rails console`
+- In the console, input:
+```ruby
+User.create!(email: 'youremail@mail.com', role: :admin, password: 'your-new-password', name: 'You!')
+```
 
 ## Status
 [![CircleCI](https://circleci.com/gh/davidwessman/synka/tree/master.svg?style=shield)](https://circleci.com/gh/davidwessman/synka/tree/master)
