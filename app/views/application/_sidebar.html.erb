@@ -1,29 +1,23 @@
-<div class="w-full bg-white border-r py-6 text-center text-grey-lighter h-full">
-  <div class="mb-6 text-black">
-    <h3><%= t('.welcome') %></h3><br>
-    <h4><%= current_user %></h4>
-  </div>
-  <% if current_user.spaces.any? %>
-    <div class="mt-8">
-      <ul class="">
-        <% current_user.spaces.each do |space| %>
-          <li class="border-b">
-            <%= sidebar_link(space.title, space_path(space),
-                            current == space) %>
-          </li>
-        <% end %>
-      </ul>
+<div class="w-full border-r text-center">
+  <% if current_user.space %>
+    <div class="border-b w-full py-4 mb-8 font-semibold text-blue-700 text-xl">
+      <h2>
+        <%= current_user.space %>
+      </h2>
     </div>
-  <% end %>
-  <div class="mt-8">
-    <ul class="">
+    <ul class="mb-8">
       <li class="">
-        <%= sidebar_link(t('.overview'), account_path, current == :account) %>
+        <%= sidebar_link(t('.space'), account_path, current == :space) %>
       </li>
       <li class="border-b">
-        <%= sidebar_link(t('.settings'), account_settings_path,
-                        current == :settings) %>
+        <%= sidebar_link(t('.contacts'), account_contacts_path, current == :contacts) %>
       </li>
     </ul>
-  </div>
+  <% end %>
+  <ul class="">
+    <li class="border-b">
+      <%= sidebar_link(t('.settings'), account_settings_path,
+                      current == :settings) %>
+    </li>
+  </ul>
 </div>

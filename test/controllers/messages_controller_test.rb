@@ -5,17 +5,17 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     sign_in_as(users(:business))
     contact = contacts(:business_first)
 
-    get(space_contact_url(contact.space, contact))
+    get(account_contact_url(contact))
     assert_response(:success)
 
-    attributes = {content: "An awesome message!"}
+    attributes = {contact_id: contact.to_param, content: "An awesome message!"}
     assert_difference("Message.count", 1) do
-      post(contact_messages_url(contact), params: {message: attributes})
+      post(account_messages_url(contact), params: {message: attributes})
     end
 
-    assert_redirected_to(space_contact_url(contact.space, contact))
+    assert_redirected_to(account_url)
 
-    message = Message.order(created_at: :desc).first
+    message = contact.messages.recent.first
     assert_equal(message.content, "An awesome message!")
     assert_equal(message.user, users(:business))
   end

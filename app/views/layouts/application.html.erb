@@ -17,17 +17,17 @@
       <%= render('header') %>
     </header>
 
-    <main class="flex flex-1 mx-auto w-full border-t-2 border-blue-lighter">
+    <main class="flex flex-1 flex-row mx-auto w-full border-t-2 border-blue-lighter items-start">
       <% if content_for(:sidebar) %>
-        <div class="flex w-full lg:w-1/6">
+        <div class="flex w-full lg:w-1/6 lg:h-screen">
           <%= yield(:sidebar) %>
         </div>
-        <div class="flex flex-wrap w-full lg:w-5/6">
+        <div class="flex flex-wrap w-full lg:w-5/6 p-8">
           <%= render('flashes') %>
           <%= yield %>
         </div>
       <% else %>
-        <div class="flex flex-wrap w-full">
+        <div class="flex flex-wrap w-full p-8">
           <%= render('flashes') %>
           <%= yield %>
         </div>

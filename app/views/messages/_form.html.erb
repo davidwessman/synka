@@ -1,5 +1,16 @@
-<%= form_with(model: [contact, message], local: true,
+<% contacts ||= [] %>
+<% contact ||= nil %>
+<%= form_with(model: [:account, message], local: true,
               class: 'py-2') do |form| %>
+  <div class="mb-4">
+    <% if contact %>
+      <%= form.hidden_field(:contact_id, value: contact.id) %>
+    <% else %>
+      <%= form.label(:contact, class: 'form-label ') %>
+      <%= form.select(:contact_id, contacts.collect { |c| [c, c.id] }, id: 'contact',
+                                   class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+    <% end %>
+  </div>
   <div class="mb-4">
     <%= form.label(:content, class: 'form-label ') %>
     <%= form.text_area(:content, id: 'content', autofocus: true, rows: 10,

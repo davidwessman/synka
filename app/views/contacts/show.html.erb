@@ -2,27 +2,23 @@
   <%= render('application/sidebar', current: @contact.space) %>
 <% end %>
 
-<div class="w-full p-4 mx-8">
-  <div class="flex w-full border-b py-2 border-grey justify-between">
-    <div class="">
-      <h2><%= t('.contact') %> - <%= @contact %></h2>
-    </div>
-    <div>
-      <%= link_to(t('.edit'), edit_space_contact_path(@contact.space, @contact), class: 'button button-blue') %>
-    </div>
+<div class="flex w-full border-b pb-2 border-grey justify-between">
+  <h1 class="text-xl font-semibold"><%= t('.contact') %> - <%= @contact %></h1>
+  <div>
+    <%= link_to(t('.edit'), edit_account_contact_path(@contact), class: 'button button-blue') %>
   </div>
-  <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-    <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
-      <h3>Messages</h3>
-      <%= render('messages/form', contact: @contact, message: @message) %>
+</div>
+<div class="w-full lg:w-3/4 xl:w-2/3 p-3">
+  <div class="p-4 pb-8 mb-4">
+    <h3 class="text-lg font-semibold">Messages</h3>
+    <%= render('messages/form', contact: @contact, message: @message) %>
 
-      <hr class="border border-black">
+    <hr class="border border-black">
 
-      <div class="pt-4 pb-2">
-        <% @messages.each do |message| %>
-          <%= render(message) %>
-        <% end %>
-      </div>
+    <div class="pt-4 pb-2">
+      <% @messages.each do |message| %>
+        <%= render(message) %>
+      <% end %>
     </div>
   </div>
 </div>

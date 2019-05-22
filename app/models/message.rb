@@ -6,6 +6,7 @@ class Message < ApplicationRecord
 
   validates(:content, :user_id, presence: true)
   enum(status: {draft: 0, processed: 10, sent: 20, delivered: 30, failed: 40})
+  scope(:recent, -> { order(created_at: :desc).limit(5) })
 
   def delivery_status(params)
     return false if delivery["MessageSid"] != params["MessageSid"]
