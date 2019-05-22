@@ -15,18 +15,12 @@ Rails.application.routes.draw do
   delete(:destroy, controller: :sessions, as: :sign_out,
                    path: "sign-out")
 
-  resource(:account, only: :show) do
-    resources(:settings, only: %i[create index show])
+  resource(:account, controller: :spaces, only: %i[show update]) do
+    resources(:settings, only: %i[index])
+    resources(:contacts, only: %i[index create show edit new update])
+    resources(:messages, only: %i[new create])
   end
 
-  resources(:spaces, only: %i[show update]) do
-    resources(:contacts, only: %i[create show edit new update])
-    resources(:messages, only: %i[new])
-  end
-
-  resources(:contacts, only: %i[]) do
-    resources(:messages, only: %i[create])
-  end
 
   namespace(:callbacks) do
     resources(:messages, only: %i[]) do
@@ -34,9 +28,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get(:contact, controller: :presentation, action: :contact)
   get(:about, controller: :presentation, action: :about)
-  get(:read_more, controller: :presentation, action: :read_more)
   root(controller: :presentation, action: :index)
 
   mount(Sidekiq::Web => "/sidekiq")

@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def to_s
     name || email
   end
+
+  def space
+    spaces.includes(:contacts).first
+  end
 end

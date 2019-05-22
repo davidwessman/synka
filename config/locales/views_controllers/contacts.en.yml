@@ -1,0 +1,7 @@
+en:
+  contacts:
+    index:
+      new_contact: Add new contact
+      import_contacts: Import contacts
+      no_contacts: Empty!<br>In order to send messages, you need to add some contacts.
+      title: Contacts

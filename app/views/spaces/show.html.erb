@@ -1,52 +1,16 @@
 <% content_for(:sidebar) do %>
-  <%= render('application/sidebar', current: @space) %>
+  <%= render('application/sidebar', current: :space) %>
 <% end %>
 
-<div class="w-full p-4 mx-8"> <!-- Main content div -->
-  <div class="w-full border-b py-2 border-grey"> <!--Headline div -->
-    <h1 class="text-xl font-semibold">Space - <%= @space.title %></h1>
-  </div>
-  <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-    <div class="py-4">
-      <table class="table-auto w-full text-left">
-        <thead class="py-1">
-          <tr>
-            <th class="bg-blue-100 border-2 border-blue-800 p-3">
-              <%= Contact.human_attribute_name(:name) %>
-            </th>
-            <th class="bg-blue-100 border-2 border-r-0 border-blue-800 p-3">
-              <%= Contact.human_attribute_name(:messages) %>
-            </th>
-            <th class="bg-blue-100 border-2 border-blue-800 p-3" colspan=2>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @space.contacts.each do |contact| %>
-            <tr>
-              <td class="border-2 border-blue-800 p-3">
-                <%= contact %>
-              </td>
-              <td class="border-2 border-blue-800 p-3">
-                <%= contact.messages.count %>
-              </td>
-              <td class="border-2 border-blue-800 p-3">
-                <%= link_to(t('.new_message'), space_contact_path(@space, contact)) %>
-              </td>
-              <td class="border-2 border-blue-800 p-3">
-                <%= link_to(t('.edit'), edit_space_contact_path(@space, contact)) %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <% unless @space.contacts.any? %>
-      <%= simple_format(t('.no_contacts')) %>
-    <% end %>
-    <div class="mt-4">
-      <%= link_to(t('.new_contact'), new_space_contact_path(@space), class: 'button button-blue') %>
-      <%= link_to(t('.import_contacts'), new_space_contact_path(@space), class: 'button button-gray') %>
-    </div>
-  </div>
+<div class="w-full border-b py-2 border-grey"> <!--Headline div -->
+  <h1 class="text-xl font-semibold"><%= @space.title %></h1>
 </div>
+<div class="w-full lg:w-2/4 p-3">
+  <%= render('messages/form', contacts: @space.contacts, message: @message) %>
+</div>
+<% if @messages %>
+  <div class="w-full lg:w-2/4 p-3">
+    <h2 class="text-lg font-semibold"><%= t('.sent_messages') %></h2>
+    <%= render(@messages) %>
+  </div>
+<% end %>

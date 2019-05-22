@@ -4,20 +4,24 @@ class MessagesController < ApplicationController
   before_action(:require_login)
 
   def create
-    @contact = Contact.includes(:space, :messages).find(params[:contact_id])
-    @message = @contact.messages.build(message_params)
+    @message = Message.new(message_params)
     @message.user = current_user
     if @message.save && MessageSenderWorker.perform_async(@message.id)
-      redirect_to(space_contact_path(@contact.space_id, @contact))
+      redirect_to(account_path)
     else
-      @messages = @contact.messages.order(created_at: :desc)
-      render(template: "contacts/show", status: 422)
+      @space = current_user.space
+      render(template: "messages/new", status: 422)
     end
+  end
+
+  def new
+    @space = current_user.space
+    @message = Message.new
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :contact_id)
   end
 end
