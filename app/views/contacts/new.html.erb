@@ -2,14 +2,11 @@
   <%= render('application/sidebar', current: @space) %>
 <% end %>
 
-<div class="w-full p-4 mx-8">
-  <div class="w-full border-b py-2 border-grey">
-    <h2><%= t('.contact') %></h2>
-  </div>
-  <div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-    <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
-      <h3><%= t('.new') %></h3>
-      <%= render('form', contact: @contact) %>
-    </div>
+<div class="w-full border-b py-2 border-grey">
+  <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
+</div>
+<div class="w-full lg:w-3/4 xl:w-2/3 p-3">
+  <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
+    <%= render('form', contact: @contact) %>
   </div>
 </div>

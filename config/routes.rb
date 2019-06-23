@@ -16,11 +16,9 @@ Rails.application.routes.draw do
                    path: "sign-out")
 
   resource(:account, controller: :spaces, only: %i[show update]) do
-    resources(:settings, only: %i[index])
     resources(:contacts, only: %i[index create show edit new update])
     resources(:messages, only: %i[new create])
   end
-
 
   namespace(:callbacks) do
     resources(:messages, only: %i[]) do
@@ -28,7 +26,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get(:about, controller: :presentation, action: :about)
   root(controller: :presentation, action: :index)
 
   mount(Sidekiq::Web => "/sidekiq")

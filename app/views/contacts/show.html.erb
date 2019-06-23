@@ -2,23 +2,24 @@
   <%= render('application/sidebar', current: @contact.space) %>
 <% end %>
 
-<div class="flex w-full border-b pb-2 border-grey justify-between">
-  <h1 class="text-xl font-semibold"><%= t('.contact') %> - <%= @contact %></h1>
+<div class="flex justify-between w-full border-b py-2 border-grey">
+  <div class>
+    <h1 class="text-2xl font-semibold"><%= title(@contact) %></h1>
+    <h3>
+      <%= icon('far', 'phone') %>
+      <%= @contact.phone %>
+    </h3>
+  </div>
   <div>
     <%= link_to(t('.edit'), edit_account_contact_path(@contact), class: 'button button-blue') %>
   </div>
 </div>
-<div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-  <div class="p-4 pb-8 mb-4">
-    <h3 class="text-lg font-semibold">Messages</h3>
+<div class="w-full lg:w-2/4 p-3">
     <%= render('messages/form', contact: @contact, message: @message) %>
-
-    <hr class="border border-black">
-
-    <div class="pt-4 pb-2">
-      <% @messages.each do |message| %>
-        <%= render(message) %>
-      <% end %>
-    </div>
-  </div>
 </div>
+<% if @messages %>
+  <div class="w-full lg:w-2/4 p-3">
+    <h2 class="text-lg font-semibold mb-6"><%= t('.most_recent_messages') %></h2>
+    <%= render(@messages, hide_user: true) %>
+  </div>
+<% end %>

@@ -24,8 +24,6 @@
     <div>
       <%= link_to(t('.home'), root_path,
         class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none lg:mt-0 font-semibold') %>
-      <%= link_to(t('.about'), about_path,
-        class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none lg:mt-0 font-semibold') %>
       <% if signed_in? %>
         <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
                     class: 'button button-gray block lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm') %>
@@ -34,8 +32,6 @@
       <% else %>
         <%= link_to(t('.sign_in'), sign_in_path,
                     class: 'button button-blue block lg:inline-block px-3 py-2 leading-none text-sm lg:mt-0') %>
-        <%= link_to(t('.sign_up'), root_path,
-                    class: 'button bg-green block lg:inline-block px-3 py-2 text-sm lg:mt-0 sm:mt-4') %>
       <% end %>
     </div>
   </div>

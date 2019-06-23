@@ -41,7 +41,7 @@ module ApplicationHelper
     I18n.l(time, format: :hour)
   end
 
-  def sidebar_link(text, path, active)
+  def sidebar_link(path, active, text: '')
     classes = "inline-block border-t w-full py-4 font-semibold"
     classes += \
       if path.nil?
@@ -51,6 +51,12 @@ module ApplicationHelper
       else
         " bg-white text-blue-800 hover:bg-blue-600 hover:text-white"
       end
-    link_to(text, path, class: classes)
+    link_to(path, class: classes) do
+      if block_given?
+        yield
+      else
+        text
+      end
+    end
   end
 end
