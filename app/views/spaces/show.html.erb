@@ -2,8 +2,8 @@
   <%= render('application/sidebar', current: :space) %>
 <% end %>
 
-<div class="w-full border-b py-2 border-grey"> <!--Headline div -->
-  <h1 class="text-xl font-semibold"><%= @space.title %></h1>
+<div class="w-full border-b py-2 border-grey">
+  <h1 class="text-2xl font-semibold"><%= title(@space.title) %></h1>
 </div>
 <div class="w-full lg:w-2/4 p-3">
   <%= render('messages/form', contacts: @space.contacts, message: @message) %>

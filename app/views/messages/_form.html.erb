@@ -7,8 +7,7 @@
       <%= form.hidden_field(:contact_id, value: contact.id) %>
     <% else %>
       <%= form.label(:contact, class: 'form-label ') %>
-      <%= form.select(:contact_id, contacts.collect { |c| [c, c.id] }, id: 'contact',
-                                   class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+      <%= form.select(:contact_id, contacts.collect { |c| ["#{c.to_s} (#{c.phone})", c.id] }, {}, id: 'contact', class: 'form-select mt-1 block w-full') %>
     <% end %>
   </div>
   <div class="mb-4">

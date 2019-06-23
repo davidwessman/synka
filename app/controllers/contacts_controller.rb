@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
   def show
     @contact = current_user.space.contacts.find(params[:id])
     @message = @contact.messages.build
-    @messages = @contact.messages.order(created_at: :desc)
+    @messages = @contact.messages.order(created_at: :desc).limit(5)
   end
 
   def edit

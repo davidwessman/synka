@@ -1,16 +1,37 @@
-<div class="flex flex-col p-4 mb-4 w-4/5 border border-blue bg-blue-400 rounded-lg">
-  <div class="mb-2">
-    <%= simple_format(message.content) %>
-  </div>
-  <div class="flex justify-between mb-4">
-    <div class="">
-      <%= t('.status') %>: <%=message.status %>
+<% hide_user ||= false %>
+<div class="flex flex-row p-4 mb-4 w-100 border border-blue rounded-lg shadow-md">
+  <% unless hide_user %>
+    <div class="w-1/5 border-r border-black pr-1">
+      <%= link_to(account_contact_path(message.contact)) do %>
+        <div class="flex flex-col h-full items-center justify-center">
+          <%= icon('far', 'user', class: 'text-5xl') %>
+          <span class="text-xs mt-1">
+            <%= message.contact %>
+          </span>
+          <span class="text-xs mt-1">
+            <%= message.contact.phone %>
+          </span>
+        </div>
+      <% end %>
     </div>
-    <div class="">
-      <%= t('.sent_by', user: message.user) %>
+  <% end %>
+  <div class="w-4/5 flex-col pl-3 justify-between">
+    <div class="mb-2">
+      <%= simple_format(message.content) %>
     </div>
-    <div class="">
-      <%= l(message.processed_at, format: :short) if message.processed_at? %>
+    <div class="flex flex-col text-xs">
+      <div class="">
+        <%= icon('far', 'info-circle') %>
+        <%= t('.status') %>: <%=message.status %>
+      </div>
+      <div class="">
+        <%= icon('far', 'user-edit') %>
+        <%= t('.sent_by', user: message.user) %>
+      </div>
+      <div class="">
+        <%= icon('far', 'clock') %>
+        <%= l(message.processed_at, format: :short) if message.processed_at? %>
+      </div>
     </div>
   </div>
 </div>

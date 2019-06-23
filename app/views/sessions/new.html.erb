@@ -1,10 +1,10 @@
 <div class="flex w-full justify-center">
-  <h1><%= title(t('.title')) %></h1>
+  <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
 </div>
 
-<div class="mx-auto w-full max-w-xs">
+<div class="mx-auto w-full max-w-xs pt-4">
   <%= form_with(scope: :session, url: session_path, local: true,
-                class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4') do |form| %>
+                class: 'border border-grey bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4') do |form| %>
     <div class="mb-4">
       <%= form.label(:email, class: 'form-label ') %>
       <%= form.text_field(:email, id: 'email', type: 'email', autofocus: true,

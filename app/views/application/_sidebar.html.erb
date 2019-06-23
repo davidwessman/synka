@@ -7,17 +7,17 @@
     </div>
     <ul class="mb-8">
       <li class="">
-        <%= sidebar_link(t('.space'), account_path, current == :space) %>
+        <%= sidebar_link(account_path, current == :space) do %>
+          <%= icon('far', 'rocket') %>
+          <%= t('.space') %>
+        <% end%>
       </li>
       <li class="border-b">
-        <%= sidebar_link(t('.contacts'), account_contacts_path, current == :contacts) %>
+        <%= sidebar_link(account_contacts_path, current == :contacts) do %>
+          <%= icon('far', 'users') %>
+          <%= t('.contacts') %>
+        <% end%>
       </li>
     </ul>
   <% end %>
-  <ul class="">
-    <li class="border-b">
-      <%= sidebar_link(t('.settings'), account_settings_path,
-                      current == :settings) %>
-    </li>
-  </ul>
 </div>
