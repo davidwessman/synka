@@ -84,9 +84,9 @@ GEM
     crass (1.0.4)
     css_parser (1.7.0)
       addressable
-    dotenv (2.7.2)
-    dotenv-rails (2.7.2)
-      dotenv (= 2.7.2)
+    dotenv (2.7.3)
+    dotenv-rails (2.7.3)
+      dotenv (= 2.7.3)
       railties (>= 3.2, < 6.1)
     email_validator (1.6.0)
       activemodel
