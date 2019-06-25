@@ -3,9 +3,9 @@ require "test_helper"
 class ContactsControllerTest < ActionDispatch::IntegrationTest
   test "should create contact" do
     sign_in_as(users(:business))
-    space = spaces(:business)
+    spaces(:business)
 
-    get(new_account_contact_url())
+    get(new_account_contact_url)
     assert_response(:success)
 
     attributes = {name: "David Wessman", phone: "+46701231234"}
@@ -18,7 +18,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
 
   test "show contact" do
     sign_in_as(users(:business))
-    space = spaces(:business)
+    spaces(:business)
     contact = contacts(:business_first)
     get(account_contact_url(contact))
     assert_response(:success)

@@ -1,16 +1,20 @@
-<div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
+<div class="flex w-full justify-center">
+  <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
+</div>
 
-  <p><%= t(".description") %></p>
-
-  <%= form_for :password, url: passwords_path do |form| %>
-    <div class="text-field">
-      <%= form.label :email %>
-      <%= form.text_field :email, type: 'email' %>
+<div class="mx-auto w-full max-w-md pt-4">
+  <%= form_with(scope: :password, url: passwords_path, local: true,
+                class: 'border border-grey bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4') do |form| %>
+    <p class="mb-4"><%= t(".description") %></p>
+    <div class="mb-4">
+      <%= form.label(:email, class: 'form-label ') %>
+      <%= form.text_field(:email, id: 'email', type: 'email', autofocus: true,
+                                  class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker')
+                                   %>
     </div>
 
-    <div class="submit-field">
-      <%= form.submit %>
+    <div class="flex items-center justify-between">
+      <%= form.submit(class: 'button button-blue mb-3') %>
     </div>
   <% end %>
 </div>

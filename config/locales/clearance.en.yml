@@ -40,6 +40,7 @@ en:
     create:
       description: You will receive an email within the next few minutes. It
         contains instructions for changing your password.
+      title: Password reset email sent!
     edit:
       description: Your password has been reset. Choose a new password below.
       title: Change your password
