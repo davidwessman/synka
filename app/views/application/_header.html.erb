@@ -1,6 +1,6 @@
 <!--Logo & name-->
-<nav class="flex items-center justify-between flex-wrap bg-white p-6 border-b-1">
-  <div class="flex items-center flex-no-shrink mr-6">
+<nav class="flex items-center justify-between flex-wrap bg-white pt-3 border-b-1">
+  <div class="flex items-center flex-no-shrink mr-6 mb-3 px-3">
     <%= image_tag('logo_animated.svg', class: 'h-12 w-12 mr-6') %>
     <%= link_to root_path do %>
       <span class="font-semibold text-3xl text-blue tracking-light mr-6">
@@ -10,28 +10,43 @@
   </div>
 
 <!-- Menu -->
-  <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 tw-button button-teal-inverse" id="menu-button" data-state="open">
+  <div class="block lg:hidden pr-3">
+    <button class="flex items-center px-3 py-2 border rounded button button-blue" id="menu-button" data-state="open">
       <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <title>Menu</title>
         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
       </svg>
     </button>
   </div>
-  <div id="menu-content" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-lg border-t lg:border-0 mt-2 lg:mt-0">
-    <div class="lg:flex-grow">
+  <div id="menu-content" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-lg">
+    <div class="hidden lg:flex lg:flex-grow">
     </div>
-    <div>
+    <div class="hidden lg:block px-3">
       <%= link_to(t('.home'), root_path,
-        class: 'text-sm block border-b border-orange lg:border-0 lg:inline-block px-4 py-4 leading-none lg:mt-0 font-semibold') %>
+        class: 'text-sm inline-block p-4 leading-none font-semibold') %>
       <% if signed_in? %>
         <%= link_to(t('.sign_out'), sign_out_path, method: :delete,
-                    class: 'button button-gray block lg:inline-block px-3 py-3 leading-none text-center lg:mt-0 text-sm') %>
+                    class: 'button button-gray inline-block p-3 leading-none text-center text-sm') %>
         <%= link_to(t('.account'), account_path,
-                    class: 'button button-green block lg:inline-block p-3 leading-none text-center lg:mt-0 text-sm sm:mt-4') %>
+                    class: 'button button-green inline-block p-3 leading-none text-center text-sm') %>
       <% else %>
         <%= link_to(t('.sign_in'), sign_in_path,
-                    class: 'button button-blue block lg:inline-block px-3 py-2 leading-none text-sm lg:mt-0') %>
+                    class: 'button button-blue inline-block p-3 leading-none text-sm') %>
+      <% end %>
+    </div>
+    <div class="lg:hidden flex flex-col pt-4">
+      <%= link_to(root_path, class: 'border-t border-b px-3 py-2') do %>
+        <%= icon('far', 'home') %>
+        <%= t('.home') %>
+      <% end %>
+      <% if signed_in? %>
+        <%= link_to(t('.sign_out'), sign_out_path, method: :delete, class: 'border-b px-3 py-2') %>
+        <%= link_to(t('.account'), account_path, class: 'border-b px-3 py-2') %>
+      <% else %>
+        <%= link_to(sign_in_path, class: 'px-3 py-2 bg-blue-100') do %>
+          <%= icon('far', 'sign-in-alt') %>
+          <%= t('.sign_in') %>
+        <% end %>
       <% end %>
     </div>
   </div>

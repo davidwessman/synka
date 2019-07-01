@@ -42,7 +42,7 @@ module ApplicationHelper
   end
 
   def sidebar_link(path, active, text: "")
-    classes = "inline-block border-t w-full py-4 font-semibold"
+    classes = "inline-block border-t w-full p-4 font-semibold"
     classes += \
       if path.nil?
         " text-gray-light"

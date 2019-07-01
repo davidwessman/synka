@@ -9,8 +9,7 @@
   <div class="py-4">
     <%= render('contacts/table', contacts: @space.contacts) %>
   </div>
-  <div class="mt-4">
-    <%= link_to(t('.new_contact'), new_account_contact_path(@space), class: 'button button-blue') %>
-    <%= link_to(t('.import_contacts'), new_account_contact_path(@space), class: 'button button-gray') %>
+  <div class="flex flex-wrap mt-4">
+    <%= link_to(t('.new_contact'), new_account_contact_path(@space), class: 'button button-blue mb-2') %>
   </div>
 </div>
