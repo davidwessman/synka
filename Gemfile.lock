@@ -110,6 +110,10 @@ GEM
       addressable
       faraday
       json (>= 1.8)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -269,6 +273,7 @@ DEPENDENCIES
   font-awesome-sass
   htmlbeautifier
   koala
+  letter_opener
   pg
   procodile
   pry-rails

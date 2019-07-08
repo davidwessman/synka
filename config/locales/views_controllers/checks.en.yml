@@ -1,9 +1,0 @@
-en:
-  checks:
-    create:
-      queued: A check for the location has been queued up and will be processed soon. Reload at will.
-  checks_mailer:
-    failed:
-      description: Your opening hours appears to be out of sync!
-      hello: "Hello %{user}"
-      more: Read more

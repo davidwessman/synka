@@ -4,12 +4,12 @@ en:
     models:
       clearance_mailer:
         change_password: Change your password
-  clearance_mailer:
+  password_mailer:
     change_password:
       closing: If you didn't request this, ignore this email. Your password has
         not been changed.
       link_text: Change my password
-      opening: "Someone, hopefully you, requested we send you a link to change
+      title: "Someone, hopefully you, requested we send you a link to change
         your password:"
   flashes:
     failure_after_create: Bad email or password.
