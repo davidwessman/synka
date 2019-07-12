@@ -6,7 +6,7 @@
     "@tailwindcss/custom-forms": "^0.2.0",
     "autoprefixer": "^9.6.1",
     "core-js": "^3",
-    "tailwindcss": "^1.0.4"
+    "tailwindcss": "^1.0.5"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.7.2"
