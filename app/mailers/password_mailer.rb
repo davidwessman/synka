@@ -1,4 +1,4 @@
-class PasswordMailer < Clearance::ClearanceMailer
+class PasswordMailer < ClearanceMailer
   include Roadie::Rails::Automatic
   default(from: "Synka <david@wessman.co>")
   layout("mailer")
