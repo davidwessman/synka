@@ -148,7 +148,7 @@ GEM
     puma (4.1.0)
       nio4r (~> 2.0)
     rack (2.0.7)
-    rack-protection (2.0.5)
+    rack-protection (2.0.6)
       rack
     rack-proxy (0.6.5)
       rack
@@ -216,10 +216,10 @@ GEM
       rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
-    sinatra (2.0.5)
+    sinatra (2.0.6)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.5)
+      rack-protection (= 2.0.6)
       tilt (~> 2.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
