@@ -9,7 +9,7 @@ end
 
 ruby "2.6.3"
 
-gem "rails", "~> 5.2"
+gem "rails", "~> 6.0"
 
 gem "bootsnap", require: false
 gem "clearance"
