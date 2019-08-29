@@ -31,7 +31,6 @@ group :development, :test do
   gem "pry-rails"
   gem "selenium-webdriver"
   gem "sinatra"
-  gem "webmock"
 end
 
 group :development do

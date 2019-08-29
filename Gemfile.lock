@@ -247,10 +247,6 @@ GEM
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.5.0)
-    webmock (3.6.2)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff (>= 0.4.0, < 2.0.0)
     webpacker (4.0.7)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -289,7 +285,6 @@ DEPENDENCIES
   twilio-ruby
   tzinfo-data
   uglifier
-  webmock
   webpacker
 
 RUBY VERSION
