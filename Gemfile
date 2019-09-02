@@ -22,7 +22,7 @@ gem "sidekiq"
 gem "turbolinks"
 gem "twilio-ruby"
 gem "uglifier"
-gem "sass-rails", github: "rails/sass-rails", tag: "v6.0.0.beta3"
+gem "sass-rails"
 gem "webpacker"
 
 group :development, :test do
