@@ -9,12 +9,11 @@ end
 
 ruby "2.6.3"
 
-gem "rails", "~> 5.2"
+gem "rails", "~> 6.0"
 
 gem "bootsnap", require: false
 gem "clearance"
 gem "font-awesome-sass"
-gem "koala"
 gem "pg"
 gem "puma"
 gem "roadie-rails"
@@ -22,7 +21,7 @@ gem "sidekiq"
 gem "turbolinks"
 gem "twilio-ruby"
 gem "uglifier"
-gem "sass-rails", github: "rails/sass-rails", tag: "v6.0.0.beta3"
+gem "sass-rails", ">= 6"
 gem "webpacker"
 
 group :development, :test do
