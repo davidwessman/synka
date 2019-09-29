@@ -1,0 +1,11 @@
+sv:
+  presentation:
+    index:
+      send_by_template: Skicka meddelande enligt mall
+      send_by_template_description: Skickar ni ofta liknande meddelande?<br> Skapa en mall och fyll endast i datan som är unik för kunden.
+      company_name: Företagsnamnet istället för ett telefonnummer
+      company_name_description: Visa ett namn istället för telefonnummer när ni skickar meddelande,<br>det ger ett seriöst intryck!
+      accept_answers: Tillåt svar till samma nummer
+      accept_answers_description: Låt svaren från kunden dyka upp direkt i Synkas användargränssnitt.
+      welcome: Välkommen till Synka!
+      short_description: Vi hjälper er att hålla kontakt med era kunder, med hjälp av sms.

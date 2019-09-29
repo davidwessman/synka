@@ -1,0 +1,15 @@
+sv:
+  application:
+    header:
+      about: Om
+      account: Konto
+      contact: Kontakt
+      home: Startsida
+      read_more: Läse mer
+      sign_in: Logga in
+      sign_out: Logga ut
+      sign_up: Skapa konto
+      start: Startsida
+    sidebar:
+      contacts: Kontakter
+      space: Konto

@@ -1,0 +1,7 @@
+sv:
+  layouts:
+    application:
+      title: Synka
+    mailer:
+      footer:
+        you_get_this_because: Du får detta meddelande eftersom du är en registrerad användare på Synka.

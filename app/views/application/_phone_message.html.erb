@@ -1,0 +1,53 @@
+<div class="phone" id="phone">
+  <div class="header">
+    <div class="statusBar">
+      <div class="connectionWrapper">
+        <div class="bars">
+          <div id="barsAmount" class="bars3">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div class="network">Synka</div>
+      </div>
+      <div class="icons">
+        <div class="battery">
+          <%= icon('far', 'battery-three-quarters') %>
+        </div>
+        <div class="percent">75%</div>
+      </div>
+      <div class="time"><%= I18n.l(Time.current, format: :hour) %></div>
+      <div class="clear"></div>
+    </div>
+    <div class="titleBar justify-between">
+      <div>
+        Meddelanden
+      </div>
+      <div class="name"><span class="nameWrap" id="name">Name</span></div>
+      <div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="bubbleWrap" id="bubble-0">
+      <div class="bubble grey">
+        <span>
+          Hello
+        </span>
+        <div class="corner"></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="camera">
+      <%= icon('far', 'camera') %>
+    </div>
+    <div class="messageArea">Message</div>
+    <div class="sendButton">
+      <%= icon('far', 'microphone') %>
+    </div>
+  </div>
+</div>
