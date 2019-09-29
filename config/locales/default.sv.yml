@@ -1,2 +1,4 @@
 sv:
   destroy: Förinta
+  general:
+    title: 'Synka'

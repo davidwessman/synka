@@ -1,0 +1,10 @@
+sv:
+  activerecord:
+    attributes:
+      message:
+        contact: Kontakt
+        content: Innehåll
+  helpers:
+    submit:
+      message:
+        create: "Skicka meddelande"

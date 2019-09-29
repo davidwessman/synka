@@ -1,0 +1,7 @@
+sv:
+  activerecord:
+    attributes:
+      contact:
+        name: Namn
+        phone: Telefonnummer
+        messages: Meddelande

@@ -1,0 +1,6 @@
+sv:
+  activerecord:
+    attributes:
+      user:
+        name: Namn
+        email: E-postadress

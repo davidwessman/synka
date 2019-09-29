@@ -1,0 +1,14 @@
+sv:
+  time:
+    formats:
+      hour: '%H:%M'
+      short: '%Y-%m-%d %H:%M'
+      date: '%Y-%m-%d'
+    week_days:
+      mon: Måndag
+      tue: Tisdag
+      wed: Onsdag
+      thu: Torsdag
+      fri: Fredag
+      sat: Lördag
+      sun: Söndag

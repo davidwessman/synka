@@ -1,0 +1,8 @@
+sv:
+  spaces:
+    index:
+    show:
+      import_contacts: Importera kontakter
+      new_contact: Lägg till ny kontakt
+      no_contacts: Tomt!<br>För att kunna skicka meddelande måste du lägga till kontakter.
+      sent_messages: Skickade meddelande

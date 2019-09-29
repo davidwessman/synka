@@ -1,0 +1,14 @@
+sv:
+  contacts:
+    index:
+      import_contacts: Importera kontakter
+      new_contact: Lägg till ny kontakt
+      no_contacts: Tomt!<br>För att kunna skicka meddelande måste du lägga till kontakter.
+      title: Kontakter
+    new:
+      title: Ny kontakt
+    show:
+      most_recent_messages: Senaste meddelanden
+      title: Kontakt
+    table:
+      edit: Redigera

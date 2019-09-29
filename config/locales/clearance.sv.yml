@@ -1,0 +1,55 @@
+---
+sv:
+  clearance:
+    models:
+      clearance_mailer:
+        change_password: Byt lösenord
+  password_mailer:
+    change_password:
+      closing: Om du inte efterfrågade lösenordsbytet, ignorera detta meddelandet. Ditt lösenord har inte ändrats.
+      link_text: Byt mitt lösenord
+      title: "Någon, förhoppningsvis du, har efterfrågat en byte av lösenord. Här är en länk för detta:"
+  flashes:
+    failure_after_create: Felaktig e-postadress eller lösenord.
+    failure_after_update: Lösenord kan ej vara tomt.
+    failure_when_not_signed_in: Vänligen logga in för att fortsätta.
+  helpers:
+    label:
+      password:
+        email: E-postadress
+      password_reset:
+        password: Välj lösenord
+    submit:
+      password:
+        submit: Återställ lösenord
+      password_reset:
+        submit: Spara detta lösenord
+      session:
+        submit: Logga in
+      user:
+        create: Skapa konto
+  layouts:
+    application:
+      sign_in: Logga in
+      sign_out: Logga ut
+  passwords:
+    create:
+      description: Du kommer att få ett e-postmeddelande inom de närmaste minuterna. Det innehåller instruktioner för att ändra ditt lösenord.
+      title: Meddelande för lösenordsåterställning har skickats!
+    edit:
+      description: Ditt lösenord har återställts. Välj ett nytt lösenord nedan.
+      title: Återställ ditt lösenord
+    new:
+      description: Fyll i din e-postadress för att få ett meddelande med en länk för återställning av lösenord.
+      title: Återställ ditt lösenord
+  sessions:
+    form:
+      forgot_password: Glöm lösenord?
+      sign_up: Skapa konto
+    new:
+      forgot_password: Glöm lösenord?
+      title: Logga in
+  users:
+    new:
+      sign_in: Logga in
+      title: Skapa konto

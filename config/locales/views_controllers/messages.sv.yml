@@ -1,0 +1,4 @@
+sv:
+  messages:
+    message:
+      sent_by: "Skickat av: %{user}"
