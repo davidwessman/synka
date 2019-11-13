@@ -34,8 +34,8 @@ end
 
 group :development do
   gem "dotenv-rails"
-  gem "letter_opener"
   gem "htmlbeautifier"
+  gem "letter_opener"
   gem "procodile"
   gem "standardrb"
 end
