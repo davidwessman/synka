@@ -133,7 +133,7 @@ GEM
     parser (2.6.4.0)
       ast (~> 2.4.0)
     pg (1.1.4)
-    procodile (1.0.25)
+    procodile (1.0.26)
       json
     pry (0.12.2)
       coderay (~> 1.1.0)
