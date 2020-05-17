@@ -17,11 +17,11 @@ gem "font-awesome-sass"
 gem "pg"
 gem "puma"
 gem "roadie-rails"
+gem "sassc-rails"
 gem "sidekiq"
 gem "turbolinks"
 gem "twilio-ruby"
 gem "uglifier"
-gem "sass-rails", ">= 6"
 gem "webpacker"
 
 group :development, :test do
