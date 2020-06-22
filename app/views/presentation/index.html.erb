@@ -1,27 +1,341 @@
-<div class="flex w-full justify-center mb-32">
-  <div class="w-full md:w-1/3 text-center h-full mb-3">
+<div class="relative overflow-hidden bg-gray-50">
+  <div class="relative pt-6 pb-16 md:pb-20 lg:pb-24 xl:pb-20">
+    <main class="max-w-screen-xl px-4 mx-auto mt-8 sm:mt-12 md:mt-20 xl:mt-24">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+        <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+          <h2 class="mt-1 text-4xl font-extrabold leading-10 tracking-tight text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl xl:text-6xl">
+            Professional customer contact
+            <br class="hidden md:inline" />
+            <span class="text-blue-600">made effortless
+            </span>
+          </h2>
+          <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            Create professionally looking text templates with your company name as sender.
+          </p>
+          <div class="mt-5 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+            <p class="text-base font-medium text-gray-900">
+              Sign up to get notified when it’s ready.
+            </p>
+            <form action="#" method="POST" class="mt-3 sm:flex">
+              <input aria-label="Email" class="block w-full px-3 py-3 text-base leading-6 placeholder-gray-500 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:placeholder-gray-400 focus:shadow-outline-blue focus:border-blue-300 sm:flex-1" placeholder="Enter your email" />
+              <button type="submit" class="w-full px-6 py-3 mt-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900 sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
+                Notify me
+              </button>
+            </form>
+            <p class="mt-3 text-sm leading-5 text-gray-500">
+              We care about the protection of your data. Read our
+              <a href="#" class="font-medium text-gray-900 underline">Privacy Policy
+              </a>.
+            </p>
+          </div>
+        </div>
+        <div class="relative flex justify-center mt-12 sm:max-w-lg sm:mx-auto lg:-mt-8 lg:max-w-none lg:mx-0 lg:col-span-6 lg:items-center">
+          <div class="border rounded-lg shadow-xl xl:ml-32 phone">
+            <div class="flex flex-col items-center justify-center text-base font-semibold header">
+              <div class="flex items-center justify-center w-10 h-10 text-gray-100 bg-gray-300 rounded-full">
+                <%= render('application/icons/customer_new') %>
+              </div>
+              Company name
+            </div>
+            <div class="w-32 mt-4 ml-4 rounded-lg">
+              <div class="w-64 p-2 mx-auto text-base bg-gray-100 border rounded-lg">
+                Hej <span class="text-blue-500 underline bold"><%= ['David', 'Arthur', 'Josefine', 'Magnus'].sample %></span>!<br>
+                Din leverans sker
+                <span class="text-blue-500 underline bold"><%= I18n.l(Time.current + rand(10..30).days, format: :date) %></span>.<br>
+                För ombokning eller andra frågor,
+                vänligen svara på detta meddelande
+                eller ring<br>
+                <span class="text-blue-500 underline bold"><%= "070-#{'%03d' % rand(0..999)} #{'%02d' % rand(0..99)} #{'%02d' % rand(0..99)}"%></span>.
+              </div>
+            </div>
+            <div class="flex justify-end w-full">
+            <div class="mt-4 mr-4 rounded-lg">
+              <div class="p-2 mx-auto text-base text-white bg-blue-500 rounded-lg">
+                Toppen!
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="bg-gray-900">
+  <div class="px-4 pt-12 sm:px-6 lg:px-8 lg:pt-20">
+    <div class="text-center">
+      <p class="text-2xl font-semibold leading-9 text-white mt- sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
+        The right price for you, whoever you are
+      </p>
+      <p class="max-w-3xl mx-auto mt-3 text-xl leading-7 text-gray-400 sm:mt-5 sm:text-lg sm:leading-8">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum.
+      </p>
+    </div>
+  </div>
+
+  <div class="pb-12 mt-16 bg-white lg:mt-20 lg:pb-20">
+    <div class="relative z-0">
+      <div class="absolute inset-0 bg-gray-900 h-5/6 lg:h-2/3"></div>
+      <div class="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="relative lg:grid lg:grid-cols-7">
+          <div class="max-w-md mx-auto lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3">
+            <div class="flex flex-col h-full overflow-hidden rounded-lg shadow-lg lg:rounded-none lg:rounded-l-lg">
+              <div class="flex flex-col flex-1">
+                <div class="px-6 py-10 bg-white">
+                  <div>
+                    <h3 class="text-2xl font-medium leading-8 text-center text-gray-900" id="tier-hobby">
+                      Hobby
+                    </h3>
+                    <div class="flex items-center justify-center mt-4">
+                      <span class="flex items-start px-3 text-6xl leading-none tracking-tight text-gray-900">
+                        <span class="mt-2 mr-2 text-4xl font-medium">
+                          $
+                        </span>
+                        <span class="font-extrabold">
+                          79
+                        </span>
+                      </span>
+                      <span class="text-xl font-medium leading-7 text-gray-500">
+                        /month
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-between flex-1 p-6 border-t-2 border-gray-100 bg-gray-50 sm:p-10 lg:p-6 xl:p-10">
+                  <ul>
+                    <li class="flex items-start">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                        Pariatur quod similique
+                      </p>
+                    </li>
+                    <li class="flex items-start mt-4">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                        Sapiente libero doloribus
+                      </p>
+                    </li>
+                    <li class="flex items-start mt-4">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                        Vel ipsa esse repudiandae
+                      </p>
+                    </li>
+                  </ul>
+                  <div class="mt-8">
+                    <div class="rounded-lg shadow-md">
+                      <a href="#" class="block w-full px-6 py-3 text-base font-medium leading-6 text-center text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-lg hover:text-indigo-500 focus:outline-none focus:shadow-outline" aria-describedby="tier-hobby">
+                        Start your trial
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-lg mx-auto mt-10 lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
+            <div class="relative z-10 rounded-lg shadow-xl">
+              <div class="absolute inset-0 border-2 border-indigo-600 rounded-lg pointer-events-none"></div>
+              <div class="absolute inset-x-0 top-0 transform translate-y-px">
+                <div class="flex justify-center transform -translate-y-1/2">
+                  <span class="inline-flex px-4 py-1 text-sm font-semibold leading-5 tracking-wider text-white uppercase bg-indigo-600 rounded-full">
+                    Most popular
+                  </span>
+                </div>
+              </div>
+              <div class="px-6 pt-12 pb-10 bg-white rounded-t-lg">
+                <div>
+                  <h3 class="text-3xl font-semibold leading-9 text-center text-gray-900 sm:-mx-6" id="tier-growth">
+                    Growth
+                  </h3>
+                  <div class="flex items-center justify-center mt-4">
+                    <span class="flex items-start px-3 text-6xl leading-none tracking-tight text-gray-900 sm:text-6xl">
+                      <span class="mt-2 mr-2 text-4xl font-medium">
+                        $
+                      </span>
+                      <span class="font-extrabold">
+                        149
+                      </span>
+                    </span>
+                    <span class="text-2xl font-medium leading-8 text-gray-500">
+                      /month
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="px-6 pt-10 pb-8 border-t-2 border-gray-100 rounded-b-lg bg-gray-50 sm:px-10 sm:py-10">
+                <ul>
+                  <li class="flex items-start">
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                      Quia rem est sed impedit magnam
+                    </p>
+                  </li>
+                  <li class="flex items-start mt-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                      Dolorem vero ratione voluptates
+                    </p>
+                  </li>
+                  <li class="flex items-start mt-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                      Qui sed ab doloribus voluptatem dolore
+                    </p>
+                  </li>
+                  <li class="flex items-start mt-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                      Laborum commodi molestiae id et fugiat
+                    </p>
+                  </li>
+                  <li class="flex items-start mt-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </div>
+                    <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                      Nam ut ipsa nesciunt culpa modi dolor
+                    </p>
+                  </li>
+                </ul>
+                <div class="mt-10">
+                  <div class="rounded-lg shadow-md">
+                    <a href="#" class="block w-full px-6 py-4 text-xl font-medium leading-6 text-center text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-lg hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo" aria-describedby="tier-growth">
+                      Start your trial
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-md mx-auto mt-10 lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3">
+            <div class="flex flex-col h-full overflow-hidden rounded-lg shadow-lg lg:rounded-none lg:rounded-r-lg">
+              <div class="flex flex-col flex-1">
+                <div class="px-6 py-10 bg-white">
+                  <div>
+                    <h3 class="text-2xl font-medium leading-8 text-center text-gray-900" id="tier-scale">
+                      Scale
+                    </h3>
+                    <div class="flex items-center justify-center mt-4">
+                      <span class="flex items-start px-3 text-6xl leading-none tracking-tight text-gray-900">
+                        <span class="mt-2 mr-2 text-4xl font-medium">
+                          $
+                        </span>
+                        <span class="font-extrabold">
+                          349
+                        </span>
+                      </span>
+                      <span class="text-xl font-medium leading-7 text-gray-500">
+                        /month
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-between flex-1 p-6 border-t-2 border-gray-100 bg-gray-50 sm:p-10 lg:p-6 xl:p-10">
+                  <ul>
+                    <li class="flex items-start">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                        Pariatur quod similique
+                      </p>
+                    </li>
+                    <li class="flex items-start mt-4">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                        Sapiente libero doloribus
+                      </p>
+                    </li>
+                    <li class="flex items-start mt-4">
+                      <div class="flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p class="ml-3 text-base font-medium leading-6 text-gray-500">
+                        Vel ipsa esse repudiandae
+                      </p>
+                    </li>
+                  </ul>
+                  <div class="mt-8">
+                    <div class="rounded-lg shadow-md">
+                      <a href="#" class="block w-full px-6 py-3 text-base font-medium leading-6 text-center text-indigo-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-lg hover:text-indigo-500 focus:outline-none focus:shadow-outline" aria-describedby="tier-scale">
+                        Start your trial
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center w-full mb-32">
+  <div class="w-full h-full mb-3 text-center md:w-1/3">
     <h1 class="text-4xl font-semibold"><%= title(t('.welcome')) %></h1>
-    <p class="text-lg mt-2 text-gray-600">
+    <p class="mt-2 text-lg text-gray-600">
       <%= t('.short_description') %>
     </p>
   </div>
 </div>
 
-<div class="flex w-full justify-center">
-  <div class="w-full md:w-1/3 text-center h-full mb-3">
+<div class="flex justify-center w-full">
+  <div class="w-full h-full mb-3 text-center md:w-1/3">
     <h2 class="text-2xl font-semibold text-center"><%= t('.send_by_template') %></h2>
     <%= simple_format(t('.send_by_template_description'), class: 'text-lg mt-2 text-gray-600')%>
-    <div class="w-64 border border-gray-600 rounded-lg p-2 mx-auto">
-      Hej <span class="bold underline text-green-500"><%= ['David', 'Arthur', 'Josefine', 'Magnus'].sample %></span>!<br>
+    <div class="w-64 p-2 mx-auto border border-gray-600 rounded-lg">
+      Hej <span class="text-green-500 underline bold"><%= ['David', 'Arthur', 'Josefine', 'Magnus'].sample %></span>!<br>
       Din leverans sker
-      <span class="bold underline text-green-500"><%= I18n.l(Time.current + rand(10..30).days, format: :date) %></span>.<br>
+      <span class="text-green-500 underline bold"><%= I18n.l(Time.current + rand(10..30).days, format: :date) %></span>.<br>
       För ombokning eller andra frågor,
       vänligen svara på detta meddelande
       eller ring<br>
-      <span class="bold underline text-green-500"><%= "070-#{'%03d' % rand(0..999)} #{'%02d' % rand(0..99)} #{'%02d' % rand(0..99)}"%></span>.
+      <span class="text-green-500 underline bold"><%= "070-#{'%03d' % rand(0..999)} #{'%02d' % rand(0..99)} #{'%02d' % rand(0..99)}"%></span>.
     </div>
   </div>
-  <div class="flex flex-col w-full md:w-1/3 justify-center text-center h-full mb-3">
+  <div class="flex flex-col justify-center w-full h-full mb-3 text-center md:w-1/3">
     <div class="mb-3">
       <h2 class="text-2xl font-semibold"><%= t('.company_name') %></h2>
       <%= simple_format(t('.company_name_description'), class: 'text-lg mt-2 text-gray-600')%>
@@ -30,10 +344,13 @@
       <%= image_tag('company-name.png', class: 'mx-auto') %>
     </div>
   </div>
-  <div class="w-full md:w-1/3 text-center h-full mb-3">
+  <div class="w-full h-full mb-3 text-center md:w-1/3">
     <h2 class="text-2xl font-semibold"><%= t('.accept_answers') %></h2>
-    <p class="text-lg mt-2 text-gray-600">
+    <p class="mt-2 text-lg text-gray-600">
       <%= t('.accept_answers_description') %>
     </p>
   </div>
 </div>
+<footer>
+  <%= render('footer') %>
+</footer>

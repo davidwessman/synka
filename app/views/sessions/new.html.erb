@@ -1,26 +1,45 @@
-<div class="flex w-full">
-  <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
-</div>
+<div class="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <%= image_tag('synka_logo.svg', class: 'w-auto h-12 mx-auto') %>
+    <h2 class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
+      Sign in to Synka
+    </h2>
+    <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
+      Or
+      <%= link_to(t('.start_your_14-day_free_trial'), root_path, class: "font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500 focus:outline-none focus:underline")%>
+    </p>
+  </div>
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+      <%= form_with(scope: :session, url: session_path, local: true) do |form| %>
+        <%= form.label(:email_address, class: 'block text-sm font-medium leading-5 text-gray-700 ') %>
+        <%= form.text_field(:email, id: 'email', type: 'email', autofocus: true,
+                        class: 'mt-1 rounded-md shadow-sm block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5')
+                         %>
+      <div class="mt-6">
+        <%= form.label(:password, class: 'block text-sm font-medium leading-5 text-gray-700') %>
+        <%= form.password_field(:password, id: 'password',
+                    class: 'mt-1 rounded-md shadow-sm block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5') %>
+      </div>
+      <div class="flex items-center justify-between mt-6">
+        <div class="flex items-center">
+          <input id="remember_me" type="checkbox"
+            class="w-4 h-4 text-indigo-600 transition duration-150 ease-in-out form-checkbox" />
+          <label for="remember_me" class="block ml-2 text-sm leading-5 text-gray-900">
+            Remember me
+          </label>
+        </div>
 
-<div class="w-full max-w-xs">
-  <%= form_with(scope: :session, url: session_path, local: true,
-                class: 'px-3 pt-6 pb-8 mb-4') do |form| %>
-    <div class="mb-4">
-      <%= form.label(:email, class: 'form-label ') %>
-      <%= form.text_field(:email, id: 'email', type: 'email', autofocus: true,
-                                  class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker')
-                                   %>
+        <div class="text-sm leading-5">
+          <%= link_to(t('.forgot_password'), new_password_path, class: 'font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500 focus:outline-none focus:underline') %>
+        </div>
+      </div>
+      <div class="mt-6">
+        <span class="block w-full rounded-md shadow-sm">
+          <%= form.submit(class: 'flex justify-center w-full px-4 py-2 text-sm font-medium text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700') %>
+        </span>
+      </div>
+      <% end %>
     </div>
-
-    <div class="mb-6">
-      <%= form.label(:password, class: 'form-label') %>
-      <%= form.password_field(:password, id: 'password',
-                              class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
-    </div>
-
-    <div class="flex items-center justify-between">
-      <%= form.submit(class: 'button button-blue mb-3') %>
-      <%= link_to(t('.forgot_password'), new_password_path, class: 'inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker') %>
-    </div>
-  <% end %>
+  </div>
 </div>

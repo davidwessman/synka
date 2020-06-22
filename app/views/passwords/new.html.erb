@@ -1,8 +1,8 @@
-<div class="flex w-full justify-center">
+<div class="flex justify-center w-full">
   <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
 </div>
 
-<div class="mx-auto w-full max-w-md pt-4">
+<div class="w-full max-w-md pt-4 mx-auto">
   <%= form_with(scope: :password, url: passwords_path, local: true,
                 class: 'border border-grey bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4') do |form| %>
     <p class="mb-4"><%= t(".description") %></p>
