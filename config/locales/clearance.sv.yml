@@ -44,10 +44,10 @@ sv:
       title: Återställ ditt lösenord
   sessions:
     form:
-      forgot_password: Glöm lösenord?
+      forgot_password: Glömt lösenord?
       sign_up: Skapa konto
     new:
-      forgot_password: Glöm lösenord?
+      forgot_password: Glömt lösenord?
       title: Logga in
   users:
     new:
