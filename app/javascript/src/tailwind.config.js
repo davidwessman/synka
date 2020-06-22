@@ -485,6 +485,7 @@ module.exports = {
   },
   corePlugins: {},
   plugins: [
-    require('@tailwindcss/custom-forms')
+    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/ui')
   ]
 }

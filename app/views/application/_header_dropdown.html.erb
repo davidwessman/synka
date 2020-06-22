@@ -1,0 +1,65 @@
+<div x-show="open" x-show="night_mode" class="absolute right-0 z-50 mt-2 rounded"
+  x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95"
+  x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+  x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
+  <div class="w-48 text-gray-900 bg-white border border-gray-400 rounded">
+    <%= link_to(account_path) do %>
+      <div class="flex w-full px-3 py-3 hover:bg-gray-100">
+        <div
+        class="flex items-center justify-center flex-shrink-0 w-10 h-10 font-bold text-white uppercase bg-blue-700 rounded">
+          AW
+        </div>
+        <span class="hidden ml-2 text-sm font-semibold lg:inline">
+          First Lastname
+          <p class="flex justify-start text-xs text-gray-600">Company</p>
+        </span>
+      </div>
+    <% end %>
+    <div class="flex items-center justify-between block px-3 py-3 text-sm border-t border-b">
+      <div class="flex items-center">
+        <svg class="inline-block w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+        <%= t('application.header.night_mode') %>
+      </div>
+      <div x-data="{ night_mode: false }">
+        <span role="checkbox" tabindex="0" aria-checked="false" @click="night_mode = !night_mode"
+          @click="night_mode = true"
+          class="relative flex items-center flex-shrink-0 inline-block w-12 h-6 px-1 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer focus:outline-none"
+          :class="{'bg-indigo-600': night_mode}">
+          <span aria-hidden="true"
+            class="inline-block w-4 h-4 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow"
+            :class="{'translate-x-5': night_mode}"></span>
+        </span>
+      </div>
+    </div>
+    <%= link_to(root_path, class: 'block p-3 text-sm hover:bg-indigo-100 hover:text-indigo-700 flex items-center justify-between') do %>
+      <div class="flex items-center">
+        <span class="inline-block mr-2">
+          <%= render("application/icons/dashboard") %>
+        </span>
+        <%= t('application.header.home') %>
+      </div>
+      <div class="flex justify-end inline-block mt-px text-gray-500">
+        <%= render("application/icons/arrow_right") %>
+      </div>
+    <% end %>
+    <%= link_to(account_path, class: 'block p-3 text-sm hover:bg-indigo-100 hover:text-indigo-700 flex items-center justify-between') do %>
+      <div class="flex items-center">
+        <span class="inline-block mr-2">
+          <%= render("application/icons/settings") %>
+        </span>
+        <%= t('application.header.account') %>
+      </div>
+      <div class="flex justify-end inline-block mt-px text-gray-500">
+        <%= render("application/icons/arrow_right") %>
+      </div>
+    <% end %>
+    <%= link_to(sign_out_path, method: 'delete', class: "block p-3 text-sm hover:bg-red-100 hover:text-red-700 rounded-b flex items-center") do %>
+      <span class="inline-block mr-2">
+        <%= render("application/icons/sign_out") %>
+      </span>
+      <%= t('application.header.sign_out') %>
+    <% end %>
+  </div>
+</div>

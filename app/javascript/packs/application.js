@@ -9,3 +9,4 @@
 
 import 'application'
 import '../styles/application.scss'
+import "alpinejs";
