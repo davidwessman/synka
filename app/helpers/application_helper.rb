@@ -41,7 +41,7 @@ module ApplicationHelper
     I18n.l(time, format: :hour)
   end
 
-  def sidebar_link(action, url, css: "mt-2 -mx-3 px-3 py-2 flex items-center justify-between hover:text-gray-900 hover:bg-gray-100 text-sm rounded-md text-gray-600", active_css: "bg-gray-100 hover:bg-gray-100 text-gray-900")
+  def sidebar_link(action, url, css: "mt-2 -mx-3 px-3 py-2 flex items-center justify-between hover:text-gray-900 hover:bg-blue-50 text-sm rounded-md text-gray-600", active_css: "bg-blue-100 hover:bg-blue-100 text-gray-900")
     if sidebar_active?(action)
       css = "#{css} #{active_css}"
     end

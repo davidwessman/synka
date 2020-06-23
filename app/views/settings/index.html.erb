@@ -4,7 +4,7 @@
 <% content_for(:header_title) do %>
 <%= t(".title") %>
 <% end %>
-<div x-data="{ tab: 'account' }" class="w-full lg:p-3 xl:py-8 xl:px-16">
+<div x-data="{ tab: 'account' }" class="w-full lg:p-3 xl:p-6">
   <div class="hidden lg:flex">
     <h2 class="text-2xl font-semibold leading-none text-gray-900 xl:text-3xl">
       <%= t('.settings') %>
@@ -46,9 +46,9 @@
       </div>
     </div>
   </div>
-  <div class="mt-4">
+  <div class="max-w-screen-xl pb-20 mt-4">
     <div x-show="tab === 'account'" class="">
-      hej
+      <%= render("account") %>
     </div>
     <div x-show="tab === 'billing'" class="">
       <%= render("billing") %>

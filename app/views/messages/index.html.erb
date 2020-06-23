@@ -1,0 +1,579 @@
+<% content_for(:sidebar) do %>
+<%= render('application/sidebar', current: :messages) %>
+<% end %>
+<% content_for(:header_title) do %>
+<%= t(".title") %>
+<% end %>
+<div class="w-full bg-gray-100">
+  <%= render("heading") %>
+  <div id="customers-table" class="px-2 pb-4 lg:px-0">
+    <div class="flex flex-col">
+      <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200">
+          <div class="px-6 py-3 font-medium">
+            Today
+          </div>
+          <table class="min-w-full">
+            <tbody class="bg-white">
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1505503693641-1926193e8d57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200">
+          <div class="px-6 py-3 font-medium">
+            Yesterday
+          </div>
+          <table class="min-w-full">
+            <tbody class="bg-white">
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1505503693641-1926193e8d57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200">
+          <div class="px-6 py-3 font-medium">
+            Last week
+          </div>
+          <table class="min-w-full">
+            <tbody class="bg-white">
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1505503693641-1926193e8d57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200">
+          <div class="px-6 py-3 font-medium">
+            Older than last week
+          </div>
+          <table class="min-w-full">
+            <tbody class="bg-white">
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                    Active
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1505503693641-1926193e8d57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 w-10 h-10">
+                      <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium leading-5 text-gray-900">Bernard Lane
+                      </div>
+                      <div class="text-sm leading-5 text-gray-500">bernardlane@example.com
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <div class="text-sm leading-5 text-gray-900">Director
+                  </div>
+                  <div class="text-sm leading-5 text-gray-500">Human Resources
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">
+                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                    Inactive
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap">
+                  Owner
+                </td>
+                <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
