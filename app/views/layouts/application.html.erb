@@ -1,41 +1,33 @@
+
+
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <title><%= full_title(t('general.title'), yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload') %>
     <%= javascript_include_tag('application', 'data-turbolinks-track': 'reload') %>
+    <%= stylesheet_pack_tag('application', media: 'all') %>
     <%= javascript_pack_tag('application') %>
-    <%= stylesheet_pack_tag('application') %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= render('application/favicon') %>
   </head>
-  <body class="flex flex-col min-h-screen bg-blue-lightest" style="min-height: 100vh">
-    <header>
-      <%= render('header') %>
-    </header>
-
-    <main class="flex flex-row flex-wrap items-start flex-1 w-full mx-auto border-t-2 border-blue-lighter">
-      <% if content_for(:sidebar) %>
-        <div class="flex w-full lg:w-1/6 lg:h-screen">
-          <%= yield(:sidebar) %>
-        </div>
-        <div class="flex flex-wrap w-full px-6 pt-2 pb-6 lg:w-5/6 lg:p-8">
+  <body>
+    <div class="flex flex-col h-full bg-cool-gray-50">
+      <header>
+        <%= render('header') %>
+      </header>
+      <div class="flex flex-1 lg:overflow-hidden">
+        <%= yield(:sidebar) %>
+        <main class="flex flex-1 lg:overflow-y-auto">
           <%= render('flashes') %>
+          <%= yield(:title) %>
           <%= yield %>
-        </div>
-      <% else %>
-        <div class="flex flex-wrap w-full px-6 pt-2 pb-6 lg:p-8">
-          <%= render('flashes') %>
-          <%= yield %>
-        </div>
-      <% end %>
-    </main>
-
-    <footer>
-      <%= yield(:footer) %>
-    </footer>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

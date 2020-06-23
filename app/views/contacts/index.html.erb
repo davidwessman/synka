@@ -1,15 +1,15 @@
+
+
 <% content_for(:sidebar) do %>
   <%= render('application/sidebar', current: :contacts) %>
 <% end %>
+<% content_for(:header_title) do %>
+  <%= t(".title") %>
+<% end %>
+<div class="w-full lg:p-3 xl:p-6">
+  <%= render("heading") %>
 
-<div class="w-full border-b py-2 border-grey">
-  <h1 class="text-2xl font-semibold"><%= title(t('.title')) %></h1>
-</div>
-<div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-  <div class="py-4">
-    <%= render('contacts/table', contacts: @space.contacts) %>
-  </div>
-  <div class="flex flex-wrap mt-4">
-    <%= link_to(t('.new_contact'), new_account_contact_path(@space), class: 'button button-blue mb-2') %>
+  <div id="customers-table" class="px-2 pb-4 lg:px-0">
+    <%= render("table", contacts: @space.contacts) %>
   </div>
 </div>

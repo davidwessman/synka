@@ -41,22 +41,28 @@ module ApplicationHelper
     I18n.l(time, format: :hour)
   end
 
-  def sidebar_link(path, active, text: "")
-    classes = "inline-block border-t w-full p-4 font-semibold"
-    classes += \
-      if path.nil?
-        " text-gray-light"
-      elsif active
-        " bg-blue-700 text-white"
-      else
-        " bg-white text-blue-800 hover:bg-blue-600 hover:text-white"
-      end
-    link_to(path, class: classes) do
-      if block_given?
-        yield
-      else
-        text
-      end
+  def sidebar_link(action, url, css: "mt-2 -mx-3 px-3 py-2 flex items-center justify-between hover:text-gray-900 hover:bg-gray-100 text-sm rounded-md text-gray-600", active_css: "bg-gray-100 hover:bg-gray-100 text-gray-900")
+    if sidebar_active?(action)
+      css = "#{css} #{active_css}"
+    end
+    link_to(url, class: css) do
+      yield
+    end
+  end
+
+  def sidebar_active?(action)
+    unless action.is_a?(Array)
+      action = [action]
+    end
+
+    case action.length
+    when 1
+      controller_name.to_s == action[0].to_s
+    when 2
+      (controller_name.to_s == action[0].to_s &&
+              action_name.to_s == action[1].to_s)
+    else
+      false
     end
   end
 end

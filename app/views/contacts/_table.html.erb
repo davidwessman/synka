@@ -1,34 +1,65 @@
 
-<% if contacts.any? %>
-  <table class="table-auto w-full text-left">
-    <thead class="py-1">
-      <tr>
-        <th class="bg-blue-100 border-2 border-blue-800 p-3">
-          <%= Contact.human_attribute_name(:name) %>
-        </th>
-        <th class="bg-blue-100 border-2 border-r-0 border-blue-800 p-3">
-          <%= Contact.human_attribute_name(:messages) %>
-        </th>
-        <th class="bg-blue-100 border-2 border-blue-800 p-3">
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% contacts.each do |contact| %>
-        <tr>
-          <td class="border-2 border-blue-800 p-3">
-            <%= link_to(contact, account_contact_path(contact)) %>
-          </td>
-          <td class="border-2 border-blue-800 p-3">
-            <%= contact.messages.count %>
-          </td>
-          <td class="border-2 border-blue-800 p-3">
-            <%= link_to(t('.edit'), edit_account_contact_path(contact)) %>
-          </td>
-        </tr>
+
+
+<% search = false if search.nil?%>
+<div class="bg-white border border-gray-300 shadow-md">
+  <div class="flex items-center justify-between flex-grow h-16 px-4 border-b border-gray-300">
+    <div class="flex">
+      <div class="flex items-center justify-center w-20 h-16 px-3 mr-2 -mb-px font-semibold text-green-600 border-b-2 border-green-600">
+        <%= t('.active') %>
+      </div>
+      <div class="flex items-center justify-center w-20 h-16 px-3 mr-2 -mb-px text-gray-700 hover:font-semibold hover:text-green-500">
+        <%= t('.archived') %>
+      </div>
+      <div class="flex items-center justify-center w-20 h-16 px-3 mr-2 -mb-px text-gray-700 hover:font-semibold hover:text-green-500">
+        <%= t('.all') %>
+      </div>
+    </div>
+  </div>
+  <div class="flex-grow">
+    <div class="bg-gray-100 border-b">
+      <div class="flex flex-grow py-4">
+        <div class="flex items-center justify-center px-2 sm:px-4 xl:px-6">
+          <div class="w-8 md:w-10">
+          </div>
+        </div>
+        <div class="flex flex-grow text-xs font-semibold text-blue-900 uppercase md:text-sm">
+          <div class="w-1/3 lg:w-1/5">
+            <%= Contact.human_attribute_name(:name) %>
+          </div>
+          <div class="w-1/3 pr-2 lg:w-1/5">
+            <%= Contact.human_attribute_name(:messages) %>
+          </div>
+          <div class="hidden w-1/5 pr-2 lg:flex">
+            <%= t('.active_projects') %>
+          </div>
+          <div class="w-1/3 lg:w-1/5">
+            <%= t('.unpaid') %>
+          </div>
+          <div class="hidden w-1/5 lg:w-1/5 lg:flex">
+            <%= t('.status') %>
+          </div>
+        </div>
+        <div class="flex w-1/6 text-xs font-semibold text-blue-900 uppercase lg:w-1/6 lg:hidden md:text-sm">
+          <%= t('.status') %>
+        </div>
+      </div>
+    </div>
+    <% if (contacts.empty?) %>
+      <% if search %>
+        <%= render('contacts/empty') %>
+      <% else %>
+        <%= render('contacts/empty_search') %>
       <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <%= simple_format(t('.no_contacts')) %>
-<% end %>
+    <% else %>
+      <% contacts.each_with_index do |contact, idx| %>
+        <%= render('contacts/row', contact: contact, odd: idx % 2 == 0) %>
+      <% end %>
+    <% end %>
+    <div class="flex flex-col items-end justify-center px-3 bg-white xs:flex-row">
+      <div class="flex inline-flex items-center px-2 py-4 align-middle">
+        <!--Pagy-->
+      </div>
+    </div>
+  </div>
+</div>
