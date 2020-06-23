@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resource(:account, controller: :spaces, only: %i[show update]) do
     resources(:contacts, only: %i[index create show edit new update])
+    resources(:settings)
     resources(:messages, only: %i[new create])
   end
 
