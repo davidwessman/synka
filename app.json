@@ -1,0 +1,50 @@
+{
+  "name": "synka",
+  "description": "Send text messages to customers",
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "environments": {
+    "test": {
+      "addons": [
+        "heroku-postgresql:in-dyno",
+        "heroku-redis:in-dyno"
+      ],
+      "buildpacks": [
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-ruby"
+        }
+      ],
+      "env": {
+        "MINITEST_REPORTER": "TapReporter"
+      },
+      "formation": {
+        "test": {
+          "quantity": 1,
+          "size": "standard-2x"
+        }
+      },
+      "scripts": {
+        "test-setup": "bin/yarn && bin/rails webpacker:compile"
+      }
+    }
+  }
+}
