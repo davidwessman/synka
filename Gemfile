@@ -25,6 +25,10 @@ gem "twilio-ruby"
 gem "uglifier"
 gem "webpacker"
 
+group :test do
+  gem "minitest-reporters"
+end
+
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
