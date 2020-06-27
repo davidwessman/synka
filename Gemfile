@@ -28,13 +28,13 @@ gem "webpacker"
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
+  gem "dotenv-rails"
   gem "pry-rails"
   gem "selenium-webdriver"
   gem "sinatra"
 end
 
 group :development do
-  gem "dotenv-rails"
   gem "htmlbeautifier"
   gem "letter_opener"
   gem "procodile"
