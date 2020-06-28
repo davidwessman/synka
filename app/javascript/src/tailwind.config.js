@@ -33,4 +33,5 @@ module.exports = {
   variants: {},
   corePlugins: {},
   plugins: [require("@tailwindcss/ui")],
+  purge: false,
 };
