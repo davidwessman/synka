@@ -1,8 +1,8 @@
-<nav class="bg-white border-b shadow">
-  <div class="px-4 mx-auto sm:px-6 lg:px-8">
+<nav class="bg-white border-b">
+  <div class="px-4 mx-auto sm:px-6 lg:px-0">
     <div class="flex justify-between h-16">
       <div class="flex">
-        <div class="flex items-center flex-shrink-0">
+        <div class="flex items-center flex-shrink-0 w-40 lg:w-48 xl:w-64 lg:pl-8">
           <%= link_to(root_path, class: "inline-flex") do %>
           <%= image_tag('synka_logo.svg', class: 'h-10 w-10 -ml-2 mr-2') %>
           <span class="text-3xl font-medium tracking-light">
@@ -10,14 +10,14 @@
           </span>
           <% end %>
         </div>
-        <div class="hidden sm:ml-6 md:flex">
+        <div class="hidden md:flex">
           <%= link_to(t('.startpage'), root_path, class: "inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-b-2 border-indigo-500 focus:outline-none focus:border-indigo-700")%>
           <%= link_to(t('.messages'), account_path, class: "inline-flex items-center px-1 pt-1 ml-8 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300")%>
           <%= link_to(t('.calendar'), root_path, class: "inline-flex items-center px-1 pt-1 ml-8 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300")%>
         </div>
       </div>
       <% if signed_in? %>
-      <div class="hidden sm:ml-6 md:flex sm:items-center">
+      <div class="hidden sm:m-6 md:flex sm:items-center">
         <button
           class="p-1 text-gray-400 transition duration-150 ease-in-out border-2 border-transparent rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100"
           aria-label="Notifications">
@@ -50,7 +50,7 @@
         </div>
       </div>
       <% else %>
-      <div class="hidden sm:ml-6 md:flex sm:items-center">
+      <div class="hidden sm:m-6 md:flex sm:items-center">
         <div class="relative ml-3">
           <div class="items-center justify-end hidden md:flex">
             <span class="inline-flex rounded-md shadow-sm">

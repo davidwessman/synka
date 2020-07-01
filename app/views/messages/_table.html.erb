@@ -1,0 +1,20 @@
+<div id="messages-table" class="absolute inset-0 px-2 pt-16 pb-4 overflow-y-auto lg:px-0">
+  <div class="flex flex-col">
+    <% @scoped_messages.each do |key,messages| %>
+      <% if messages.any? %>
+      <div class="inline-block min-w-full align-middle">
+        <div class="sticky top-0 z-10 px-2 py-3 font-medium bg-gray-100 lg:px-6">
+          <%= t(key,scope:"model.message.dates") %>
+        </div>
+        <table class="min-w-full table-fixed">
+          <tbody class="bg-white">
+            <% messages.each do |message| %>
+            <%= render('messages/row', message: message) %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

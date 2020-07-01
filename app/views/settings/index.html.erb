@@ -4,54 +4,16 @@
 <% content_for(:header_title) do %>
 <%= t(".title") %>
 <% end %>
-<div x-data="{ tab: 'account' }" class="w-full lg:p-3 xl:p-6">
-  <div class="hidden lg:flex">
-    <h2 class="text-2xl font-semibold leading-none text-gray-900 xl:text-3xl">
-      <%= t('.settings') %>
-    </h2>
-  </div>
-  <div class="px-2 pb-4 mt-6 lg:px-0">
-    <div>
-      <div class="sm:hidden">
-        <select aria-label="Selected tab" class="block w-full form-select">
-          <option><%= t('.account') %></option>
-          <option><%= t('.company') %></option>
-          <option><%= t('.team_members') %></option>
-          <option><%= t('.billing') %></option>
-        </select>
+<div x-data="{ tab: 'account' }" class="flex-grow w-full bg-gray-100">
+  <%= render("heading") %>
+  <div class="px-2 pb-4 lg:p-3 xl:p-6">
+    <div class="max-w-screen-xl pb-20">
+      <div x-show="tab === 'account'" class="">
+        <%= render("account") %>
       </div>
-      <div class="hidden sm:block">
-        <nav class="flex text-gray-500">
-          <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'account' }"
-            @click="tab = 'account'"
-            class="px-3 py-2 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
-            <%= t('.account') %>
-          </button>
-          <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'company' }"
-            @click="tab = 'company'"
-            class="px-3 py-2 ml-4 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
-            <%= t('.company') %>
-          </button>
-          <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'team_members' }"
-            @click="tab = 'team_members'"
-            class="px-3 py-2 ml-4 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
-            <%= t('.team_members') %>
-          </button>
-          <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'billing' }"
-            @click="tab = 'billing'"
-            class="px-3 py-2 ml-4 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
-            <%= t('.billing') %>
-          </button>
-        </nav>
+      <div x-show="tab === 'billing'" class="">
+        <%= render("billing") %>
       </div>
-    </div>
-  </div>
-  <div class="max-w-screen-xl pb-20 mt-4">
-    <div x-show="tab === 'account'" class="">
-      <%= render("account") %>
-    </div>
-    <div x-show="tab === 'billing'" class="">
-      <%= render("billing") %>
     </div>
   </div>
 </div>

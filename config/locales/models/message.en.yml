@@ -4,3 +4,15 @@ en:
       message:
         contact: Contact
         content: Content
+  model:
+    message:
+      dates:
+        today: Today
+        yesterday: Yesterday
+        older: Older
+      statuses:
+        draft: Draft
+        processed: Processed
+        sent: Sent
+        delivered: Delivered
+        failed: Failed

@@ -1,10 +1,11 @@
 <% content_for(:sidebar) do %>
-  <%= render('application/sidebar', current: :space) %>
+<%= render('application/sidebar', current: :space) %>
 <% end %>
-
-<div class="w-full border-b py-2 border-grey">
-  <h1 class="text-xl font-semibold"><%= @space.title %></h1>
-</div>
-<div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-  <%= render('messages/form', contacts: @space.contacts, message: @message) %>
+<div class="relative flex-grow bg-gray-100">
+  <%= render("new_heading") %>
+  <div class="absolute inset-0 pt-16 pb-4 overflow-y-auto lg:px-0">
+    <div class="w-full lg:w-3/4 xl:w-1/2">
+      <%= render('messages/form', contacts: @space.contacts, message: @message) %>
+    </div>
+  </div>
 </div>

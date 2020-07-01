@@ -8,3 +8,15 @@ sv:
     submit:
       message:
         create: "Skicka meddelande"
+  model:
+    message:
+      dates:
+        today: Idag
+        yesterday: Igår
+        older: Äldre
+      statuses:
+        draft: Utkast
+        processed: Processerat
+        sent: Skickat
+        delivered: Mottaget
+        failed: Misslyckat
