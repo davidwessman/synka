@@ -7,4 +7,8 @@ class Contact < ApplicationRecord
   def to_s
     name
   end
+
+  def initials
+    Contact.initials(name)
+  end
 end
