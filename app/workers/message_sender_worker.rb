@@ -5,6 +5,10 @@ class MessageSenderWorker
 
   def perform(message_id)
     message = Message.includes(:contact).find(message_id)
-    TwilioTextMessenger.new(message).call
+    if ENV["NEXMO_API_KEY"].present?
+      NexmoTextMessenger.new(message).call
+    else
+      TwilioTextMessenger.new(message).call
+    end
   end
 end

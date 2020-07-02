@@ -14,6 +14,7 @@ gem "rails", "~> 6.0"
 gem "bootsnap", require: false
 gem "clearance"
 gem "font-awesome-sass"
+gem "nexmo_rails"
 gem "pg"
 gem "puma"
 gem "roadie-rails"
