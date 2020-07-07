@@ -1,5 +1,6 @@
-<tr class="w-full border-b border-gray-200">
+<tr class="w-full border-b border-gray-200 hover:bg-blue-100">
   <td class="w-1/3 px-2 py-4 whitespace-no-wrap sm:w-1/3 md:w-1/4 lg:px-2 xl:px-6">
+    <%= link_to(account_contact_path(message.contact)) do %>
     <div class="flex items-center">
       <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10">
         <div
@@ -16,6 +17,7 @@
         </div>
       </div>
     </div>
+    <% end %>
   </td>
   <td class="hidden w-1/3 px-2 py-4 md:flex md:px-6 lg:px-2 xl:px-6">
     <div>

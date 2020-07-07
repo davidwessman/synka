@@ -1,10 +1,24 @@
 <% content_for(:sidebar) do %>
 <%= render('application/sidebar', current: :messages) %>
 <% end %>
-<% content_for(:header_title) do %>
-<%= t(".title") %>
+<% content_for(:heading_title) do %>
+<%= t('.messages')%>
 <% end %>
-<div class="relative flex-grow bg-gray-100">
-  <%= render("heading") %>
+<% content_for(:heading_icon) do %>
+<svg class="w-5 h-5 ml-2 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+</svg>
+<% end %>
+<% content_for(:right_content) do %>
+  <%= link_to(new_account_message_path, class: 'btn btn-blue btn-bounce text-xs sm:px-3 sm:py-2') do %>
+  <div class="mr-1 -ml-1">
+    <%= render('application/icons/plus') %>
+  </div>
+  <%= t('.new_message') %>
+  <% end %>
+<% end %>
+
+<div class="flex-grow">
   <%= render("table") %>
 </div>

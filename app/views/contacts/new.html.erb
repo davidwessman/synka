@@ -1,12 +1,32 @@
 <% content_for(:sidebar) do %>
-  <%= render('application/sidebar', current: @space) %>
+<%= render('application/sidebar', current: @space) %>
 <% end %>
-
-<div class="w-full border-b py-2 border-grey">
-  <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
+<% content_for(:heading_title) do %>
+<%= t('.new_contact')%>
+<% end %>
+<% content_for(:heading_icon) do %>
+<svg class="w-5 h-5 ml-2 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+</svg>
+<% end %>
+<% content_for(:right_content) do %>
+<%= link_to(account_messages_path, class: 'btn bg-blue-900 btn-bounce sm:text-base sm:px-4 sm:py-2') do %>
+<div class="mr-1 -ml-1">
+  <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+  </svg>
 </div>
-<div class="w-full lg:w-3/4 xl:w-2/3 p-3">
-  <div class="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
-    <%= render('form', contact: @contact) %>
+<%= t('.back') %>
+<% end %>
+<% end %>
+<div class="flex-grow">
+  <div class="w-full py-2 border-b border-grey">
+    <h1 class="text-xl font-semibold"><%= title(t('.title')) %></h1>
+  </div>
+  <div class="w-full p-3 lg:w-3/4 xl:w-2/3">
+    <div class="px-8 pt-6 pb-8 mb-4 bg-white shadow-md">
+      <%= render('form', contact: @contact) %>
+    </div>
   </div>
 </div>

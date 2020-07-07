@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TwilioTextMessenger
+class NexmoTextMessenger
   include Rails.application.routes.url_helpers
   attr_reader(:message)
 
@@ -16,7 +16,7 @@ class TwilioTextMessenger
         to: @message.contact.phone,
         text: @message.content,
       )
-      if response.http_response.code != 200
+      if response.http_response.code != "200"
         @message.update!(status: :failed,
                         processed_at: Time.zone.now)
         return false

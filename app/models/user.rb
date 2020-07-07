@@ -10,6 +10,10 @@ class User < ApplicationRecord
     name || email
   end
 
+  def initials
+    User.initials(name)
+  end
+
   def space
     spaces.includes(:contacts).first
   end
