@@ -1,21 +1,9 @@
-<div x-show="open" x-show="night_mode" class="absolute right-0 z-50 mt-2 rounded"
+<div x-show="open" x-show="night_mode" class="absolute bottom-0 right-0 z-50 w-48 px-2 mb-16 rounded xl:w-56"
   x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95"
   x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
   x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
-  <div class="w-48 text-gray-900 bg-white border border-gray-300 rounded shadow">
-    <%= link_to(account_path) do %>
-      <div class="flex w-full px-3 py-3 hover:bg-gray-100">
-        <div
-        class="flex items-center justify-center flex-shrink-0 w-10 h-10 font-bold text-white uppercase bg-blue-700 rounded">
-        <%= current_user.initials %>
-        </div>
-        <span class="hidden ml-2 text-sm font-semibold lg:inline">
-          <%= current_user %>
-          <p class="flex justify-start text-xs text-gray-600">Company</p>
-        </span>
-      </div>
-    <% end %>
-    <div class="flex items-center justify-between px-3 py-3 text-sm border-t border-b">
+  <div class="w-full mb-1 text-gray-900 bg-white border border-gray-300 rounded shadow">
+    <div class="flex items-center justify-between px-3 py-3 text-sm border-b border-gray-200">
       <div class="flex items-center">
         <svg class="inline-block w-4 h-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />

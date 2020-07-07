@@ -1,12 +1,18 @@
 <% content_for(:sidebar) do %>
 <%= render('application/sidebar', current: :contacts) %>
 <% end %>
+<<<<<<< HEAD
+<div x-data="{ tab: 'account' }" class="flex-grow">
+  <%= render('heading') %>
+  <div class="p-2 pb-4 lg:p-3 xl:p-6">
+=======
 <% content_for(:header_title) do %>
 <%= t(".title") %>
 <% end %>
 <div x-data="{ tab: 'account' }" class="flex-grow w-full bg-gray-100">
   <%= render("heading") %>
   <div class="px-2 pb-4 lg:p-3 xl:p-6">
+>>>>>>> cb5e1385dfb6769e9ce8e63045e01e2e628662f3
     <div class="max-w-screen-xl pb-20">
       <div x-show="tab === 'account'" class="">
         <%= render("account") %>

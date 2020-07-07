@@ -1,49 +1,36 @@
-<% search = false if search.nil?%>
-<div class="mt-16 bg-white shadow-md">
+<div class="absolute inset-0 pt-16 pb-4 overflow-y-auto">
   <div class="flex-grow">
-    <div class="bg-gray-100 border-b">
-      <div class="flex flex-grow py-4">
-        <div class="flex items-center justify-center px-2 sm:px-4 xl:px-6">
-          <div class="w-8 md:w-10">
-          </div>
-        </div>
-        <div class="flex flex-grow text-xs font-semibold text-blue-900 uppercase md:text-sm">
-          <div class="w-1/3 lg:w-1/5">
+    <table class="min-w-full table-fixed">
+      <thead>
+        <tr>
+          <th class="w-1/6 px-6 py-4 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
             <%= Contact.human_attribute_name(:name) %>
-          </div>
-          <div class="w-1/3 pr-2 lg:w-1/5">
+          </th>
+          <th class="w-1/6 px-6 py-4 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+            <%= Contact.human_attribute_name(:phone) %>
+          </th>
+          <th class="w-1/6 px-6 py-4 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
             <%= Contact.human_attribute_name(:messages) %>
-          </div>
-          <div class="hidden w-1/5 pr-2 lg:flex">
-            <%= t('.active_projects') %>
-          </div>
-          <div class="w-1/3 lg:w-1/5">
-            <%= t('.unpaid') %>
-          </div>
-          <div class="hidden w-1/5 lg:w-1/5 lg:flex">
-            <%= t('.status') %>
-          </div>
-        </div>
-        <div class="flex w-1/6 text-xs font-semibold text-blue-900 uppercase lg:w-1/6 lg:hidden md:text-sm">
-          <%= t('.status') %>
-        </div>
-      </div>
-    </div>
-    <% if (contacts.empty?) %>
-      <% if search %>
-        <%= render('contacts/empty') %>
-      <% else %>
-        <%= render('contacts/empty_search') %>
-      <% end %>
-    <% else %>
-      <% contacts.each_with_index do |contact, idx| %>
-        <%= render('contacts/row', contact: contact, odd: idx % 2 == 0) %>
-      <% end %>
-    <% end %>
-    <div class="flex flex-col items-end justify-center px-3 bg-white xs:flex-row">
-      <div class="flex items-center px-2 py-4 align-middle">
-        <!--Pagy-->
-      </div>
-    </div>
+          </th>
+          <th class="w-1/6 px-6 py-4 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+            <%= Contact.human_attribute_name(:last_message) %>
+          </th>
+          <th class="w-1/6 px-6 py-4 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+            <%= Contact.human_attribute_name(:last_contacted_by) %>
+          </th>
+          <th class="w-1/6 px-6 py-4 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+            <%= Contact.human_attribute_name(:created) %>
+          </th>
+          <th class="w-1/12 px-6 py-4 border-b border-gray-200 bg-gray-50"></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <% if contacts.any? %>
+        <% contacts.each_with_index do |contact, idx| %>
+          <%= render('contacts/row', contact: contact, odd: idx % 2 == 0) %>
+        <% end %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

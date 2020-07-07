@@ -5,7 +5,7 @@
   class="absolute right-0 z-50 w-48 mt-2 origin-top-right rounded-md shadow-lg">
   <div class="bg-white border rounded-md shadow-xs">
     <div class="py-1">
-      <%= link_to(root_path, class: 'group flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900') do %>
+      <%= link_to(account_contact_path(message.contact), class: 'group flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900') do %>
       <div class="flex items-center">
         <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-500" fill="currentColor"
           viewBox="0 0 20 20">
@@ -20,7 +20,7 @@
     </div>
     <div class="border-t border-gray-100"></div>
     <div class="py-1">
-      <%= link_to(root_path, class: 'group flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900') do %>
+      <%= link_to(new_account_message_path(message.contact), class: 'group flex items-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900') do %>
       <div class="flex items-center">
         <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-gray-500 group-focus:text-gray-500" viewBox="0 0 20 20"
           fill="currentColor">
@@ -29,7 +29,7 @@
             clip-rule="evenodd" />
         </svg>
         </svg>
-        <%= t('.new_project') %>
+        <%= t('.new_message') %>
       </div>
       <% end %>
     </div>

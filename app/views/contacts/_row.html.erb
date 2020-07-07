@@ -1,49 +1,61 @@
-<div class="flex border-b border-gray-300">
-  <%= link_to(account_contact_path(contact), class: 'flex-grow flex py-3 hover:bg-green-200') do %>
-    <div class="flex items-center justify-center px-2 sm:px-4 xl:px-6">
-      <div class="inline-flex items-center justify-center w-8 h-8 text-xs font-bold text-white bg-green-500 rounded-full md:h-10 md:w-10 md:text-sm lg:text-base">
-        AA
+<tr class="border-b border-gray-200">
+  <td class="w-1/6 px-2 py-4 whitespace-no-wrap sm:w-1/3 md:w-1/5 lg:px-2 xl:px-6">
+    <%= link_to(account_contact_path(contact)) do %>
+    <div class="flex items-center">
+      <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10">
+        <div
+          class="inline-flex items-center justify-center w-8 h-8 text-xs font-semibold text-green-600 bg-green-200 rounded-full md:h-10 md:w-10 md:text-sm lg:text-base">
+          <%= contact.initials %>
+        </div>
       </div>
-    </div>
-    <div class="flex items-center flex-grow text-xs sm:text-sm xl:text-base">
-      <div class="w-1/3 pr-2 lg:w-1/5 md:pr-4">
-        <p class=""><%= contact.name%></p>
-        <p class="text-xs text-gray-700 opacity-75 md:text-sm">Individual</p>
-      </div>
-      <div class="w-1/3 pr-2 break-all lg:w-1/5 md:pr-4">
-        <p class=""><%= contact.messages.count %></p>
-      </div>
-      <div class="hidden w-1/5 lg:inline-block">
-        <p class="">projcount</p>
-      </div>
-      <div class="flex w-1/3 lg:w-1/5">
-        5.799,00 kr
-      </div>
-      <div class="items-center hidden w-1/6 lg:w-1/6 lg:flex">
-        <div class="flex items-center pl-4 md:pl-5">
-          <div class="w-3 h-3 bg-blue-500 rounded-full">
-          </div>
+      <div class="ml-2 sm:ml-4">
+        <div class="text-xs font-medium leading-5 text-gray-900 sm:text-sm"><%= contact.name %>
+        </div>
+        <div class="hidden text-sm leading-5 text-gray-500 sm:block">Customer
+        </div>
+        <div class="w-24 text-xs leading-5 text-gray-500 truncate sm:text-sm sm:hidden"><%= contact.phone %>
         </div>
       </div>
     </div>
-    <div class="flex items-center w-1/6 lg:w-1/6 lg:hidden">
-      <div class="flex items-center pl-4 md:pl-5">
-        <div class="w-3 h-3 bg-blue-500 rounded-full">
-        </div>
+    <% end %>
+  </td>
+  <td class="w-1/6 px-2 py-4 md:px-6 lg:px-2 xl:px-6">
+    <div class="text-xs leading-5 text-gray-500 sm:text-sm">
+      <%= contact.phone %>
+    </div>
+  </td>
+  <td class="w-1/6 px-2 py-4 whitespace-no-wrap md:px-6 lg:px-2 xl:px-6">
+    <div class="text-xs leading-5 text-gray-500 sm:text-sm">
+      <%= contact.messages.count %>
+    </div>
+  </td>
+  <td class="w-1/6 px-2 py-4 whitespace-no-wrap md:px-6 lg:px-2 xl:px-6">
+    <div class="text-xs leading-5 text-gray-500 sm:text-sm">
+      <%= l(contact.created_at, format: "%Y-%m-%d") %>
+    </div>
+  </td>
+  <td class="w-1/6 px-2 py-4 whitespace-no-wrap md:px-6 lg:px-2 xl:px-6">
+    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+
+    </span>
+  </td>
+  <td class="w-1/6 px-2 py-4 whitespace-no-wrap md:px-6 lg:px-2 xl:px-6">
+    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+
+    </span>
+  </td>
+  <td class="w-1/12 px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap">
+    <div class="relative inline-block text-left" @click.away="edit_dropdown = false" x-data="{ edit_dropdown: false }">
+      <div class="flex items-center justify-center cursor-pointer" @click="edit_dropdown = !edit_dropdown"
+        @click="edit_dropdown = true">
+        <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+        </svg>
+      </div>
+      <div class="-mt-4">
+        <%= render('contacts/edit_dropdown', contact: contact) %>
       </div>
     </div>
-  <% end %>
-  <div class="relative hidden text-left sm:inline-block" @click.away="edit_dropdown = false"
-    x-data="{ edit_dropdown: false }">
-    <div class="flex items-center justify-center w-10 h-16 -ml-12 cursor-pointer xl:w-16 xl:-ml-20"
-      @click="edit_dropdown = !edit_dropdown" @click="edit_dropdown = true">
-      <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-      </svg>
-    </div>
-    <div class="-mt-4">
-      <%= render('contacts/edit_dropdown', contact: contact) %>
-    </div>
-  </div>
-</div>
+  </td>
+</tr>
