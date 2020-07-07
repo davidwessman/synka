@@ -1,16 +1,91 @@
 <% content_for(:sidebar) do %>
 <%= render('application/sidebar', current: :space) %>
 <% end %>
-<div class="flex flex-1 bg-gray-50 lg:overflow-y-auto">
-  <div class="w-full">
-  <div class="w-full p-3 lg:w-1/2">
-    <%= render('messages/form', contacts: @space.contacts, message: @message) %>
+<% content_for(:heading_title) do %>
+  <%= t('.dashboard')%>
+<% end %>
+<% content_for(:heading_icon) do %>
+<svg class="w-5 h-5 ml-2 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+</svg>
+<% end %>
+<% content_for(:right_content) do %>
+<div class="flex flex-wrap-reverse justify-end">
+  <div>
+    <%= link_to(new_account_contact_path, class: 'btn btn-green btn-bounce sm:text-base sm:px-4 sm:py-2') do %>
+      <svg class="-ml-0.5 mr-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+        clip-rule="evenodd" />
+      </svg>
+      <%= t('.contact') %>
+    <% end %>
   </div>
-  <% if @messages %>
-  <div class="w-full p-3 lg:w-1/2">
-    <h2 class="text-lg font-semibold"><%= t('.sent_messages') %></h2>
-    <%= render(@messages) %>
+  <div>
+    <%= link_to(new_account_message_path, class: 'btn btn-blue btn-bounce sm:text-base sm:px-4 sm:py-2 ml-2') do %>
+      <svg class="-ml-0.5 mr-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd"
+        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+        clip-rule="evenodd" />
+      </svg>
+      <%= t('.message') %>
+    <% end %>
   </div>
-  <% end %>
 </div>
+<% end %>
+<div class="flex-grow p-4">
+  <div class="grid flex-grow grid-cols-9 gap-4 pb-16 mt-16 max-w-screen-xxl">
+    <div class="grid grid-cols-8 col-span-9">
+      <div x-data="{ tab: 'week' }" class="col-span-8">
+        <div class="flex flex-col border shadow sm:rounded">
+          <div class="flex-grow">
+            <div class="flex items-center justify-between px-3 -mx-px -mt-px bg-white border rounded-t xl:px-6">
+              <h3 class="py-4 text-base font-normal text-blue-500 sm:text-lg">
+                <%= t('.statistics') %>
+              </h3>
+              <div>
+                <div class="sm:hidden">
+                  <select aria-label="Selected tab" class="block w-full form-select">
+                    <option><%= t('.week') %></option>
+                    <option><%= t('.month') %></option>
+                    <option><%= t('.year') %></option>
+                    <option><%= t('.total') %></option>
+                  </select>
+                </div>
+                <div class="hidden sm:block">
+                  <nav class="flex text-gray-500">
+                    <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'week' }"
+                      @click="tab = 'week'"
+                      class="px-3 py-2 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
+                      <%= t('.week') %>
+                    </button>
+                    <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'month' }"
+                      @click="tab = 'month'"
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
+                      <%= t('.month') %>
+                    </button>
+                    <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'year' }"
+                      @click="tab = 'year'"
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
+                      <%= t('.year') %>
+                    </button>
+                    <button button :class="{ 'text-indigo-700 bg-indigo-100 font-semibold': tab === 'total' }"
+                      @click="tab = 'total'"
+                      class="px-3 py-2 ml-4 text-sm font-medium leading-5 rounded-md hover:text-indigo-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
+                      <%= t('.total') %>
+                    </button>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <%= render("stats") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-5 md:col-span-6">
+
+    </div>
+    <%= render("recent_messages") %>
+  </div>
 </div>

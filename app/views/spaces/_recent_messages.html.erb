@@ -1,0 +1,20 @@
+<div class="col-span-6 md:col-span-3">
+  <div class="bg-white border shadow sm:rounded">
+    <div class="border-b">
+      <div class="flex justify-between px-6 -mb-px">
+        <h3 class="py-4 text-lg font-normal text-blue-700"><%= t('.recent_messages') %></h3>
+      </div>
+    </div>
+    <% if @messages.any? %>
+    <table class="min-w-full table-fixed">
+      <tbody class="bg-white">
+        <% @messages.each do |message| %>
+        <%= render('messages/status_row', message: message) %>
+        <% end %>
+      </tbody>
+    </table>
+    <% else %>
+    NO
+    <% end %>
+  </div>
+</div>

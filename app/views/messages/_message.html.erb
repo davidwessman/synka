@@ -1,45 +1,38 @@
 <% hide_user ||= false %>
-<div class="flex flex-row px-2 py-4 mb-4 w-100 border border-blue rounded-lg shadow-md">
-  <% unless hide_user %>
-    <div class="hidden md:block w-1/5 border-r border-black pr-1">
-      <%= link_to(account_contact_path(message.contact)) do %>
-        <div class="flex flex-col h-full items-center justify-center">
-          <%= icon('far', 'user', class: 'text-5xl') %>
-          <span class="text-xs mt-1">
-            <%= message.contact %>
-          </span>
-          <span class="text-xs mt-1">
-            <%= message.contact.phone %>
+<div class="flex justify-between">
+  <div class="flex w-3/5">
+    <div class="w-10">
+    <div
+      class="flex items-center justify-center w-8 h-8 text-xs font-semibold text-green-600 bg-green-200 rounded-full md:h-10 md:w-10 md:text-sm lg:text-base">
+      <%= message.user.initials %>
+    </div>
+  </div>
+    <div class="flex-wrap">
+      <div class="flex p-3 mt-6 ml-2 bg-blue-600 rounded-r-lg rounded-bl-lg shadow-md">
+        <div class="flex-col justify-between w-full text-white">
+          <%= simple_format(message.content) %>
+        </div>
+      </div>
+
+      <div class="flex justify-between mt-1 text-xs text-gray-500">
+        <div class="">
+          <!--<%= t('.sent_by', user: message.user) %>,-->
+          <%= l(message.processed_at, format: :short) if message.processed_at? %>
+        </div>
+        <div class="">
+          <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+            <%= t(message.status,scope:"model.message.statuses") %>
           </span>
         </div>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="w-full md:w-4/5 flex-col pl-3 justify-between">
-    <div class="mb-2 border-b md:hidden">
-      <span class="text-xs mt-1">
-        <%= message.contact %>
-      </span>
-      <span class="text-xs mt-1">
-        <%= message.contact.phone %>
-      </span>
-    </div>
-    <div class="mb-2">
-      <%= simple_format(message.content) %>
-    </div>
-    <div class="flex flex-col text-xs">
-      <div class="">
-        <%= icon('far', 'info-circle') %>
-        <%= t('.status') %>: <%=message.status %>
-      </div>
-      <div class="">
-        <%= icon('far', 'user-edit') %>
-        <%= t('.sent_by', user: message.user) %>
-      </div>
-      <div class="">
-        <%= icon('far', 'clock') %>
-        <%= l(message.processed_at, format: :short) if message.processed_at? %>
       </div>
     </div>
   </div>
+  <% if message.status == "draft" %>
+  <div class="flex items-center mb-8">
+    <svg class="w-8 h-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  </div>
+  <% end %>
 </div>

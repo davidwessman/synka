@@ -1,8 +1,27 @@
 <% content_for(:sidebar) do %>
 <%= render('application/sidebar', current: :space) %>
 <% end %>
-<div class="relative flex-grow bg-gray-100">
-  <%= render("new_heading") %>
+<% content_for(:heading_title) do %>
+<%= t('.new_message')%>
+<% end %>
+<% content_for(:heading_icon) do %>
+<svg class="w-5 h-5 ml-2 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+    d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+</svg>
+<% end %>
+<% content_for(:right_content) do %>
+  <%= link_to(account_messages_path, class: 'btn bg-blue-900 btn-bounce sm:text-base sm:px-4 sm:py-2') do %>
+  <div class="mr-1 -ml-1">
+    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+  </div>
+  <%= t('.back') %>
+  <% end %>
+<% end %>
+
+<div class="flex-grow">
   <div class="absolute inset-0 pt-16 pb-4 overflow-y-auto lg:px-0">
     <div class="w-full lg:w-3/4 xl:w-1/2">
       <%= render('messages/form', contacts: @space.contacts, message: @message) %>

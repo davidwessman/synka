@@ -1,0 +1,15 @@
+<% if content_for?(:heading_title) || content_for?(:right_content) %>
+<div class="absolute top-0 left-0 right-0 z-20 border-b border-gray-300">
+  <div class="flex items-center justify-between w-full h-16 p-3 bg-white xl:px-6 xl:py-4">
+    <div class="flex items-center">
+      <h2 class="text-xl font-medium leading-none text-gray-900 sm:text-2xl xl:text-xl">
+        <%= yield(:heading_title) %>
+      </h2>
+      <%= yield(:heading_icon) %>
+    </div>
+    <div class="flex items-center justify-end ml-2">
+      <%= yield(:right_content) %>
+    </div>
+  </div>
+</div>
+<% end %>

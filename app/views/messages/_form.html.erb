@@ -1,9 +1,9 @@
 <% contacts ||= [] %>
 <% contact ||= nil %>
-<%= form_with(model: [:account, message], local: true,
-              class: 'py-2') do |form| %>
-<div class="overflow-hidden bg-white border border-gray-200 rounded-lg shadow">
+<%= form_with(model: [:account, message], local: true) do |form| %>
+<div class="overflow-hidden bg-white border border-gray-200 rounded shadow">
   <div class="px-4 py-5 sm:p-6">
+    <h2 class="mb-3 text-lg font-medium text-gray-900"><%= t('.new_message') %></h2>
     <div class="mb-4">
       <% if contact %>
         <%= form.hidden_field(:contact_id, value: contact.id) %>
@@ -13,9 +13,8 @@
       <% end %>
     </div>
     <div class="mb-4">
-      <%= form.label(:content, class: 'form-label ') %>
-      <%= form.text_area(:content, id: 'content', autofocus: true, rows: 10,
-                                    class: 'shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker') %>
+      <%= form.text_area(:content, id: 'content', rows: 8, placeholder: 'Here you can write your project description...',
+              class: "form-input mt-2") %>
     </div>
   </div>
   <div class="px-4 py-4 bg-gray-50 sm:px-6">

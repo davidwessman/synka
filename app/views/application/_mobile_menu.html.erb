@@ -61,10 +61,10 @@
                 <p class="block text-xs font-semibold tracking-wider text-green-600 uppercase">
                   <%= t('.account') %>
                 </p>
-                <%= link_to(t('.projects'), root_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
-                <%= link_to(t('.customers'), root_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
-                <%= link_to(t('.invoices'), root_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
-                <%= link_to(t('.settings'), root_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
+                <%= link_to(t('.dashboard'), account_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
+                <%= link_to(t('.contacts'), account_contacts_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
+                <%= link_to(t('.messages'), account_messages_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
+                <%= link_to(t('.settings'), account_settings_path, class: "mt-4 text-sm font-medium block text-gray-900 hover:text-gray-600") %>
               </div>
               <div class="flex flex-row">
                 <%= link_to(account_path, class: "bg-blue-100 hover:bg-blue-200 border border-gray-400 py-2 px-3 rounded mr-3 flex items-center") do %>
