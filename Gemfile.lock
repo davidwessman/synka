@@ -110,13 +110,13 @@ GEM
       rake
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
+    foreman (0.87.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     htmlbeautifier (1.3.1)
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
-    json (2.3.0)
     jwt (2.2.1)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -159,8 +159,6 @@ GEM
     parser (2.6.4.0)
       ast (~> 2.4.0)
     pg (1.2.3)
-    procodile (1.0.26)
-      json
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -312,12 +310,12 @@ DEPENDENCIES
   clearance
   dotenv-rails
   font-awesome-sass
+  foreman
   htmlbeautifier
   letter_opener
   minitest-reporters
   nexmo_rails
   pg
-  procodile
   pry-rails
   puma
   rails (~> 6.0)
