@@ -39,9 +39,10 @@ group :development, :test do
 end
 
 group :development do
+  gem "dotenv-rails"
+  gem "foreman"
   gem "htmlbeautifier"
   gem "letter_opener"
-  gem "procodile"
   gem "solargraph"
   gem "standardrb"
 end
