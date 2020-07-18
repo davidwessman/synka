@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.7.0"
+ruby "2.7.1"
 
 gem "rails", "~> 6.0"
 
@@ -38,6 +38,7 @@ group :development do
   gem "htmlbeautifier"
   gem "letter_opener"
   gem "procodile"
+  gem "solargraph"
   gem "standardrb"
 end
 
