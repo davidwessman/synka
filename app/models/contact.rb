@@ -11,4 +11,10 @@ class Contact < ApplicationRecord
   def initials
     Contact.initials(name)
   end
+
+  def get_value(key)
+    if key == :name
+      name
+    end
+  end
 end
