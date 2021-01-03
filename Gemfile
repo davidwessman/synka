@@ -11,6 +11,7 @@ ruby "2.7.1"
 
 gem "rails", "~> 6.0"
 
+gem "blinka-reporter", github: "davidwessman/blinka_reporter", branch: "main"
 gem "bootsnap", require: false
 gem "clearance"
 gem "font-awesome-sass"
@@ -39,7 +40,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "dotenv-rails"
   gem "foreman"
   gem "htmlbeautifier"
   gem "letter_opener"
