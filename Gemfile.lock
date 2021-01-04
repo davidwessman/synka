@@ -218,7 +218,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.3)
-    redis (4.2.1)
+    redis (4.2.5)
     regexp_parser (1.7.1)
     reverse_markdown (2.0.0)
       nokogiri
@@ -252,7 +252,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.1)
-    sidekiq (6.1.0)
+    sidekiq (6.1.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
