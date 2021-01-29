@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/davidwessman/blinka_reporter.git
-  revision: dcc9b9f882bc2af290c1238a06b035388fe621d1
+  revision: fb39c3dadb9dd3cc86902ac5351e1e76f3c0add0
   branch: main
   specs:
     blinka-reporter (0.0.1)
