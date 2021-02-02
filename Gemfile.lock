@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/davidwessman/blinka_reporter.git
-  revision: 03cf2dd0561e5545c285c9e229dc278cfbc6d891
+  revision: 1d60c1e69e98733e1400d6b0a712291ff1ebf822
   branch: main
   specs:
-    blinka-reporter (0.0.1)
+    blinka-reporter (0.0.2)
       httparty (~> 0.18.1)
       mimemagic (~> 0.3.5)
 
@@ -161,7 +161,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    msgpack (1.4.1)
+    msgpack (1.4.2)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustermann (1.1.1)
