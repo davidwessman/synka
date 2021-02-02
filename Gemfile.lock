@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/davidwessman/blinka_reporter.git
-  revision: 03cf2dd0561e5545c285c9e229dc278cfbc6d891
-  branch: main
-  specs:
-    blinka-reporter (0.0.1)
-      httparty (~> 0.18.1)
-      mimemagic (~> 0.3.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,6 +66,9 @@ GEM
     backport (1.1.2)
     bcrypt (3.1.16)
     benchmark (0.1.1)
+    blinka-reporter (0.0.2)
+      httparty (~> 0.18.1)
+      mimemagic (~> 0.3.5)
     bootsnap (1.6.0)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -329,7 +323,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blinka-reporter!
+  blinka-reporter (~> 0.0.2)
   bootsnap
   byebug
   capybara
@@ -362,4 +356,4 @@ RUBY VERSION
    ruby 2.7.1p83
 
 BUNDLED WITH
-   2.1.4
+   2.2.7
