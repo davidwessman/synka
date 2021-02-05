@@ -69,7 +69,7 @@ GEM
     blinka-reporter (0.1.0)
       httparty (~> 0.18.1)
       mimemagic (~> 0.3.5)
-    bootsnap (1.7.0)
+    bootsnap (1.7.1)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
