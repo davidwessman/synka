@@ -1,0 +1,10 @@
+#!/bin/sh
+bundle exec rails test
+
+# Store the result code for the last command
+result="$?"
+
+# HEROKU_TEST_RUN_COMMIT_VERSION is defined on Heroku.
+BLINKA_COMMIT=$HEROKU_TEST_RUN_COMMIT_VERSION bundle exec rails runner "require 'blinka_client'; BlinkaClient.new.report"
+
+exit $result

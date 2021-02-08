@@ -11,7 +11,6 @@ ruby "2.7.1"
 
 gem "rails", "~> 6.0"
 
-gem "blinka-reporter", "~> 0.1.1"
 gem "bootsnap", require: false
 gem "clearance"
 gem "font-awesome-sass"
@@ -26,11 +25,8 @@ gem "twilio-ruby"
 gem "uglifier"
 gem "webpacker"
 
-group :test do
-  gem "minitest-reporters"
-end
-
 group :development, :test do
+  gem "blinka-reporter", "~> 0.2.1"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
   gem "dotenv-rails"
