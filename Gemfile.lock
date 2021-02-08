@@ -65,7 +65,7 @@ GEM
     backport (1.1.2)
     bcrypt (3.1.16)
     benchmark (0.1.1)
-    blinka-reporter (0.2.1)
+    blinka-reporter (0.3.0)
       httparty (~> 0.18.1)
       mimemagic (~> 0.3.5)
     bootsnap (1.7.1)
@@ -317,7 +317,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blinka-reporter (~> 0.2.1)
+  blinka-reporter (~> 0.3.0)
   bootsnap
   byebug
   capybara

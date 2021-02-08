@@ -33,6 +33,7 @@
         }
       ],
       "env": {
+        "BLINKA_JSON": "true",
         "BLINKA_REPOSITORY": "davidwessman/synka",
         "BLINKA_TAP": "true"
       },
