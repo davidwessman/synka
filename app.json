@@ -1,8 +1,7 @@
 {
   "name": "synka",
   "description": "Send text messages to customers",
-  "env": {
-  },
+  "env": {},
   "formation": {
     "web": {
       "quantity": 1,
@@ -34,7 +33,8 @@
         }
       ],
       "env": {
-        "MINITEST_REPORTER": "TapReporter"
+        "BLINKA_REPOSITORY": "davidwessman/synka",
+        "BLINKA_TAP": "true"
       },
       "formation": {
         "test": {
@@ -43,7 +43,8 @@
         }
       },
       "scripts": {
-        "test-setup": "bin/yarn && bin/rails webpacker:compile"
+        "test-setup": "bin/yarn && bin/rails webpacker:compile",
+        "test": "bin/heroku-ci-test"
       }
     }
   }

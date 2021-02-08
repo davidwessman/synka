@@ -4,11 +4,8 @@ require File.expand_path("../config/environment", __dir__)
 require "rails/test_help"
 require "clearance/test_unit"
 require "sidekiq/testing"
-require "minitest/reporters"
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
-require Rails.root.join("lib/minitest/reporters/tap_reporter.rb")
 
-Minitest::Reporters.use!
 Sidekiq::Testing.fake!
 
 class ActiveSupport::TestCase

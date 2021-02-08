@@ -61,12 +61,12 @@ jobs:
       - name: Run tests
         run: bundle exec rails test
 
-      - name: Report to Blinka
-        if: ${{ always() }}
-        env:
-          BLINKA_BRANCH: main
-          BLINKA_REPOSITORY: davidwessman/synka
-          BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
-          BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
-        run: |
-          bundle exec rails runner "require 'blinka_client'; BlinkaClient.new.report" || true
+      # - name: Report to Blinka
+      #   if: ${{ always() }}
+      #   env:
+      #     BLINKA_BRANCH: main
+      #     BLINKA_REPOSITORY: davidwessman/synka
+      #     BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
+      #     BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
+      #   run: |
+      #     bundle exec rails runner "require 'blinka_client'; BlinkaClient.new.report" || true
