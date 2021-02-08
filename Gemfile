@@ -11,7 +11,7 @@ ruby "2.7.1"
 
 gem "rails", "~> 6.0"
 
-gem "blinka-reporter", "~> 0.1.1"
+gem "blinka-reporter", "~> 0.2.0"
 gem "bootsnap", require: false
 gem "clearance"
 gem "font-awesome-sass"
