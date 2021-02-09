@@ -25,6 +25,10 @@ gem "twilio-ruby"
 gem "uglifier"
 gem "webpacker"
 
+group :test do
+  gem "webdrivers", "~> 4.5"
+end
+
 group :development, :test do
   gem "blinka-reporter", "~> 0.3.0"
   gem "byebug", platforms: %i[mri mingw x64_mingw]

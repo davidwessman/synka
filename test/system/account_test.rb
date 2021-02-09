@@ -15,5 +15,6 @@ class AccountsTest < ApplicationSystemTestCase
     assert_selector("h1", text: I18n.t("presentation.index.sync_your"))
     click_on("Account")
     assert_selector("h3", text: I18n.t("presentation.sidebar.welcome"))
+    assert_selector("h3", text: "Not to be found")
   end
 end

@@ -1,5 +1,5 @@
 #!/bin/sh
-bundle exec rails test
+bundle exec rails test:system test
 
 # Store the result code for the last command
 result="$?"
