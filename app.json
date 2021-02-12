@@ -33,7 +33,7 @@
         }
       ],
       "env": {
-        "BLINKA_JSON": "true",
+        "BLINKA_REPORT": "true",
         "BLINKA_REPOSITORY": "davidwessman/synka",
         "BLINKA_TAP": "true"
       },
@@ -45,7 +45,7 @@
       },
       "scripts": {
         "test-setup": "bin/yarn && bin/rails webpacker:compile",
-        "test": "bin/heroku-ci-test"
+        "test": "bundle exec rails test:system test"
       }
     }
   }

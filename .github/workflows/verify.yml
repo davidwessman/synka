@@ -4,13 +4,13 @@ on: [push]
 jobs:
   tests:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     services:
       postgres:
-        image: postgres:12
+        image: postgres:13
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: hitta_ka_test
+          POSTGRES_DB: synka_test
           POSTGRES_PASSWORD: "password"
         ports: ["5432:5432"]
 
@@ -20,25 +20,18 @@ jobs:
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
-      - name: Ruby gem cache
-        uses: actions/cache@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: Install gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundler-cache: true
 
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+
       - name: Find yarn cache location
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: JS package cache
         uses: actions/cache@v1
         with:
@@ -46,6 +39,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install packages
         run: |
           yarn install --pure-lockfile
@@ -59,16 +53,10 @@ jobs:
           bin/rails db:setup
 
       - name: Run tests
-        env:
-          BLINKA_JSON: true
-        run: bundle exec rails test
-
-      # - name: Report to Blinka
-      #   if: ${{ always() }}
-      #   env:
-      #     BLINKA_BRANCH: main
-      #     BLINKA_REPOSITORY: davidwessman/synka
-      #     BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
-      #     BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
-      #   run: |
-      #     bundle exec rails runner "require 'blinka_client'; BlinkaClient.new.report" || true
+        # env:
+        #   BLINKA_REPORT: true
+        #   BLINKA_BRANCH: main
+        #   BLINKA_REPOSITORY: davidwessman/synka
+        #   BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
+        #   BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
+        run: bundle exec rails test:system test
