@@ -24,10 +24,12 @@
   "environments": {
     "test": {
       "addons": [
-        "heroku-postgresql:in-dyno",
-        "heroku-redis:in-dyno"
+        "heroku-postgresql:in-dyno"
       ],
       "buildpacks": [
+        {
+          "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+        },
         {
           "url": "https://github.com/heroku/heroku-buildpack-ruby"
         }
@@ -35,7 +37,8 @@
       "env": {
         "BLINKA_REPORT": "true",
         "BLINKA_REPOSITORY": "davidwessman/synka",
-        "BLINKA_TAP": "true"
+        "BLINKA_TAP": "true",
+        "WD_CHROME_PATH": "/app/.apt/usr/bin/google-chrome-stable"
       },
       "formation": {
         "test": {

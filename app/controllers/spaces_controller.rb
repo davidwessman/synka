@@ -6,7 +6,11 @@ class SpacesController < ApplicationController
     @space = current_user.space
     contact = Contact.where(id: params["contact_id"]).first
     @message = Message.new(contact: contact)
-    @messages = @space.messages.recent
+    @messages = if @space
+      @space.messages.recent
+    else
+      Message.none
+    end
   end
 
   def update
