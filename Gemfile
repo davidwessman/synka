@@ -26,7 +26,7 @@ gem "uglifier"
 gem "webpacker"
 
 group :development, :test do
-  gem "blinka-reporter", "~> 0.3.3"
+  gem "blinka-reporter", "~> 0.3.4"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
   gem "dotenv-rails"
