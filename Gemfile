@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+def next?
+  File.basename(__FILE__) == "Gemfile.next"
+end
+
 source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
@@ -9,7 +13,11 @@ end
 
 ruby "2.7.1"
 
-gem "rails", "~> 6.0"
+if next?
+  gem "rails", "~> 6.1"
+else
+  gem "rails", "~> 6.0"
+end
 
 gem "bootsnap", require: false
 gem "clearance"
