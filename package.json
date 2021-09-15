@@ -2,7 +2,7 @@
   "name": "synka",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^5.4.2",
+    "@rails/webpacker": "^5.4.3",
     "@tailwindcss/custom-forms": "^0.2.1",
     "@tailwindcss/ui": "^0.7.2",
     "alpinejs": "^3.3.3",
