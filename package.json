@@ -6,7 +6,7 @@
     "@tailwindcss/custom-forms": "^0.2.1",
     "@tailwindcss/ui": "^0.7.2",
     "alpinejs": "^3.4.2",
-    "autoprefixer": "^9.8.7",
+    "autoprefixer": "^9.8.8",
     "core-js": "^3",
     "tailwindcss": "^1.9.6"
   },
