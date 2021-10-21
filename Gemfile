@@ -52,7 +52,7 @@ group :development do
 end
 
 group :test do
-  gem "webdrivers", "~> 4.7"
+  gem "webdrivers", "~> 5.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
