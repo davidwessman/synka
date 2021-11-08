@@ -228,7 +228,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.6)
-    redis (4.4.0)
+    redis (4.5.1)
     regexp_parser (2.1.1)
     reverse_markdown (2.0.0)
       nokogiri
@@ -264,7 +264,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    sidekiq (6.2.2)
+    sidekiq (6.3.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
