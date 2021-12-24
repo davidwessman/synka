@@ -14,9 +14,9 @@ end
 ruby "2.7.2"
 
 if next?
-  gem "rails", "~> 6.1"
+  gem "rails", "~> 7.0"
 else
-  gem "rails", "~> 6.0"
+  gem "rails", "~> 7.0"
 end
 
 gem "bootsnap", require: false
