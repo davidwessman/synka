@@ -13,41 +13,33 @@ end
 
 ruby "2.7.2"
 
-if next?
-  gem "rails", "~> 7.0"
-else
-  gem "rails", "~> 7.0"
-end
+gem "rails", "~> 7.0"
+gem "sprockets-rails", "~> 3.4"
 
 gem "bootsnap", require: false
 gem "clearance"
-gem "font-awesome-sass"
 gem "nexmo_rails"
+gem "cssbundling-rails", "~> 1.0.0"
+gem "jsbundling-rails", "~> 1.0.0"
 gem "pg"
 gem "puma"
 gem "roadie-rails"
-gem "sassc-rails"
 gem "sidekiq"
 gem "turbolinks"
 gem "twilio-ruby"
 gem "uglifier"
-gem "webpacker"
 
 group :development, :test do
   gem "blinka-reporter", "~> 0.4.0"
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
   gem "dotenv-rails"
-  gem "pry-rails"
   gem "selenium-webdriver"
   gem "sinatra"
 end
 
 group :development do
-  gem "foreman"
   gem "htmlbeautifier"
   gem "letter_opener"
-  gem "solargraph"
   gem "standardrb"
 end
 

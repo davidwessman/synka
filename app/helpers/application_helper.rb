@@ -8,7 +8,7 @@ module ApplicationHelper
   def flash_css(flash)
     case flash
     when "alert"
-      "bg-yellow-800 border-yellow-800 text-grey-800"
+      "bg-yellow-500 border-yellow-500 text-grey-800"
     when "error"
       "bg-red-800 border-red-800 text-grey-800"
     when "notice"

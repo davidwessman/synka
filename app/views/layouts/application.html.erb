@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <title><%= full_title(t('general.title'), yield(:title)) %></title>
-    <%= stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload') %>
-    <%= javascript_include_tag('application', 'data-turbolinks-track': 'reload') %>
-    <%= stylesheet_pack_tag('application', media: 'all') %>
-    <%= javascript_pack_tag('application') %>
+    <%= stylesheet_link_tag('application') %>
+    <%= javascript_include_tag('application', 'data-turbo-track': 'reload') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= render('application/favicon') %>
   </head>
   <body>
-    <div class="flex flex-col h-full bg-gray-100">
+    <div class="flex flex-col min-h-screen bg-gray-100">
       <header class="lg:hidden">
         <%= render('header') %>
       </header>

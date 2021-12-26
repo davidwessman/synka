@@ -1,0 +1,255 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  line-height: 1.1;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  color: #6f6f6f;
+  font-size: 60%;
+  line-height: 0;
+  text-transform: none;
+}
+p,
+table.table,
+ul {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+* {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
+img.logo {
+  max-height: 60px;
+}
+body {
+  height: 100%;
+  width: 100% !important;
+}
+a {
+  color: #2ba6cb;
+}
+a.fb {
+  background-color: #3b5998 !important;
+}
+a.tw {
+  background-color: #1daced !important;
+}
+a.gp {
+  background-color: #db4a39 !important;
+}
+a.ms {
+  background-color: #000 !important;
+}
+.btn {
+  background-color: #666;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+.btn.btn-primary {
+  background: #4299e1;
+  border: 1px solid #4299e1;
+  color: #fff;
+  margin: 0 10px 10px 0;
+}
+.btn.btn-primary:hover {
+  background: #4299ae;
+  color: #fff;
+}
+p.callout {
+  background-color: #ecf8ff;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+p.lead {
+  font-size: 17px;
+}
+p.last {
+  margin-bottom: 0;
+}
+table.social {
+  background-color: #ebebeb;
+}
+table.head-wrap {
+  border-bottom: 1px solid #fff;
+  width: 100%;
+}
+table.body-wrap {
+  width: 100%;
+}
+table.footer-wrap {
+  border-top: 1px solid #fff;
+  clear: both !important;
+  width: 100%;
+}
+h1 {
+  font-size: 44px;
+  font-weight: 200;
+}
+h2 {
+  font-size: 37px;
+  font-weight: 200;
+}
+h3 {
+  font-size: 27px;
+  font-weight: 200;
+}
+h4 {
+  font-size: 23px;
+  font-weight: 200;
+}
+h5 {
+  font-size: 17px;
+  font-weight: 500;
+}
+h6 {
+  color: #444;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+ul li {
+  list-style-position: inside;
+  margin-left: 5px;
+}
+ul.sidebar {
+  background: #ebebeb;
+  display: block;
+  list-style-type: none;
+}
+ul.sidebar li {
+  display: block;
+  margin: 0;
+}
+ul.sidebar li a {
+  border-bottom: 1px solid #777;
+  border-top: 1px solid #fff;
+  color: #666;
+  cursor: pointer;
+  display: block;
+  margin: 0 10px 0 0;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+ul.sidebar li a.last {
+  border-bottom-width: 0;
+}
+ul.sidebar li a h1,
+ul.sidebar li a h2,
+ul.sidebar li a h3,
+ul.sidebar li a h4,
+ul.sidebar li a h5,
+ul.sidebar li a p {
+  margin-bottom: 0 !important;
+}
+.container {
+  clear: both !important;
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 600px !important;
+}
+.content {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 15px;
+}
+.content table {
+  width: 100%;
+}
+.column {
+  float: left;
+  width: 300px;
+}
+.column table {
+  width: 100%;
+}
+.column tr td {
+  padding: 15px;
+}
+.column-wrap {
+  margin: 0 auto;
+  max-width: 600px !important;
+  padding: 0 !important;
+}
+.clear {
+  clear: both;
+  display: block;
+}
+@media only screen and (max-width: 600px) {
+  a.btn {
+    background-image: none !important;
+    display: inline-block !important;
+    margin-bottom: 10px !important;
+    margin-right: 0 !important;
+  }
+  div.column {
+    float: none !important;
+    width: auto !important;
+  }
+  table.social div.column {
+    width: auto !important;
+  }
+}
+.callout a {
+  color: #2ba6cb;
+  font-weight: bold;
+}
+.sidebar .soc-btn {
+  display: block;
+  width: 100%;
+}
+.header.container table td h1 {
+  font-size: 25px;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.header.container table td .logo {
+  max-height: 60px;
+  padding: 15px;
+}
+.header.container table td .label {
+  padding: 15px;
+  padding-left: 0;
+}
+.footer-wrap .container td.content p {
+  border-top: 1px solid #d7d7d7;
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 15px;
+}
+.notification-content {
+  display: block;
+  padding-bottom: 20px;
+}
+.notification-content p {
+  font-size: 16px;
+}
+.notification-content .fa {
+  display: none;
+}
+.notification-time {
+  display: none;
+}
