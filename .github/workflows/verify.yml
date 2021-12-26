@@ -48,4 +48,4 @@ jobs:
         #   BLINKA_REPOSITORY: davidwessman/synka
         #   BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
         #   BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
-        run: bundle exec rails test:system test
+        run: bundle exec rails test:all
