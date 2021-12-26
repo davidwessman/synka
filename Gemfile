@@ -11,7 +11,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.7.2"
+ruby "3.0.3"
 
 gem "rails", "~> 7.0"
 gem "sprockets-rails", "~> 3.4"
