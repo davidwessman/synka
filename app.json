@@ -47,7 +47,7 @@
         }
       },
       "scripts": {
-        "test-setup": "bin/yarn && bin/rails webpacker:compile",
+        "test-setup": "bin/yarn && bin/rails assets:precompile",
         "test": "bundle exec rails test:system test"
       }
     }

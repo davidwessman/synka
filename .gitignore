@@ -28,3 +28,6 @@ yarn-error.log*
 
 private.key
 /blinka_results.json
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

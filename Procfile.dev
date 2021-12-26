@@ -1,3 +1,4 @@
-web: bundle exec rails server puma
+web: bundle exec rails server --using puma
 worker: bundle exec sidekiq -t 25
-webpack: bin/webpack-dev-server
+css: yarn build:css --watch
+js: yarn build --watch

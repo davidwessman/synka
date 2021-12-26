@@ -13,24 +13,26 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     Capybara::Selenium::Driver.new(
       app,
       browser: :chrome,
-      desired_capabilities:
-        Selenium::WebDriver::Remote::Capabilities.chrome(chrome_opts),
+      capabilities: [
+        Selenium::WebDriver::Remote::Capabilities.chrome(chrome_opts)
+      ],
+      http_client: client
+    )
+  end
+
+  Capybara.register_driver(:custom_chrome) do |app|
+    client = Selenium::WebDriver::Remote::Http::Default.new
+    client.read_timeout = 120
+    Capybara::Selenium::Driver.new(
+      app,
+      browser: :chrome,
+      capabilities: [],
       http_client: client
     )
   end
 
   if ENV.fetch('HEADLESS', 'default') == 'false'
-    driven_by(
-      :selenium,
-      using: :chrome,
-      screen_size: [1400, 1400],
-      options: {
-        options:
-          Selenium::WebDriver::Chrome::Options.new(
-            args: %w[disable-notifications]
-          )
-      }
-    )
+    driven_by(:custom_chrome)
   else
     driven_by(:custom_chrome_headless)
   end
