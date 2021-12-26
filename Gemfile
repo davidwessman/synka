@@ -11,36 +11,35 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.7.2"
+ruby "3.0.3"
 
 gem "rails", "~> 7.0"
 gem "sprockets-rails", "~> 3.4"
 
-gem "bootsnap", require: false
-gem "clearance"
-gem "nexmo_rails"
+gem "bootsnap", "~> 1.9.3", require: false
+gem "clearance", "~> 2.5.0"
+gem "nexmo_rails", "~> 1.0.0"
 gem "cssbundling-rails", "~> 1.0.0"
 gem "jsbundling-rails", "~> 1.0.0"
-gem "pg"
-gem "puma"
-gem "roadie-rails"
-gem "sidekiq"
-gem "turbolinks"
-gem "twilio-ruby"
-gem "uglifier"
+gem "pg", "~> 1.2.3"
+gem "puma", "~> 5.5.2"
+gem "roadie-rails", "~> 2.3.0"
+gem "sidekiq", "~> 6.3.1"
+gem "turbolinks", "~> 5.2.1"
+gem "uglifier", "~> 4.2.0"
 
 group :development, :test do
   gem "blinka-reporter", "~> 0.4.0"
-  gem "capybara"
-  gem "dotenv-rails"
-  gem "selenium-webdriver"
-  gem "sinatra"
+  gem "capybara", "~> 3.36.0"
+  gem "dotenv-rails", "~> 2.7.6"
+  gem "selenium-webdriver", "~> 4.1.0"
+  gem "sinatra", "~> 2.1.0"
 end
 
 group :development do
-  gem "htmlbeautifier"
-  gem "letter_opener"
-  gem "standardrb"
+  gem "htmlbeautifier", "~> 1.4.1"
+  gem "letter_opener", "~> 1.7.0"
+  gem "standardrb", "~> 1.0.0"
 end
 
 group :test do

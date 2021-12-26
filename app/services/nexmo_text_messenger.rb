@@ -17,16 +17,20 @@ class NexmoTextMessenger
         text: @message.content,
       )
       if response.http_response.code != "200"
-        @message.update!(status: :failed,
-                        processed_at: Time.zone.now)
+        @message.update!(
+          status: :failed,
+          processed_at: Time.zone.now
+        )
         return false
       end
       message = response[:messages].first
 
       # status_callback: status_callbacks_message_url(@message, host: ENV.fetch("APP_URL", "localhost:3000")),
-      @message.update!(status: :processed,
-                       processed_at: Time.zone.now,
-                       delivery: {message_id: message[:message_id]})
+      @message.update!(
+        status: :processed,
+        processed_at: Time.zone.now,
+        delivery: {message_id: message[:message_id]}
+      )
     end
     true
   end
