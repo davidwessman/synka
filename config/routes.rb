@@ -21,12 +21,6 @@ Rails.application.routes.draw do
     resources(:messages, only: %i[index show new create])
   end
 
-  namespace(:callbacks) do
-    resources(:messages, only: %i[]) do
-      post(:status, on: :member)
-    end
-  end
-
   root(controller: :presentation, action: :index)
 
   mount(Sidekiq::Web => "/sidekiq")
