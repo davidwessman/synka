@@ -7,7 +7,7 @@
     "@tailwindcss/forms": "^0.4",
     "@tailwindcss/typography": "^0.5",
     "alpinejs": "^3.7.1",
-    "autoprefixer": "^10.4.1",
+    "autoprefixer": "^10.4.2",
     "core-js": "^3",
     "esbuild": "^0.14.11",
     "esbuild-rails": "^1.0.3",
