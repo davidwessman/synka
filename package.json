@@ -6,7 +6,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4",
     "@tailwindcss/typography": "^0.5",
-    "alpinejs": "^3.7.1",
+    "alpinejs": "^3.8.0",
     "autoprefixer": "^10.4.2",
     "core-js": "^3",
     "esbuild": "^0.14.11",
