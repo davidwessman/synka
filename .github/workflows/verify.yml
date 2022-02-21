@@ -42,10 +42,15 @@ jobs:
           bin/rails db:setup
 
       - name: Run tests
-        # env:
-        #   BLINKA_REPORT: true
-        #   BLINKA_BRANCH: main
-        #   BLINKA_REPOSITORY: davidwessman/synka
-        #   BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
-        #   BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
+        env:
+          BLINKA_JSON: true
         run: bundle exec rails test:all
+
+      - name: Report to Blinka
+        if: always()
+        env:
+          BLINKA_REPOSITORY: davidwessman/synka
+          BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
+          BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
+        run: |
+          bundle exec blinka_reporter --blinka --path ./blinka_results.json
