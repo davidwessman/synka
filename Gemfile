@@ -20,7 +20,7 @@ gem "bootsnap", "~> 1.10.3", require: false
 gem "clearance", "~> 2.5.0"
 gem "nexmo_rails", "~> 1.0.0"
 gem "cssbundling-rails", "~> 1.1.0"
-gem "jsbundling-rails", "~> 1.0.0"
+gem "jsbundling-rails", "~> 1.0.1"
 gem "pg", "~> 1.3.2"
 gem "puma", "~> 5.6.2"
 gem "roadie-rails", "~> 3.0.0"
