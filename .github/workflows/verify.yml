@@ -48,6 +48,7 @@ jobs:
 
       - name: Report to Blinka
         if: always()
+        continue-on-error: true
         env:
           BLINKA_REPOSITORY: davidwessman/synka
           BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
