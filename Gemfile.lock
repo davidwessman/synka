@@ -73,7 +73,7 @@ GEM
       ffi-compiler (~> 1.0)
     ast (2.4.2)
     bcrypt (3.1.16)
-    blinka-reporter (0.6.0)
+    blinka-reporter (0.6.1)
       httparty (~> 0.18)
       ox (~> 2)
     bootsnap (1.10.3)
@@ -299,7 +299,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blinka-reporter (~> 0.6.0)
+  blinka-reporter (~> 0.6.1)
   bootsnap (~> 1.10.3)
   capybara (~> 3.36.0)
   clearance (~> 2.5.0)
