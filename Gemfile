@@ -29,7 +29,7 @@ gem "turbolinks", "~> 5.2.1"
 gem "uglifier", "~> 4.2.0"
 
 group :development, :test do
-  gem "blinka-reporter", "~> 0.6.1"
+  gem "blinka-reporter", "~> 0.7.0"
   gem "capybara", "~> 3.36.0"
   gem "dotenv-rails", "~> 2.7.6"
   gem "selenium-webdriver", "~> 4.1.0"

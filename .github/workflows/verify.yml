@@ -43,15 +43,16 @@ jobs:
 
       - name: Run tests
         env:
-          BLINKA_JSON: true
+          BLINKA_PATH: ./results.json
         run: bundle exec rails test:all
 
       - name: Report to Blinka
         if: always()
         continue-on-error: true
-        env:
-          BLINKA_REPOSITORY: davidwessman/synka
-          BLINKA_TEAM_ID: ${{ secrets.BLINKA_TEAM_ID }}
-          BLINKA_TEAM_SECRET: ${{ secrets.BLINKA_TEAM_SECRET }}
         run: |
-          bundle exec blinka_reporter --blinka --path ./blinka_results.json
+          bundle exec blinka_reporter \
+            --blinka \
+            --path ./results.json \
+            --repository davidwessman/synka \
+            --team-id ${{ secrets.BLINKA_TEAM_ID }} \
+            --team-secret ${{ secrets.BLINKA_TEAM_SECRET }} \
