@@ -16,7 +16,7 @@ ruby "3.0.3"
 gem "rails", "~> 7.0"
 gem "sprockets-rails", "~> 3.4"
 
-gem "bootsnap", "~> 1.10.3", require: false
+gem "bootsnap", "~> 1.11.1", require: false
 gem "clearance", "~> 2.5.0"
 gem "nexmo_rails", "~> 1.0.0"
 gem "cssbundling-rails", "~> 1.1.0"
