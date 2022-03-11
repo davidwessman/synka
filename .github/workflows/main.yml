@@ -46,13 +46,11 @@ jobs:
           BLINKA_PATH: ./results.json
         run: bundle exec rails test:all
 
-      - name: Report to Blinka
+      - name: Blinka - Archive
         if: always()
-        continue-on-error: true
-        run: |
-          bundle exec blinka_reporter \
-            --blinka \
-            --path ./results.json \
-            --repository davidwessman/synka \
-            --team-id ${{ secrets.BLINKA_TEAM_ID }} \
-            --team-secret ${{ secrets.BLINKA_TEAM_SECRET }} \
+        uses: actions/upload-artifact@v3
+        with:
+          name: blinka
+          path: |
+            ./results.json
+            ./tmp/screenshots
