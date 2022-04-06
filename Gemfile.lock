@@ -119,7 +119,7 @@ GEM
       rake
     globalid (1.0.0)
       activesupport (>= 5.0)
-    htmlbeautifier (1.4.1)
+    htmlbeautifier (1.4.2)
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -305,7 +305,7 @@ DEPENDENCIES
   clearance (~> 2.5.0)
   cssbundling-rails (~> 1.1.0)
   dotenv-rails (~> 2.7.6)
-  htmlbeautifier (~> 1.4.1)
+  htmlbeautifier (~> 1.4.2)
   jsbundling-rails (~> 1.0.2)
   letter_opener (~> 1.8.1)
   nexmo_rails (~> 1.0.0)
