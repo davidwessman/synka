@@ -37,7 +37,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "htmlbeautifier", "~> 1.4.1"
+  gem "htmlbeautifier", "~> 1.4.2"
   gem "letter_opener", "~> 1.8.1"
   gem "standardrb", "~> 1.0.1"
 end
