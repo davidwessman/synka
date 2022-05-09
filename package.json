@@ -30,5 +30,8 @@
     "*.rb": "bundle exec rubocop -A --force-exclusion",
     "*.{js,css,md,rb,json,yml}": "./node_modules/.bin/prettier --write",
     "Gemfile": "./node_modules/.bin/prettier --write"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
