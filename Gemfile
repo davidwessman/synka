@@ -30,7 +30,7 @@ gem "uglifier", "~> 4.2.0"
 
 group :development, :test do
   gem "blinka-reporter", "~> 0.7.0"
-  gem "capybara", "~> 3.37.0"
+  gem "capybara", "~> 3.37.1"
   gem "dotenv-rails", "~> 2.7.6"
   gem "selenium-webdriver", "~> 4.1.0"
   gem "sinatra", "~> 2.2.0"
