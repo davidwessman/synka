@@ -16,7 +16,7 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "@prettier/plugin-ruby": "^3.1.1",
+    "@prettier/plugin-ruby": "^3.1.2",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2"
