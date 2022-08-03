@@ -9,7 +9,7 @@
     "alpinejs": "^3.10.3",
     "autoprefixer": "^10.4.8",
     "core-js": "^3",
-    "esbuild": "^0.14.51",
+    "esbuild": "^0.14.53",
     "esbuild-rails": "^1.0.3",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
