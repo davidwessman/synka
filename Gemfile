@@ -24,7 +24,7 @@ gem "jsbundling-rails", "~> 1.0.3"
 gem "pg", "~> 1.4.4"
 gem "puma", "~> 5.6.5"
 gem "roadie-rails", "~> 3.0.0"
-gem "sidekiq", "~> 6.5.7"
+gem "sidekiq", "~> 7.0.0"
 gem "turbolinks", "~> 5.2.1"
 gem "uglifier", "~> 4.2.0"
 
