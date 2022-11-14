@@ -33,7 +33,7 @@ group :development, :test do
   gem "capybara", "~> 3.38.0"
   gem "dotenv-rails", "~> 2.8.1"
   gem "selenium-webdriver", "~> 4.6.1"
-  gem "sinatra", "~> 3.0.2"
+  gem "sinatra", "~> 3.0.3"
 end
 
 group :development do
