@@ -76,7 +76,7 @@ GEM
     blinka-reporter (0.7.0)
       httparty (~> 0.18)
       ox (~> 2)
-    bootsnap (1.14.0)
+    bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.38.0)
@@ -302,7 +302,7 @@ PLATFORMS
 
 DEPENDENCIES
   blinka-reporter (~> 0.7.0)
-  bootsnap (~> 1.14.0)
+  bootsnap (~> 1.15.0)
   capybara (~> 3.38.0)
   clearance (~> 2.6.1)
   cssbundling-rails (~> 1.1.1)
