@@ -101,7 +101,7 @@ GEM
     crass (1.0.6)
     css_parser (1.11.0)
       addressable
-    cssbundling-rails (1.1.1)
+    cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
     digest (3.1.0)
     dotenv (2.8.1)
@@ -303,7 +303,7 @@ DEPENDENCIES
   bootsnap (~> 1.15.0)
   capybara (~> 3.38.0)
   clearance (~> 2.6.1)
-  cssbundling-rails (~> 1.1.1)
+  cssbundling-rails (~> 1.1.2)
   dotenv-rails (~> 2.8.1)
   htmlbeautifier (~> 1.4.2)
   jsbundling-rails (~> 1.1.1)
