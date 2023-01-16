@@ -19,7 +19,7 @@
     "@prettier/plugin-ruby": "^3.2.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
-    "prettier": "^2.8.2"
+    "prettier": "^2.8.3"
   },
   "scripts": {
     "pretty": "./node_modules/.bin/prettier --write .",
