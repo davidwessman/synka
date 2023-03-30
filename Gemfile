@@ -32,7 +32,7 @@ group :development, :test do
   gem "blinka-reporter", "~> 0.8.0"
   gem "capybara", "~> 3.38.0"
   gem "dotenv-rails", "~> 2.8.1"
-  gem "selenium-webdriver", "~> 4.8.5"
+  gem "selenium-webdriver", "~> 4.8.6"
   gem "sinatra", "~> 3.0.5"
 end
 
