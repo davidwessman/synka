@@ -476,10 +476,10 @@ emoji-regex@^9.2.2:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.2.2.tgz#840c8803b0d8047f4ff0cf963176b32d4ef3ed72"
   integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
 
-esbuild-rails@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/esbuild-rails/-/esbuild-rails-1.0.6.tgz#e0582821ef6886b1d39d189402aee938d51c856b"
-  integrity sha512-SS4RYqGpOZ9PNoGe+tD8UYsy1rfmIXrjxWNBrlqT6QL9S/HqDKQWY4nYc9dsd7YKDd7ucTmpzyb5hH6Z5Y9rLA==
+esbuild-rails@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/esbuild-rails/-/esbuild-rails-1.0.7.tgz#3c8f76dc891d5b2105cb683ace0a15d11c91a973"
+  integrity sha512-6LuKQnYY32fisBSJoMeDQm1V4MB17P95oV8Er145j77Yr7sDE6TpKKtXeprApN3YxE2rQUeU3il4LR3GHh5fIw==
   dependencies:
     fast-glob "^3.2.12"
 
