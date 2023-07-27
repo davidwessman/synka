@@ -11,7 +11,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "3.0.3"
+ruby "3.0.6"
 
 gem "rails", "~> 7.0"
 gem "sprockets-rails", "~> 3.4"
@@ -31,8 +31,9 @@ gem "uglifier", "~> 4.2.0"
 group :development, :test do
   gem "blinka-reporter", "~> 0.8.0"
   gem "capybara", "~> 3.39.2"
+  gem "cuprite", "~> 0.14.3"
   gem "dotenv-rails", "~> 2.8.1"
-  gem "selenium-webdriver", "~> 4.10.0"
+  gem "minitest-hooks", "~> 1.5"
   gem "sinatra", "~> 3.0.6"
 end
 
@@ -40,10 +41,6 @@ group :development do
   gem "htmlbeautifier", "~> 1.4.2"
   gem "letter_opener", "~> 1.8.1"
   gem "standardrb", "~> 1.0.1"
-end
-
-group :test do
-  gem "webdrivers", "~> 5.2"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
