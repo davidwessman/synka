@@ -34,7 +34,7 @@ group :development, :test do
   gem "cuprite", "~> 0.14.3"
   gem "dotenv-rails", "~> 2.8.1"
   gem "minitest-hooks", "~> 1.5"
-  gem "sinatra", "~> 3.0.6"
+  gem "sinatra", "~> 3.1.0"
 end
 
 group :development do
